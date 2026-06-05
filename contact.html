@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="DROOM IT designs, builds and launches digital solutions for ambitious businesses." />
-    <title>DROOM IT | Digital Solutions</title>
+    <meta name="description" content="Start a project with DROOM IT." />
+    <title>Contact | DROOM IT</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -25,7 +25,7 @@
         <a href="work.html" data-i18n="navWork">Work</a>
         <a href="process.html" data-i18n="navProcess">Process</a>
         <a href="about.html" data-i18n="navAbout">About</a>
-        <a href="contact.html" data-i18n="navContact">Contact</a>
+        <a href="contact.html" data-i18n="navContact" aria-current="page">Contact</a>
       </nav>
       <div class="header-actions">
         <div class="language-switcher" aria-label="Language selector">
@@ -36,41 +36,26 @@
       </div>
     </header>
     <main>
-      <section class="hero" id="home">
-        <div class="hero-copy">
-          <p class="eyebrow" data-i18n="heroEyebrow">Independent digital studio ? Belgium</p>
-          <h1 data-i18n="heroTitle">We build what others only dream of.</h1>
-          <p class="hero-text" data-i18n="heroText">
-            DROOM IT designs, builds and launches thoughtful digital solutions for ambitious
-            businesses, startups and brands.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-gold" href="contact.html" data-i18n="startProject">Start a project</a>
-            <a class="text-link" href="services.html">
-              <span data-i18n="exploreServices">Explore services</span>
-              <span aria-hidden="true">-&gt;</span>
-            </a>
+      <section class="contact-section contact-page" id="contact">
+        <div class="contact-copy">
+          <p class="eyebrow" data-i18n="contactEyebrow">Start a conversation</p>
+          <h1 data-i18n="contactTitle">Have an idea? Let?s build it into something real.</h1>
+          <p data-i18n="contactText">Tell us what you are planning, where you are now and what a successful result would look like.</p>
+          <a class="contact-email" href="mailto:info@droomit.be">info@droomit.be -&gt;</a>
+          <div class="contact-meta">
+            <div><span data-i18n="locationLabel">Location</span><strong>Belgium</strong></div>
+            <div><span data-i18n="phoneLabel">Phone</span><strong data-i18n="phonePlaceholder">Available soon</strong></div>
           </div>
-          <dl class="hero-facts">
-            <div>
-              <dt data-i18n="basedIn">Based in</dt>
-              <dd>Belgium</dd>
-            </div>
-            <div>
-              <dt data-i18n="workingWith">Working with</dt>
-              <dd data-i18n="workingWithValue">Belgian & international clients</dd>
-            </div>
-          </dl>
         </div>
-        <div class="hero-visual" aria-label="DROOM IT logo">
-          <img src="./assets/droom-it-logo.png" alt="DROOM IT logo" />
-        </div>
-      </section>
-      <section class="intro-band" aria-label="DROOM IT value proposition">
-        <p data-i18n="introBand">
-          Strategy, design and development brought together to turn a strong idea into a polished
-          digital product.
-        </p>
+        <form class="contact-form" action="https://formsubmit.co/info@droomit.be" method="POST">
+          <input type="hidden" name="_subject" value="New DROOM IT project enquiry" />
+          <input type="hidden" name="_captcha" value="false" />
+          <label><span data-i18n="nameLabel">Name</span><input type="text" name="name" required /></label>
+          <label><span data-i18n="emailLabel">Email</span><input type="email" name="email" required /></label>
+          <label><span data-i18n="companyLabel">Company</span><input type="text" name="company" /></label>
+          <label><span data-i18n="projectLabel">Tell us about your project</span><textarea name="message" rows="5" required></textarea></label>
+          <button class="button button-gold" type="submit" data-i18n="sendRequest">Send project request</button>
+        </form>
       </section>
     </main>
     <footer class="site-footer">
@@ -82,3 +67,5 @@
     </footer>
   </body>
 </html>
+
+
