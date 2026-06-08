@@ -60,6 +60,9 @@ const translations = {
     companyLabel: "Company",
     projectLabel: "Tell us about your project",
     sendRequest: "Send project request",
+    sendingRequest: "Sending your request...",
+    requestSuccess: "Thank you. Your project request has been saved and we will contact you soon.",
+    requestError: "Something went wrong. Please email info@droomit.be or try again.",
   },
   nl: {
     navServices: "Diensten",
@@ -122,6 +125,9 @@ const translations = {
     companyLabel: "Bedrijf",
     projectLabel: "Vertel ons over je project",
     sendRequest: "Verstuur projectaanvraag",
+    sendingRequest: "Je aanvraag wordt verzonden...",
+    requestSuccess: "Bedankt. Je projectaanvraag is opgeslagen en we nemen snel contact met je op.",
+    requestError: "Er ging iets mis. Mail naar info@droomit.be of probeer opnieuw.",
   },
 };
 
@@ -129,9 +135,13 @@ const languageButtons = document.querySelectorAll("[data-lang]");
 const translatableElements = document.querySelectorAll("[data-i18n]");
 const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
+const projectForm = document.querySelector("[data-project-form]");
+const formStatus = document.querySelector("[data-form-status]");
+let currentLanguage = localStorage.getItem("droom-it-language") || "en";
 
 function setLanguage(language) {
   const dictionary = translations[language];
+  currentLanguage = language;
   document.documentElement.lang = language;
 
   translatableElements.forEach((element) => {
@@ -144,6 +154,12 @@ function setLanguage(language) {
   });
 
   localStorage.setItem("droom-it-language", language);
+}
+
+function setFormStatus(message, isError = false) {
+  if (!formStatus) return;
+  formStatus.textContent = message;
+  formStatus.classList.toggle("error", isError);
 }
 
 languageButtons.forEach((button) => {
@@ -164,5 +180,43 @@ siteNav.querySelectorAll("a").forEach((link) => {
   });
 });
 
+if (projectForm) {
+  projectForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const submitButton = projectForm.querySelector("button[type='submit']");
+    const dictionary = translations[currentLanguage] || translations.en;
+    const formData = new FormData(projectForm);
+    const payload = Object.fromEntries(formData.entries());
+    payload.language = currentLanguage;
+
+    submitButton.disabled = true;
+    setFormStatus(dictionary.sendingRequest);
+
+    try {
+      const response = await fetch(projectForm.action, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok || !result.ok) {
+        throw new Error(result.message || "Request failed");
+      }
+
+      projectForm.reset();
+      setFormStatus(dictionary.requestSuccess);
+    } catch (error) {
+      setFormStatus(dictionary.requestError, true);
+    } finally {
+      submitButton.disabled = false;
+    }
+  });
+}
+
 document.getElementById("year").textContent = new Date().getFullYear();
-setLanguage(localStorage.getItem("droom-it-language") || "en");
+setLanguage(currentLanguage);

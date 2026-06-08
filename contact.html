@@ -39,7 +39,7 @@
       <section class="contact-section contact-page" id="contact">
         <div class="contact-copy">
           <p class="eyebrow" data-i18n="contactEyebrow">Start a conversation</p>
-          <h1 data-i18n="contactTitle">Have an idea? Let?s build it into something real.</h1>
+          <h1 data-i18n="contactTitle">Have an idea? Let's build it into something real.</h1>
           <p data-i18n="contactText">Tell us what you are planning, where you are now and what a successful result would look like.</p>
           <a class="contact-email" href="mailto:info@droomit.be">info@droomit.be -&gt;</a>
           <div class="contact-meta">
@@ -47,14 +47,13 @@
             <div><span data-i18n="phoneLabel">Phone</span><strong data-i18n="phonePlaceholder">Available soon</strong></div>
           </div>
         </div>
-        <form class="contact-form" action="https://formsubmit.co/info@droomit.be" method="POST">
-          <input type="hidden" name="_subject" value="New DROOM IT project enquiry" />
-          <input type="hidden" name="_captcha" value="false" />
+        <form class="contact-form" action="/api/start-project" method="POST" data-project-form>
           <label><span data-i18n="nameLabel">Name</span><input type="text" name="name" required /></label>
           <label><span data-i18n="emailLabel">Email</span><input type="email" name="email" required /></label>
           <label><span data-i18n="companyLabel">Company</span><input type="text" name="company" /></label>
           <label><span data-i18n="projectLabel">Tell us about your project</span><textarea name="message" rows="5" required></textarea></label>
           <button class="button button-gold" type="submit" data-i18n="sendRequest">Send project request</button>
+          <p class="form-status" data-form-status aria-live="polite"></p>
         </form>
       </section>
     </main>
