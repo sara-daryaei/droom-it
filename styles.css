@@ -74,6 +74,12 @@ button {
   backdrop-filter: blur(14px);
 }
 
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .brand-mark {
   width: 42px;
   height: 42px;
@@ -90,6 +96,15 @@ button {
   height: 100%;
   display: block;
   object-fit: cover;
+}
+
+.brand-name {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1;
 }
 
 .site-nav {
@@ -628,16 +643,11 @@ h1 {
 .site-footer {
   min-height: 100px;
   padding: 24px clamp(20px, 7vw, 112px);
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
   gap: 24px;
   font-size: 12px;
-}
-
-.footer-brand {
-  width: 34px;
-  height: 34px;
 }
 
 @media (max-width: 1080px) {
@@ -721,6 +731,15 @@ h1 {
     height: 28px;
   }
 
+  .brand-lockup {
+    gap: 8px;
+  }
+
+  .brand-name {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+
   .site-nav {
     inset: 68px 0 0;
   }
@@ -801,6 +820,7 @@ h1 {
 
   .site-footer {
     align-items: flex-start;
+    grid-template-columns: 1fr;
     flex-direction: column;
   }
 }
