@@ -6,7 +6,7 @@ const translations = {
     navAbout: "About",
     navContact: "Contact",
     startProject: "Start a project",
-    heroEyebrow: "Independent digital studio · Belgium",
+    heroEyebrow: "Independent digital studio - Belgium",
     heroTitle: "We build what others only dream of.",
     heroText:
       "DROOM IT designs, builds and launches thoughtful digital solutions for ambitious businesses, startups and brands.",
@@ -49,7 +49,7 @@ const translations = {
       "DROOM IT is an independent digital studio based in Belgium. Every project is personally guided from strategy and design through development and launch.",
     founderRole: "Founder & Digital Solutions Developer",
     contactEyebrow: "Start a conversation",
-    contactTitle: "Have an idea? Let’s build it into something real.",
+    contactTitle: "Have an idea? Let's build it into something real.",
     contactText:
       "Tell us what you are planning, where you are now and what a successful result would look like.",
     locationLabel: "Location",
@@ -71,7 +71,7 @@ const translations = {
     navAbout: "Over ons",
     navContact: "Contact",
     startProject: "Start een project",
-    heroEyebrow: "Onafhankelijke digitale studio · België",
+    heroEyebrow: "Onafhankelijke digitale studio - Belgie",
     heroTitle: "Wij bouwen waar anderen alleen van dromen.",
     heroText:
       "DROOM IT ontwerpt, bouwt en lanceert doordachte digitale oplossingen voor ambitieuze bedrijven, startups en merken.",
@@ -84,14 +84,14 @@ const translations = {
     servicesEyebrow: "Wat we doen",
     servicesTitle: "Digitale oplossingen gebouwd rond jouw bedrijf.",
     servicesIntro:
-      "Van het eerste idee tot de lancering creëert DROOM IT heldere, elegante en praktische digitale ervaringen.",
+      "Van het eerste idee tot de lancering creeert DROOM IT heldere, elegante en praktische digitale ervaringen.",
     serviceDesign:
       "Strategische, responsive websites die jouw bedrijf professioneel presenteren en aandacht omzetten in actie.",
     serviceDevelopment:
       "Snelle, toegankelijke en onderhoudbare websites gebouwd voor betrouwbaar dagelijks gebruik.",
     serviceApplications:
       "Digitale tools op maat die workflows vereenvoudigen en bedrijfsgroei ondersteunen.",
-    serviceUx: "Gebruiksvriendelijke interfaces die intuïtief, consistent en helder aanvoelen.",
+    serviceUx: "Gebruiksvriendelijke interfaces die intuitief, consistent en helder aanvoelen.",
     workEyebrow: "Geselecteerd werk",
     workTitle: "Een plek voor projecten die we met trots lanceren.",
     workIntro: "Ons projectarchief wordt voorbereid. Nieuwe cases verschijnen hier binnenkort.",
@@ -103,7 +103,7 @@ const translations = {
     discoverTitle: "Ontdekken",
     discoverText: "We bepalen jouw doelen, doelgroep en de juiste digitale richting.",
     designTitle: "Ontwerpen",
-    designText: "We creëren een gerichte ervaring en een visueel systeem dat bij jouw merk past.",
+    designText: "We creeren een gerichte ervaring en een visueel systeem dat bij jouw merk past.",
     buildTitle: "Bouwen",
     buildText: "We vertalen het goedgekeurde ontwerp naar een responsive en betrouwbaar product.",
     launchTitle: "Lanceren",
@@ -111,7 +111,7 @@ const translations = {
     aboutEyebrow: "Over DROOM IT",
     aboutTitle: "Een kleine studio met direct contact en ambitieuze kwaliteitsnormen.",
     aboutText:
-      "DROOM IT is een onafhankelijke digitale studio in België. Elk project wordt persoonlijk begeleid van strategie en ontwerp tot ontwikkeling en lancering.",
+      "DROOM IT is een onafhankelijke digitale studio in Belgie. Elk project wordt persoonlijk begeleid van strategie en ontwerp tot ontwikkeling en lancering.",
     founderRole: "Oprichter & Digital Solutions Developer",
     contactEyebrow: "Start een gesprek",
     contactTitle: "Heb je een idee? Laten we het samen werkelijkheid maken.",
@@ -166,18 +166,38 @@ languageButtons.forEach((button) => {
   button.addEventListener("click", () => setLanguage(button.dataset.lang));
 });
 
-menuToggle.addEventListener("click", () => {
-  const isOpen = siteNav.classList.toggle("open");
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
-  document.body.classList.toggle("menu-open", isOpen);
-});
+function closeMenu() {
+  if (!menuToggle || !siteNav) return;
+  siteNav.classList.remove("open");
+  menuToggle.setAttribute("aria-expanded", "false");
+  document.body.classList.remove("menu-open");
+}
 
-siteNav.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    siteNav.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded", "false");
-    document.body.classList.remove("menu-open");
+if (menuToggle && siteNav) {
+  menuToggle.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const isOpen = siteNav.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    document.body.classList.toggle("menu-open", isOpen);
   });
+
+  siteNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("click", (event) => {
+    const header = document.querySelector(".site-header");
+    if (!header || !siteNav.classList.contains("open")) return;
+    if (!header.contains(event.target)) closeMenu();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMenu();
+  });
+}
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 1080) closeMenu();
 });
 
 if (projectForm) {
