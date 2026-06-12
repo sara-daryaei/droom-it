@@ -1,22 +1,27 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111315" />
     <meta name="description" content="DROOM IT designs, builds and launches websites, web applications and UX/UI experiences for small businesses, startups and international clients." />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://droom-it.vercel.app/" />
+    <link rel="canonical" href="https://www.droomit.be/" />
     <meta property="og:site_name" content="DROOM IT" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="DROOM IT | Digital Solutions Studio in Belgium" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:locale:alternate" content="nl_BE" />
+    <meta property="og:title" content="DROOM IT | Web Design &amp; Digital Solutions in Belgium" />
     <meta property="og:description" content="DROOM IT designs, builds and launches websites, web applications and UX/UI experiences for small businesses, startups and international clients." />
-    <meta property="og:url" content="https://droom-it.vercel.app/" />
-    <meta property="og:image" content="https://droom-it.vercel.app/assets/droom-it-logo.png" />
+    <meta property="og:url" content="https://www.droomit.be/" />
+    <meta property="og:image" content="https://www.droomit.be/assets/droom-it-logo.png" />
+    <meta property="og:image:alt" content="DROOM IT logo" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="DROOM IT | Digital Solutions Studio in Belgium" />
+    <meta name="twitter:title" content="DROOM IT | Web Design &amp; Digital Solutions in Belgium" />
     <meta name="twitter:description" content="DROOM IT designs, builds and launches websites, web applications and UX/UI experiences for small businesses, startups and international clients." />
-    <meta name="twitter:image" content="https://droom-it.vercel.app/assets/droom-it-logo.png" />
-    <title>DROOM IT | Digital Solutions Studio in Belgium</title>
+    <meta name="twitter:image" content="https://www.droomit.be/assets/droom-it-logo.png" />
+    <meta name="twitter:image:alt" content="DROOM IT logo" />
+    <title>DROOM IT | Web Design & Digital Solutions in Belgium</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -24,15 +29,54 @@
     <script src="./script.js" defer></script>
     <script type="application/ld+json">
       {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "DROOM IT",
-        "url": "https://droom-it.vercel.app/",
-        "logo": "https://droom-it.vercel.app/assets/droom-it-logo.png",
-        "email": "info@droomit.be",
-        "areaServed": ["Belgium", "International"],
-        "description": "DROOM IT designs, builds and launches digital solutions for ambitious businesses.",
-        "serviceType": ["Web Design", "Web Development", "Web Applications", "UX/UI Design"]
+            "@context": "https://schema.org",
+            "@graph": [
+                  {
+                        "@type": "Organization",
+                        "@id": "https://www.droomit.be/#organization",
+                        "name": "DROOM IT",
+                        "url": "https://www.droomit.be/",
+                        "logo": "https://www.droomit.be/assets/droom-it-logo.png",
+                        "email": "info@droomit.be",
+                        "areaServed": [
+                              "Belgium",
+                              "International"
+                        ],
+                        "sameAs": []
+                  },
+                  {
+                        "@type": "ProfessionalService",
+                        "@id": "https://www.droomit.be/#business",
+                        "name": "DROOM IT",
+                        "url": "https://www.droomit.be/",
+                        "image": "https://www.droomit.be/assets/droom-it-logo.png",
+                        "email": "info@droomit.be",
+                        "areaServed": [
+                              "Belgium",
+                              "International"
+                        ],
+                        "description": "DROOM IT designs, builds and launches websites, web applications and UX/UI experiences for small businesses, startups and international clients.",
+                        "serviceType": [
+                              "Web Design",
+                              "Web Development",
+                              "Web Applications",
+                              "UX/UI Design"
+                        ]
+                  },
+                  {
+                        "@type": "WebSite",
+                        "@id": "https://www.droomit.be/#website",
+                        "name": "DROOM IT",
+                        "url": "https://www.droomit.be/",
+                        "publisher": {
+                              "@id": "https://www.droomit.be/#organization"
+                        },
+                        "inLanguage": [
+                              "en",
+                              "nl"
+                        ]
+                  }
+            ]
       }
     </script>
   </head>

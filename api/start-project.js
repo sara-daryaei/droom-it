@@ -102,7 +102,7 @@ function buildEmail({ id, createdAt, name, email, company, message, language }) 
   const html = `
     <div style="font-family:Arial,sans-serif;line-height:1.6;color:#111315;max-width:640px">
       <h1 style="font-size:22px;margin:0 0 16px">New DROOM IT project request</h1>
-      <p style="margin:0 0 20px;color:#5d6265">A visitor submitted the contact form on droom-it.vercel.app.</p>
+      <p style="margin:0 0 20px;color:#5d6265">A visitor submitted the contact form on www.droomit.be.</p>
       <table style="border-collapse:collapse;width:100%;margin:0 0 20px">
         <tr><td style="padding:8px 0;font-weight:700;width:130px">Request ID</td><td>${escapeHtml(id)}</td></tr>
         <tr><td style="padding:8px 0;font-weight:700">Received</td><td>${safeCreatedAt}</td></tr>
