@@ -6,7 +6,7 @@ const translations = {
     navAbout: "About",
     navContact: "Contact",
     startProject: "Start a project",
-    heroEyebrow: "Independent digital studio - Belgium",
+    heroEyebrow: "Remote-first digital solutions - Belgium",
     heroTitle: "We build what others only dream of.",
     heroText:
       "DROOM IT designs, builds and launches thoughtful digital solutions for ambitious businesses, startups and brands.",
@@ -44,9 +44,9 @@ const translations = {
     launchTitle: "Launch",
     launchText: "We test, refine and prepare everything for a confident release.",
     aboutEyebrow: "About DROOM IT",
-    aboutTitle: "A small studio with direct communication and ambitious standards.",
+    aboutTitle: "A focused digital partner with direct communication and ambitious standards.",
     aboutText:
-      "DROOM IT is an independent digital studio based in Belgium. Every project is personally guided from strategy and design through development and launch.",
+      "DROOM IT is a remote-first digital solutions business based in Belgium. Every project is personally guided from strategy and design through development and launch.",
     founderRole: "Founder & Digital Solutions Developer",
     contactEyebrow: "Start a conversation",
     contactTitle: "Have an idea? Let's build it into something real.",
@@ -71,7 +71,7 @@ const translations = {
     navAbout: "Over ons",
     navContact: "Contact",
     startProject: "Start een project",
-    heroEyebrow: "Onafhankelijke digitale studio - Belgie",
+    heroEyebrow: "Remote-first digitale oplossingen - Belgie",
     heroTitle: "Wij bouwen waar anderen alleen van dromen.",
     heroText:
       "DROOM IT ontwerpt, bouwt en lanceert doordachte digitale oplossingen voor ambitieuze bedrijven, startups en merken.",
@@ -109,9 +109,9 @@ const translations = {
     launchTitle: "Lanceren",
     launchText: "We testen, verfijnen en bereiden alles voor op een sterke lancering.",
     aboutEyebrow: "Over DROOM IT",
-    aboutTitle: "Een kleine studio met direct contact en ambitieuze kwaliteitsnormen.",
+    aboutTitle: "Een gefocuste digitale partner met direct contact en ambitieuze kwaliteitsnormen.",
     aboutText:
-      "DROOM IT is een onafhankelijke digitale studio in Belgie. Elk project wordt persoonlijk begeleid van strategie en ontwerp tot ontwikkeling en lancering.",
+      "DROOM IT is een remote-first bedrijf voor digitale oplossingen in Belgie. Elk project wordt persoonlijk begeleid van strategie en ontwerp tot ontwikkeling en lancering.",
     founderRole: "Oprichter & Digital Solutions Developer",
     contactEyebrow: "Start een gesprek",
     contactTitle: "Heb je een idee? Laten we het samen werkelijkheid maken.",

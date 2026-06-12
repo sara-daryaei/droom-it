@@ -1,6 +1,6 @@
 # DROOM IT
 
-Bilingual corporate website for DROOM IT, an independent digital studio based in Belgium.
+Bilingual corporate website for DROOM IT, a remote-first digital solutions business based in Belgium.
 
 ## Services
 
