@@ -125,6 +125,50 @@ function buildEmail({ id, createdAt, name, email, company, message, language }) 
   };
 }
 
+function buildAutoReplyEmail({ name }) {
+  const safeName = escapeHtml(name);
+
+  const text = [
+    `Dear ${name},`,
+    "",
+    "Thank you for trusting DROOM IT. We will contact you as soon as possible.",
+    "",
+    "Kind regards,",
+    "DROOM IT",
+    "",
+    "------------------------------",
+    "",
+    `Beste ${name},`,
+    "",
+    "Bedankt voor uw vertrouwen in DROOM IT. Wij nemen zo snel mogelijk contact met u op.",
+    "",
+    "Met vriendelijke groeten,",
+    "DROOM IT",
+  ].join("\n");
+
+  const html = `
+    <div style="font-family:Arial,sans-serif;line-height:1.6;color:#111315;max-width:640px">
+      <div style="border:1px solid #d9ddda;padding:28px;background:#f7f8f6">
+        <p style="margin:0 0 16px">Dear ${safeName},</p>
+        <p style="margin:0 0 16px">Thank you for trusting <strong>DROOM IT</strong>. We will contact you as soon as possible.</p>
+        <p style="margin:0">Kind regards,<br /><strong>DROOM IT</strong></p>
+      </div>
+      <div style="border:1px solid #d9ddda;border-top:0;padding:28px;background:#ffffff">
+        <p style="margin:0 0 16px">Beste ${safeName},</p>
+        <p style="margin:0 0 16px">Bedankt voor uw vertrouwen in <strong>DROOM IT</strong>. Wij nemen zo snel mogelijk contact met u op.</p>
+        <p style="margin:0">Met vriendelijke groeten,<br /><strong>DROOM IT</strong></p>
+      </div>
+      <p style="margin:18px 0 0;color:#5d6265;font-size:12px">DROOM IT - Web Design & Digital Solutions</p>
+    </div>
+  `;
+
+  return {
+    subject: "Thank you for contacting DROOM IT / Bedankt voor uw bericht aan DROOM IT",
+    text,
+    html,
+  };
+}
+
 async function sendNotificationEmail(details) {
   const config = getEmailConfig();
 
@@ -146,6 +190,35 @@ async function sendNotificationEmail(details) {
     from: `"DROOM IT Website" <${config.from}>`,
     to: config.to,
     replyTo: details.email,
+    subject: emailContent.subject,
+    text: emailContent.text,
+    html: emailContent.html,
+  });
+
+  return { sent: true };
+}
+
+async function sendAutoReplyEmail(details) {
+  const config = getEmailConfig();
+
+  if (!config) {
+    console.warn("Auto-reply email skipped: SMTP environment variables are not configured.");
+    return { sent: false, reason: "missing_email_config" };
+  }
+
+  const transporter = nodemailer.createTransport({
+    host: config.host,
+    port: config.port,
+    secure: config.secure,
+    auth: config.auth,
+  });
+
+  const emailContent = buildAutoReplyEmail(details);
+
+  await transporter.sendMail({
+    from: `"DROOM IT" <${config.from}>`,
+    to: details.email,
+    replyTo: config.to[0] || defaultRecipient,
     subject: emailContent.subject,
     text: emailContent.text,
     html: emailContent.html,
@@ -206,7 +279,7 @@ export default async function handler(request, response) {
       RETURNING id, created_at
     `;
 
-    const emailResult = await sendNotificationEmail({
+    const emailDetails = {
       id: rows[0].id,
       createdAt: rows[0].created_at,
       name,
@@ -214,13 +287,17 @@ export default async function handler(request, response) {
       company,
       message,
       language,
-    });
+    };
+
+    const emailResult = await sendNotificationEmail(emailDetails);
+    const autoReplyResult = await sendAutoReplyEmail(emailDetails);
 
     return response.status(201).json({
       ok: true,
       id: rows[0].id,
       createdAt: rows[0].created_at,
       emailSent: emailResult.sent,
+      autoReplySent: autoReplyResult.sent,
     });
   } catch (error) {
     console.error("Project request failed", error);
