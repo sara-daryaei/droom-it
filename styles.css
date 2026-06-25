@@ -1401,13 +1401,102 @@ h1 {
 }
 
 .site-footer {
-  min-height: 100px;
-  padding: 24px clamp(20px, 7vw, 112px);
+  padding: clamp(48px, 7vw, 86px) clamp(20px, 7vw, 112px) 28px;
+  background: #101214;
+  color: var(--white);
+  border-top: 1px solid rgba(240, 217, 159, 0.18);
+}
+
+.footer-main {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(260px, 1.25fr) repeat(3, minmax(150px, 0.55fr));
+  gap: clamp(34px, 6vw, 82px);
+  align-items: start;
+}
+
+.footer-brand {
+  max-width: 440px;
+}
+
+.footer-wordmark {
+  display: inline-flex;
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: clamp(34px, 4.5vw, 58px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 0.95;
+}
+
+.footer-brand p {
+  margin-top: 22px;
+  color: #b9bfc0;
+  font-size: 14px;
+}
+
+.footer-brand .footer-meta {
+  margin-top: 18px;
+  color: var(--gold-light);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.footer-column h2 {
+  color: var(--gold-light);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.footer-column ul {
+  margin-top: 18px;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.footer-column a {
+  color: #d6dad9;
+  font-size: 14px;
+  transition: color 180ms ease;
+}
+
+.footer-column a:hover {
+  color: var(--gold-light);
+}
+
+.footer-contact a[href^="mailto:"] {
+  color: var(--white);
+  font-weight: 700;
+}
+
+.footer-bottom {
+  margin-top: clamp(44px, 6vw, 76px);
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 24px;
+  color: #aeb4b5;
   font-size: 12px;
+}
+
+.footer-legal {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 18px;
+}
+
+.footer-legal a {
+  color: #c6cbca;
+}
+
+.footer-legal a:hover {
+  color: var(--gold-light);
 }
 
 @media (max-width: 1080px) {
@@ -1558,6 +1647,10 @@ h1 {
 
   .process-grid li:nth-child(2) {
     border-right: 0;
+  }
+
+  .footer-main {
+    grid-template-columns: minmax(0, 1.2fr) minmax(180px, 0.8fr);
   }
 }
 
@@ -1835,9 +1928,25 @@ h1 {
     grid-template-columns: 1fr;
   }
 
-  .site-footer {
-    align-items: flex-start;
+  .footer-main {
     grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-wordmark {
+    font-size: 36px;
+  }
+
+  .footer-column ul {
+    margin-top: 12px;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
     flex-direction: column;
+  }
+
+  .footer-legal {
+    justify-content: flex-start;
   }
 }

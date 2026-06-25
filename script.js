@@ -105,6 +105,13 @@ const translations = {
     sendingRequest: "Sending your request...",
     requestSuccess: "Thank you. Your project request has been saved and we will contact you soon.",
     requestError: "Something went wrong. Please email info@droomit.be or try again.",
+    footerDesc:
+      "Professional web design, development and UX/UI support for businesses that want a stronger digital presence.",
+    footerLocation: "Remote-first digital solutions from Belgium.",
+    footerCompany: "Company",
+    footerServices: "Services",
+    footerContact: "Get in touch",
+    footerBookCall: "Start a project",
   },
   nl: {
     navServices: "Diensten",
@@ -212,6 +219,13 @@ const translations = {
     sendingRequest: "Je aanvraag wordt verzonden...",
     requestSuccess: "Bedankt. Je projectaanvraag is opgeslagen en we nemen snel contact met je op.",
     requestError: "Er ging iets mis. Mail naar info@droomit.be of probeer opnieuw.",
+    footerDesc:
+      "Professioneel webdesign, development en UX/UI-ondersteuning voor bedrijven die digitaal sterker willen overkomen.",
+    footerLocation: "Remote-first digitale oplossingen vanuit Belgie.",
+    footerCompany: "Bedrijf",
+    footerServices: "Diensten",
+    footerContact: "Neem contact op",
+    footerBookCall: "Start een project",
   },
 };
 
