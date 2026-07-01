@@ -7,9 +7,9 @@ const translations = {
     navContact: "Contact",
     startProject: "Start a project",
     heroEyebrow: "Web design and digital solutions in Belgium",
-    heroTitle: "Professional websites for businesses ready to look bigger.",
+    heroTitle: "Websites that make small businesses look ready for bigger clients.",
     heroText:
-      "DROOM IT designs, builds and launches responsive websites, UX/UI systems and web applications for small businesses, startups, shops, restaurants and growing teams.",
+      "DROOM IT designs, builds and launches responsive websites, booking flows and web applications that help visitors understand, trust and contact your business.",
     exploreServices: "Explore services",
     basedIn: "Based in",
     workingWith: "Working with",
@@ -24,6 +24,11 @@ const translations = {
     trustThreeText: "Design, build, test and publish support.",
     trustFourTitle: "EN + NL",
     trustFourText: "Content for Belgian and international audiences.",
+    proofOne: "Business websites",
+    proofTwo: "Booking workflows",
+    proofThree: "UX/UI redesign",
+    proofFour: "Vercel launch support",
+    proofFive: "Neon data capture",
     outcomeEyebrow: "Why it matters",
     outcomeTitle: "A website should do more than exist online.",
     outcomeText:
@@ -34,6 +39,20 @@ const translations = {
     outcomeTwoText: "A polished interface that makes the business feel current and reliable.",
     outcomeThreeTitle: "Action",
     outcomeThreeText: "Pages designed around the next step: contact, booking, signup or enquiry.",
+    engagementEyebrow: "How we can help",
+    engagementTitle: "Choose the path that matches where your business is now.",
+    engagementIntro:
+      "A professional website is not one fixed package. DROOM IT shapes the work around your goal: launch, improve or automate.",
+    engagementOneTitle: "Launch a credible website",
+    engagementOneText:
+      "For new businesses that need a polished website, clear offer, responsive pages and a confident first impression.",
+    engagementTwoTitle: "Redesign an outdated site",
+    engagementTwoText:
+      "For companies whose current website feels old, unclear or difficult to use on mobile.",
+    engagementThreeTitle: "Add a digital workflow",
+    engagementThreeText:
+      "For service businesses that need booking, contact forms, customer data capture or email automation.",
+    engagementCta: "Discuss this project",
     introBand:
       "Strategy, design and development brought together to turn a strong idea into a polished digital product.",
     servicesEyebrow: "What we do",
@@ -62,10 +81,23 @@ const translations = {
     showcaseThreeText: "Useful dashboards and workflows for teams that need a tool, not just a page.",
     workEyebrow: "Selected work",
     workTitle: "Websites and digital products shaped for real business needs.",
-    homeWorkTitle: "Bubble Paws shows how a service website can become a real booking workflow.",
+    homeWorkTitle: "A service website shaped around trust, booking and customer contact.",
     homeWorkText:
-      "A responsive pet grooming website with service pages, signup, appointment requests, Neon data capture and email automation.",
+      "Bubble Paws is a responsive website concept with service pages, signup, appointment requests, Neon data capture and email automation.",
+    casePointOne: "Responsive service pages",
+    casePointTwo: "Booking-oriented contact flow",
+    casePointThree: "Database and email automation",
     viewWork: "View Bubble Paws case study",
+    faqEyebrow: "FAQ",
+    faqTitle: "Questions clients usually ask before starting.",
+    faqOneQuestion: "Can you redesign my existing website?",
+    faqOneAnswer:
+      "Yes. DROOM IT can improve the look, structure, responsiveness and conversion path of an existing website.",
+    faqTwoQuestion: "Can the website be in English and Dutch?",
+    faqTwoAnswer: "Yes. The site can support English and Dutch content for Belgian and international visitors.",
+    faqThreeQuestion: "Can you build forms, booking and email automation?",
+    faqThreeAnswer:
+      "Yes. DROOM IT can connect contact or booking forms to a database and send automatic email notifications.",
     workIntro:
       "Selected DROOM IT work, starting with Bubble Paws: a pet grooming website built around trust, booking and customer contact.",
     comingSoon: "Coming soon",
@@ -121,9 +153,9 @@ const translations = {
     navContact: "Contact",
     startProject: "Start een project",
     heroEyebrow: "Webdesign en digitale oplossingen in Belgie",
-    heroTitle: "Professionele websites voor bedrijven die groter willen overkomen.",
+    heroTitle: "Websites waardoor kleine bedrijven klaar lijken voor grotere klanten.",
     heroText:
-      "DROOM IT ontwerpt, bouwt en lanceert responsive websites, UX/UI-systemen en webapplicaties voor kleine bedrijven, startups, winkels, restaurants en groeiende teams.",
+      "DROOM IT ontwerpt, bouwt en lanceert responsive websites, boekingsflows en webapplicaties die bezoekers helpen je bedrijf te begrijpen, vertrouwen en contacteren.",
     exploreServices: "Ontdek onze diensten",
     basedIn: "Gevestigd in",
     workingWith: "Wij werken met",
@@ -138,6 +170,11 @@ const translations = {
     trustThreeText: "Design, bouw, test en publicatiebegeleiding.",
     trustFourTitle: "EN + NL",
     trustFourText: "Content voor Belgische en internationale doelgroepen.",
+    proofOne: "Bedrijfswebsites",
+    proofTwo: "Boekingsflows",
+    proofThree: "UX/UI redesign",
+    proofFour: "Vercel launch support",
+    proofFive: "Neon data capture",
     outcomeEyebrow: "Waarom het telt",
     outcomeTitle: "Een website moet meer doen dan alleen online bestaan.",
     outcomeText:
@@ -148,6 +185,20 @@ const translations = {
     outcomeTwoText: "Een verzorgde interface waardoor je bedrijf actueel en betrouwbaar aanvoelt.",
     outcomeThreeTitle: "Actie",
     outcomeThreeText: "Pagina's ontworpen rond de volgende stap: contact, boeking, registratie of aanvraag.",
+    engagementEyebrow: "Hoe we kunnen helpen",
+    engagementTitle: "Kies de aanpak die past bij waar je bedrijf nu staat.",
+    engagementIntro:
+      "Een professionele website is geen vast pakket. DROOM IT stemt het werk af op je doel: lanceren, verbeteren of automatiseren.",
+    engagementOneTitle: "Lanceer een geloofwaardige website",
+    engagementOneText:
+      "Voor nieuwe bedrijven die een verzorgde website, helder aanbod, responsive pagina's en een sterke eerste indruk nodig hebben.",
+    engagementTwoTitle: "Vernieuw een verouderde site",
+    engagementTwoText:
+      "Voor bedrijven waarvan de huidige website oud, onduidelijk of lastig bruikbaar op mobiel aanvoelt.",
+    engagementThreeTitle: "Voeg een digitale workflow toe",
+    engagementThreeText:
+      "Voor servicebedrijven die boekingen, contactformulieren, klantdata of e-mailautomatisering nodig hebben.",
+    engagementCta: "Bespreek dit project",
     introBand:
       "Strategie, design en development komen samen om een sterk idee te vertalen naar een verfijnd digitaal product.",
     servicesEyebrow: "Wat we doen",
@@ -176,10 +227,23 @@ const translations = {
     showcaseThreeText: "Nuttige dashboards en workflows voor teams die een tool nodig hebben, niet alleen een pagina.",
     workEyebrow: "Geselecteerd werk",
     workTitle: "Websites en digitale producten gevormd rond echte bedrijfsnoden.",
-    homeWorkTitle: "Bubble Paws toont hoe een servicewebsite een echte boekingsflow kan worden.",
+    homeWorkTitle: "Een servicewebsite opgebouwd rond vertrouwen, boekingen en klantcontact.",
     homeWorkText:
-      "Een responsive website voor pet grooming met servicepagina's, signup, afspraakaanvragen, Neon data capture en e-mailautomatisering.",
+      "Bubble Paws is een responsive websiteconcept met servicepagina's, signup, afspraakaanvragen, Neon data capture en e-mailautomatisering.",
+    casePointOne: "Responsive servicepagina's",
+    casePointTwo: "Contactflow gericht op boekingen",
+    casePointThree: "Database en e-mailautomatisering",
     viewWork: "Bekijk Bubble Paws case study",
+    faqEyebrow: "FAQ",
+    faqTitle: "Vragen die klanten meestal stellen voor de start.",
+    faqOneQuestion: "Kun je mijn bestaande website redesignen?",
+    faqOneAnswer:
+      "Ja. DROOM IT kan de uitstraling, structuur, responsiviteit en conversieroute van een bestaande website verbeteren.",
+    faqTwoQuestion: "Kan de website in het Engels en Nederlands?",
+    faqTwoAnswer: "Ja. De site kan Engelse en Nederlandse content ondersteunen voor Belgische en internationale bezoekers.",
+    faqThreeQuestion: "Kun je formulieren, boekingen en e-mailautomatisering bouwen?",
+    faqThreeAnswer:
+      "Ja. DROOM IT kan contact- of boekingsformulieren koppelen aan een database en automatische e-mailmeldingen versturen.",
     workIntro:
       "Geselecteerd werk van DROOM IT, te beginnen met Bubble Paws: een pet grooming website rond vertrouwen, boekingen en klantcontact.",
     comingSoon: "Binnenkort",
