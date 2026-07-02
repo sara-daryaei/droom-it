@@ -6,7 +6,7 @@ export default function middleware(request) {
   const url = new URL(request.url);
 
   if (url.hostname === EAZO_HOST) {
-    url.pathname = "/client1/index.html";
+    url.pathname = "/client1";
     return rewrite(url);
   }
 
