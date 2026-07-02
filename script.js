@@ -99,7 +99,7 @@ const translations = {
     faqThreeAnswer:
       "Yes. DROOM IT can connect contact or booking forms to a database and send automatic email notifications.",
     workIntro:
-      "Selected DROOM IT work, starting with Bubble Paws: a pet grooming website built around trust, booking and customer contact.",
+      "Selected DROOM IT work, including this business website and Bubble Paws: websites built around trust, clear navigation and customer action.",
     comingSoon: "Coming soon",
     workPlaceholderTitle: "The first DROOM IT case studies are on their way.",
     becomeFirst: "Become one of our first featured projects",
@@ -245,7 +245,7 @@ const translations = {
     faqThreeAnswer:
       "Ja. DROOM IT kan contact- of boekingsformulieren koppelen aan een database en automatische e-mailmeldingen versturen.",
     workIntro:
-      "Geselecteerd werk van DROOM IT, te beginnen met Bubble Paws: een pet grooming website rond vertrouwen, boekingen en klantcontact.",
+      "Geselecteerd werk van DROOM IT, inclusief deze bedrijfswebsite en Bubble Paws: websites rond vertrouwen, duidelijke navigatie en klantactie.",
     comingSoon: "Binnenkort",
     workPlaceholderTitle: "De eerste DROOM IT-cases zijn onderweg.",
     becomeFirst: "Word een van onze eerste uitgelichte projecten",

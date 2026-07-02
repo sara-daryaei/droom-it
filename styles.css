@@ -1186,6 +1186,10 @@ h1 {
   grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.72fr);
 }
 
+.featured-case-card + .featured-case-card {
+  margin-top: 28px;
+}
+
 .case-media {
   min-height: 520px;
   background: var(--ink);
@@ -1199,6 +1203,78 @@ h1 {
   display: block;
   object-fit: cover;
   object-position: top left;
+}
+
+.droom-case-visual {
+  position: relative;
+  min-height: 520px;
+  padding: clamp(24px, 4vw, 56px);
+  background:
+    radial-gradient(circle at 76% 20%, rgba(215, 173, 87, 0.3), transparent 26%),
+    linear-gradient(135deg, #111315 0%, #252a2d 58%, #2a2416 100%);
+  display: grid;
+  place-items: center;
+}
+
+.droom-case-visual-large {
+  min-height: clamp(430px, 54vw, 720px);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 26px 80px rgba(17, 19, 21, 0.14);
+}
+
+.droom-case-browser {
+  width: min(100%, 720px);
+  min-height: 360px;
+  padding: clamp(20px, 4vw, 42px);
+  border: 1px solid rgba(240, 217, 159, 0.25);
+  border-radius: 14px;
+  background: rgba(247, 248, 246, 0.92);
+  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.24);
+  display: grid;
+  align-content: start;
+  gap: 22px;
+}
+
+.droom-case-bar {
+  width: 100%;
+  height: 18px;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, var(--gold) 0 18%, rgba(17, 19, 21, 0.12) 18% 100%);
+}
+
+.droom-case-title {
+  max-width: 620px;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(30px, 5vw, 68px);
+  font-weight: 700;
+  line-height: 0.98;
+}
+
+.droom-case-lines {
+  width: min(100%, 460px);
+  height: 64px;
+  background:
+    linear-gradient(#737a7d 0 0) 0 0 / 100% 10px no-repeat,
+    linear-gradient(#a9afb0 0 0) 0 27px / 82% 10px no-repeat,
+    linear-gradient(#c3c8c7 0 0) 0 54px / 62% 10px no-repeat;
+}
+
+.droom-case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.droom-case-grid {
+  min-height: 92px;
+  background:
+    linear-gradient(var(--gold-light) 0 0) 0 0 / 31% 100% no-repeat,
+    linear-gradient(#d9e6dc 0 0) 50% 0 / 31% 100% no-repeat,
+    linear-gradient(#dbe7e8 0 0) 100% 0 / 31% 100% no-repeat;
 }
 
 .case-card-content {
@@ -2053,6 +2129,15 @@ h1 {
 
   .case-media {
     min-height: 330px;
+  }
+
+  .droom-case-visual,
+  .droom-case-visual-large {
+    min-height: 360px;
+  }
+
+  .droom-case-browser {
+    min-height: 270px;
   }
 
   .case-card-content {
