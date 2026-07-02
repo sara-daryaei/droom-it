@@ -1,16 +1,4 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false,
-  "rewrites": [
-    {
-      "source": "/",
-      "has": [{ "type": "host", "value": "eazo.droomit.be" }],
-      "destination": "/client1/index.html"
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "eazo.droomit.be" }],
-      "destination": "/client1/index.html"
-    }
-  ]
+  "trailingSlash": false
 }
