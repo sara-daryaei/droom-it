@@ -1,0 +1,1214 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f1e8" />
+    <meta
+      name="description"
+      content="Websiteconcept voor EAZO - Eetbalans Aan Zee Oostende: een warme, professionele homepage rond eetbalans, begeleiding en welzijn aan zee."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>EAZO | Eetbalans Aan Zee Oostende</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #18201e;
+        --deep: #143d3c;
+        --sea: #2d7771;
+        --mint: #d8e9df;
+        --foam: #eff7f2;
+        --sand: #f6f1e8;
+        --sun: #e5b35b;
+        --clay: #c06f4f;
+        --white: #ffffff;
+        --muted: #66706c;
+        --line: rgba(24, 32, 30, 0.14);
+        --display: "Newsreader", Georgia, serif;
+        --body: "Manrope", Arial, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--sand);
+        color: var(--ink);
+        font-family: var(--body);
+        line-height: 1.6;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      input,
+      textarea {
+        font: inherit;
+      }
+
+      .site-header {
+        min-height: 76px;
+        padding: 0 clamp(20px, 5vw, 76px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+        background: rgba(246, 241, 232, 0.82);
+        backdrop-filter: blur(18px);
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 28px;
+        position: sticky;
+        top: 0;
+        z-index: 30;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .brand-mark {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.42), transparent),
+          var(--deep);
+        color: var(--white);
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .brand strong {
+        display: block;
+        font-family: var(--display);
+        font-size: 24px;
+        line-height: 1;
+      }
+
+      .brand span:last-child {
+        display: block;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .site-nav {
+        display: flex;
+        justify-content: center;
+        gap: clamp(18px, 3vw, 42px);
+      }
+
+      .site-nav a {
+        color: #42504c;
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .site-nav a:hover {
+        color: var(--deep);
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .proposal-tag {
+        min-height: 36px;
+        padding: 0 13px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.48);
+        display: inline-flex;
+        align-items: center;
+        color: var(--deep);
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .button {
+        min-height: 48px;
+        padding: 0 22px;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        background: var(--deep);
+        color: var(--white);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-size: 13px;
+        font-weight: 800;
+        transition:
+          transform 180ms ease,
+          background 180ms ease,
+          border-color 180ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        background: #0f302f;
+      }
+
+      .button-light {
+        border-color: rgba(20, 61, 60, 0.22);
+        background: rgba(255, 255, 255, 0.64);
+        color: var(--deep);
+      }
+
+      .button-light:hover {
+        border-color: var(--deep);
+        background: var(--white);
+      }
+
+      .menu-toggle {
+        width: 44px;
+        height: 44px;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.64);
+        display: none;
+        place-items: center;
+        gap: 4px;
+      }
+
+      .menu-toggle span {
+        width: 18px;
+        height: 2px;
+        background: var(--deep);
+        display: block;
+      }
+
+      .hero {
+        min-height: calc(100svh - 76px);
+        padding: clamp(34px, 5vw, 72px) clamp(20px, 5vw, 76px) clamp(46px, 7vw, 96px);
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(420px, 0.74fr);
+        gap: clamp(34px, 6vw, 86px);
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: auto -14vw -28vw 36vw;
+        height: 48vw;
+        border-radius: 50%;
+        background: rgba(45, 119, 113, 0.1);
+        pointer-events: none;
+      }
+
+      .eyebrow {
+        color: var(--sea);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: var(--display);
+        letter-spacing: 0;
+      }
+
+      h1 {
+        max-width: 900px;
+        margin-top: 18px;
+        font-size: clamp(58px, 9vw, 132px);
+        font-weight: 600;
+        line-height: 0.88;
+      }
+
+      h1 span {
+        color: var(--sea);
+        font-style: italic;
+      }
+
+      .hero-text {
+        max-width: 640px;
+        margin-top: 30px;
+        color: #4e5d58;
+        font-size: clamp(17px, 1.6vw, 21px);
+      }
+
+      .hero-actions {
+        margin-top: 38px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .hero-facts {
+        width: min(100%, 760px);
+        margin-top: clamp(42px, 7vw, 78px);
+        padding-top: 22px;
+        border-top: 1px solid var(--line);
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .hero-facts dt {
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .hero-facts dd {
+        margin-top: 4px;
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .hero-media {
+        position: relative;
+        z-index: 1;
+      }
+
+      .photo-stack {
+        display: grid;
+        grid-template-columns: 1fr 0.62fr;
+        grid-template-rows: 320px 210px;
+        gap: 14px;
+      }
+
+      .photo-stack figure {
+        border: 1px solid rgba(255, 255, 255, 0.72);
+        border-radius: 28px;
+        overflow: hidden;
+        background: var(--foam);
+        box-shadow: 0 26px 80px rgba(20, 61, 60, 0.16);
+        position: relative;
+      }
+
+      .photo-stack figure:first-child {
+        grid-row: 1 / 3;
+      }
+
+      .photo-stack img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .photo-stack figure:first-child img {
+        object-position: 45% center;
+      }
+
+      .mini-card {
+        width: min(360px, 82%);
+        padding: 22px;
+        border: 1px solid rgba(255, 255, 255, 0.68);
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.78);
+        backdrop-filter: blur(18px);
+        box-shadow: 0 24px 70px rgba(20, 61, 60, 0.14);
+        position: absolute;
+        left: -34px;
+        bottom: 34px;
+      }
+
+      .mini-card span {
+        color: var(--clay);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .mini-card strong {
+        margin-top: 8px;
+        display: block;
+        font-family: var(--display);
+        font-size: 34px;
+        line-height: 0.95;
+      }
+
+      .mini-card p {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .section {
+        padding: clamp(72px, 10vw, 140px) clamp(20px, 5vw, 76px);
+      }
+
+      .intro-band {
+        padding: clamp(34px, 5vw, 58px) clamp(20px, 5vw, 76px);
+        background: var(--deep);
+        color: var(--white);
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.55fr);
+        gap: 36px;
+        align-items: center;
+      }
+
+      .intro-band p {
+        max-width: 1060px;
+        font-family: var(--display);
+        font-size: clamp(30px, 4.4vw, 68px);
+        line-height: 1;
+      }
+
+      .intro-band aside {
+        border-left: 1px solid rgba(255, 255, 255, 0.22);
+        padding-left: 26px;
+        color: #dce8e3;
+        font-size: 14px;
+      }
+
+      .section-heading {
+        display: grid;
+        grid-template-columns: minmax(0, 1.14fr) minmax(280px, 0.66fr);
+        gap: 42px;
+        align-items: end;
+      }
+
+      .section-heading h2,
+      .split-copy h2,
+      .cta h2 {
+        max-width: 850px;
+        margin-top: 14px;
+        font-size: clamp(42px, 6vw, 86px);
+        font-weight: 600;
+        line-height: 0.95;
+      }
+
+      .section-heading > p,
+      .split-copy p,
+      .cta p {
+        color: var(--muted);
+        font-size: 16px;
+      }
+
+      .services-grid {
+        margin-top: 54px;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .services-grid article {
+        min-height: 310px;
+        padding: 28px 24px;
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.58);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          background 180ms ease;
+      }
+
+      .services-grid article:hover {
+        transform: translateY(-5px);
+        background: var(--white);
+        box-shadow: 0 26px 70px rgba(20, 61, 60, 0.1);
+      }
+
+      .services-grid span,
+      .timeline span {
+        color: var(--sea);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .services-grid h3 {
+        margin-top: auto;
+        font-size: clamp(27px, 2.8vw, 42px);
+        line-height: 1;
+      }
+
+      .services-grid p {
+        margin-top: 16px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .split {
+        padding: clamp(72px, 10vw, 140px) clamp(20px, 5vw, 76px);
+        background: var(--foam);
+        display: grid;
+        grid-template-columns: minmax(0, 0.78fr) minmax(420px, 1fr);
+        gap: clamp(38px, 7vw, 100px);
+        align-items: center;
+      }
+
+      .split-visual {
+        min-height: 620px;
+        border-radius: 36px;
+        overflow: hidden;
+        position: relative;
+        background:
+          linear-gradient(180deg, rgba(20, 61, 60, 0.02), rgba(20, 61, 60, 0.3)),
+          url("https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=82")
+            center / cover;
+      }
+
+      .split-visual::after {
+        content: "Eetbalans is geen streng schema. Het is rust, ritme en praktische begeleiding.";
+        width: min(420px, calc(100% - 44px));
+        padding: 24px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.78);
+        color: var(--deep);
+        font-family: var(--display);
+        font-size: clamp(28px, 3vw, 42px);
+        line-height: 1;
+        position: absolute;
+        left: 22px;
+        bottom: 22px;
+      }
+
+      .split-copy {
+        display: grid;
+        gap: 26px;
+      }
+
+      .benefit-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .benefit-list li {
+        min-height: 72px;
+        padding: 16px 18px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: var(--white);
+        display: grid;
+        grid-template-columns: 38px 1fr;
+        gap: 14px;
+        align-items: start;
+        list-style: none;
+      }
+
+      .benefit-list strong {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: var(--mint);
+        color: var(--deep);
+        display: grid;
+        place-items: center;
+        font-size: 13px;
+      }
+
+      .benefit-list span {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .process {
+        background: var(--deep);
+        color: var(--white);
+      }
+
+      .process .eyebrow {
+        color: #aed1c6;
+      }
+
+      .process .section-heading > p {
+        color: #d2e2dd;
+      }
+
+      .timeline {
+        margin-top: 58px;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .timeline article {
+        min-height: 310px;
+        padding: 30px 24px 0 0;
+        border-right: 1px solid rgba(255, 255, 255, 0.16);
+        display: grid;
+        align-content: start;
+        gap: 14px;
+      }
+
+      .timeline article + article {
+        padding-left: 24px;
+      }
+
+      .timeline article:last-child {
+        border-right: 0;
+      }
+
+      .timeline h3 {
+        margin-top: 50px;
+        font-size: clamp(28px, 3vw, 44px);
+        line-height: 1;
+      }
+
+      .timeline p {
+        color: #c9dbd6;
+        font-size: 14px;
+      }
+
+      .trust {
+        background: var(--white);
+      }
+
+      .trust-grid {
+        margin-top: 54px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(340px, 0.56fr);
+        gap: 16px;
+      }
+
+      .quote-card {
+        min-height: 480px;
+        min-width: 0;
+        padding: clamp(30px, 5vw, 58px);
+        border-radius: 32px;
+        background:
+          linear-gradient(135deg, rgba(216, 233, 223, 0.8), rgba(255, 255, 255, 0.42)),
+          var(--mint);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .quote-card blockquote {
+        max-width: 850px;
+        font-family: var(--display);
+        font-size: clamp(36px, 5.2vw, 82px);
+        line-height: 0.94;
+      }
+
+      .quote-card span {
+        color: var(--deep);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .proof-card {
+        min-width: 0;
+        padding: 28px;
+        border: 1px solid var(--line);
+        border-radius: 32px;
+        background: var(--sand);
+        display: grid;
+        align-content: space-between;
+        gap: 28px;
+      }
+
+      .proof-card h3 {
+        font-size: 40px;
+        line-height: 1;
+      }
+
+      .proof-card dl {
+        display: grid;
+        gap: 16px;
+      }
+
+      .proof-card div {
+        padding-top: 14px;
+        border-top: 1px solid var(--line);
+      }
+
+      .proof-card dt {
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .proof-card dd {
+        margin-top: 4px;
+        font-size: 14px;
+        font-weight: 800;
+        overflow-wrap: anywhere;
+      }
+
+      .cta {
+        padding: clamp(72px, 10vw, 140px) clamp(20px, 5vw, 76px);
+        background:
+          linear-gradient(90deg, rgba(20, 61, 60, 0.82), rgba(20, 61, 60, 0.2)),
+          url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1800&q=82")
+            center / cover;
+        color: var(--white);
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(340px, 0.55fr);
+        gap: 46px;
+        align-items: end;
+      }
+
+      .cta .eyebrow,
+      .cta p {
+        color: #e5f0eb;
+      }
+
+      .contact-card {
+        padding: 28px;
+        border: 1px solid rgba(255, 255, 255, 0.26);
+        border-radius: 30px;
+        background: rgba(255, 255, 255, 0.82);
+        color: var(--ink);
+        backdrop-filter: blur(16px);
+      }
+
+      .contact-card h3 {
+        font-size: 40px;
+        line-height: 1;
+      }
+
+      .contact-card form {
+        margin-top: 24px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .contact-card label {
+        display: grid;
+        gap: 6px;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .contact-card input,
+      .contact-card textarea {
+        width: 100%;
+        border: 1px solid rgba(24, 32, 30, 0.16);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.84);
+        color: var(--ink);
+        padding: 13px 14px;
+        outline: none;
+      }
+
+      .contact-card input:focus,
+      .contact-card textarea:focus {
+        border-color: var(--sea);
+      }
+
+      .contact-card textarea {
+        min-height: 108px;
+        resize: vertical;
+      }
+
+      .contact-card .button {
+        width: 100%;
+        margin-top: 4px;
+      }
+
+      .site-footer {
+        padding: 32px clamp(20px, 5vw, 76px);
+        background: var(--deep);
+        color: rgba(255, 255, 255, 0.78);
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        font-size: 13px;
+      }
+
+      .site-footer strong {
+        color: var(--white);
+      }
+
+      .site-footer a {
+        color: var(--white);
+        font-weight: 800;
+      }
+
+      @media (max-width: 1120px) {
+        .site-header {
+          grid-template-columns: auto 1fr auto;
+        }
+
+        .site-nav {
+          display: none;
+          width: min(320px, calc(100vw - 40px));
+          padding: 10px;
+          border: 1px solid rgba(20, 61, 60, 0.2);
+          border-radius: 26px;
+          background: rgba(255, 255, 255, 0.94);
+          box-shadow: 0 24px 60px rgba(20, 61, 60, 0.16);
+          position: absolute;
+          top: calc(100% + 12px);
+          right: 20px;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 4px;
+        }
+
+        .site-nav.open {
+          display: flex;
+        }
+
+        .site-nav a {
+          min-height: 44px;
+          border-radius: 18px;
+          padding: 0 14px;
+          display: flex;
+          align-items: center;
+        }
+
+        .menu-toggle {
+          display: grid;
+        }
+
+        .header-actions .button {
+          display: none;
+        }
+
+        .hero,
+        .split,
+        .intro-band,
+        .section-heading,
+        .trust-grid,
+        .cta {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          min-height: auto;
+        }
+
+        .services-grid,
+        .timeline {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .timeline article:nth-child(2) {
+          border-right: 0;
+        }
+
+        .timeline article:nth-child(n + 3) {
+          border-top: 1px solid rgba(255, 255, 255, 0.16);
+        }
+
+        .intro-band aside {
+          border-left: 0;
+          border-top: 1px solid rgba(255, 255, 255, 0.2);
+          padding: 24px 0 0;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .site-header {
+          min-height: 66px;
+          padding: 0 16px;
+          gap: 10px;
+        }
+
+        .brand-mark {
+          width: 38px;
+          height: 38px;
+          font-size: 13px;
+        }
+
+        .brand strong {
+          font-size: 20px;
+        }
+
+        .brand span:last-child,
+        .proposal-tag {
+          display: none;
+        }
+
+        .hero,
+        .section,
+        .split,
+        .process,
+        .trust,
+        .cta {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+
+        h1 {
+          font-size: clamp(48px, 16vw, 72px);
+        }
+
+        .hero-actions {
+          flex-direction: column;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .hero-facts,
+        .services-grid,
+        .timeline {
+          grid-template-columns: 1fr;
+        }
+
+        .photo-stack {
+          grid-template-columns: 1fr;
+          grid-template-rows: 360px 190px 190px;
+        }
+
+        .photo-stack figure:first-child {
+          grid-row: auto;
+        }
+
+        .mini-card {
+          width: calc(100% - 26px);
+          left: 13px;
+          bottom: 13px;
+        }
+
+        .split-visual {
+          min-height: 460px;
+          border-radius: 28px;
+        }
+
+        .services-grid article,
+        .timeline article {
+          min-height: auto;
+        }
+
+        .timeline article,
+        .timeline article + article {
+          padding: 24px 0;
+          border-right: 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+        }
+
+        .timeline article:last-child {
+          border-bottom: 0;
+        }
+
+        .timeline h3 {
+          margin-top: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="EAZO homepage">
+        <span class="brand-mark">EA</span>
+        <span>
+          <strong>EAZO</strong>
+          <span>Eetbalans Aan Zee Oostende</span>
+        </span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Hoofdnavigatie">
+        <a href="#aanpak">Aanpak</a>
+        <a href="#begeleiding">Begeleiding</a>
+        <a href="#start">Starten</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <span class="proposal-tag">Websiteconcept</span>
+        <a class="button" href="#contact">Plan kennismaking</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">Eetbalans aan de Belgische kust</p>
+          <h1 id="hero-title">Rustiger eten. <span>Sterker leven.</span></h1>
+          <p class="hero-text">
+            EAZO helpt mensen in Oostende op weg naar een gezonde, haalbare eetbalans:
+            dichtbij, menselijk en afgestemd op het ritme van het dagelijkse leven aan zee.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#contact">Vraag een eerste gesprek aan</a>
+            <a class="button button-light" href="#aanpak">Ontdek de aanpak</a>
+          </div>
+          <dl class="hero-facts" aria-label="EAZO kerninformatie">
+            <div>
+              <dt>Locatie</dt>
+              <dd>Oostende</dd>
+            </div>
+            <div>
+              <dt>Focus</dt>
+              <dd>Eetbalans & welzijn</dd>
+            </div>
+            <div>
+              <dt>Type</dt>
+              <dd>VZW / ASBL</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="hero-media" aria-label="Gezonde voeding en begeleiding aan zee">
+          <div class="photo-stack">
+            <figure>
+              <img
+                src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=82"
+                alt="Verse groenten en gezonde ingredienten op een keukentafel"
+              />
+            </figure>
+            <figure>
+              <img
+                src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=82"
+                alt="Zachte golven aan de kust"
+              />
+            </figure>
+            <figure>
+              <img
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=82"
+                alt="Kleurrijke salade met groenten"
+              />
+            </figure>
+          </div>
+          <aside class="mini-card">
+            <span>Voor Oostende</span>
+            <strong>Een warme plek voor gezonde gewoontes.</strong>
+            <p>Een homepage die vertrouwen opbouwt en bezoekers zacht naar contact begeleidt.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="intro-band" aria-label="Positionering">
+        <p>Een professionele eerste indruk voor een jonge organisatie met een duidelijke maatschappelijke rol.</p>
+        <aside>
+          Dit concept is ontworpen om EAZO meteen geloofwaardig te positioneren: vriendelijk,
+          lokaal, betrouwbaar en klaar om mensen te begeleiden zonder streng of medisch afstandelijk te voelen.
+        </aside>
+      </section>
+
+      <section class="section" id="aanpak" aria-labelledby="approach-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Waarom EAZO</p>
+            <h2 id="approach-title">Gezond eten wordt makkelijker wanneer begeleiding menselijk voelt.</h2>
+          </div>
+          <p>
+            De pagina spreekt mensen aan die geen ingewikkeld dieet zoeken, maar duidelijke steun,
+            praktische keuzes en een beter evenwicht tussen voeding, energie en dagelijks leven.
+          </p>
+        </div>
+        <div class="services-grid">
+          <article>
+            <span>01</span>
+            <div>
+              <h3>Intake met aandacht</h3>
+              <p>Een rustige start waarin gewoontes, vragen en doelen helder worden zonder oordeel.</p>
+            </div>
+          </article>
+          <article>
+            <span>02</span>
+            <div>
+              <h3>Praktische eetbalans</h3>
+              <p>Advies dat past bij werk, gezin, budget, boodschappen en momenten waarop het moeilijk wordt.</p>
+            </div>
+          </article>
+          <article>
+            <span>03</span>
+            <div>
+              <h3>Lokale verbondenheid</h3>
+              <p>Een herkenbare Oostendse uitstraling die nabijheid en vertrouwen uitstraalt.</p>
+            </div>
+          </article>
+          <article>
+            <span>04</span>
+            <div>
+              <h3>Zachte opvolging</h3>
+              <p>Een begeleidingstraject dat mensen motiveert om stap voor stap vol te houden.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="split" id="begeleiding" aria-labelledby="guidance-title">
+        <div class="split-visual" aria-hidden="true"></div>
+        <div class="split-copy">
+          <p class="eyebrow">Begeleiding zonder druk</p>
+          <h2 id="guidance-title">Van losse voornemens naar haalbare gewoontes.</h2>
+          <p>
+            De website maakt de belofte van EAZO concreet: geen harde dieettaal, maar een helder pad
+            naar betere keuzes. Dat verlaagt de drempel voor mensen die wel hulp willen, maar nog twijfelen.
+          </p>
+          <ul class="benefit-list">
+            <li>
+              <strong>1</strong>
+              <span>Heldere uitleg over wat een eerste gesprek inhoudt en voor wie EAZO er is.</span>
+            </li>
+            <li>
+              <strong>2</strong>
+              <span>Vertrouwen via rustige kleuren, echte leefwereldtaal en herkenbare kustbeelden.</span>
+            </li>
+            <li>
+              <strong>3</strong>
+              <span>Een eenvoudige contactflow die bezoekers uitnodigt zonder druk te zetten.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section process" id="start" aria-labelledby="start-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Zo kan starten voelen</p>
+            <h2 id="start-title">Een eenvoudige route van interesse naar eerste gesprek.</h2>
+          </div>
+          <p>
+            Een goede homepage helpt bezoekers begrijpen wat ze kunnen verwachten. Dat geeft rust,
+            verlaagt twijfel en maakt de stap naar contact veel kleiner.
+          </p>
+        </div>
+        <div class="timeline">
+          <article>
+            <span>Stap 01</span>
+            <h3>Herkennen</h3>
+            <p>De bezoeker voelt: dit gaat over mijn dagelijkse strijd met eten, energie of ritme.</p>
+          </article>
+          <article>
+            <span>Stap 02</span>
+            <h3>Begrijpen</h3>
+            <p>De pagina legt uit wat EAZO doet, zonder moeilijke termen of afstandelijke taal.</p>
+          </article>
+          <article>
+            <span>Stap 03</span>
+            <h3>Vertrouwen</h3>
+            <p>De visuele stijl voelt professioneel, warm en lokaal geworteld in Oostende.</p>
+          </article>
+          <article>
+            <span>Stap 04</span>
+            <h3>Contact</h3>
+            <p>Een duidelijke oproep helpt bezoekers een kennismaking of intake aan te vragen.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section trust" aria-labelledby="trust-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Professionele basis</p>
+            <h2 id="trust-title">Klaar om als jonge organisatie betrouwbaar over te komen.</h2>
+          </div>
+          <p>
+            De informatie hieronder gebruikt publieke bedrijfsgegevens als neutrale basis en houdt
+            de rest bewust als concepttekst, zodat EAZO dit later makkelijk kan verfijnen.
+          </p>
+        </div>
+        <div class="trust-grid">
+          <article class="quote-card">
+            <blockquote>
+              "Een website moet niet alleen mooi zijn. Ze moet mensen het gevoel geven dat ze hier veilig kunnen starten."
+            </blockquote>
+            <span>Conceptpositionering voor EAZO</span>
+          </article>
+          <aside class="proof-card">
+            <h3>Publieke bedrijfsinformatie</h3>
+            <dl>
+              <div>
+                <dt>Naam</dt>
+                <dd>EAZO Eetbalans Aan Zee Oostende</dd>
+              </div>
+              <div>
+                <dt>Ondernemingsnummer</dt>
+                <dd>BE 1038.649.373</dd>
+              </div>
+              <div>
+                <dt>Maatschappelijke zetel</dt>
+                <dd>Aartshertoginnestraat 47/101, 8400 Oostende</dd>
+              </div>
+              <div>
+                <dt>Status</dt>
+                <dd>Actief sinds juni 2026</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+
+      <section class="cta" id="contact" aria-labelledby="contact-title">
+        <div>
+          <p class="eyebrow">Klaar voor lancering</p>
+          <h2 id="contact-title">Maak van EAZO een plek waar mensen durven beginnen.</h2>
+          <p>
+            Met een volledige website kan EAZO later intake-informatie, trajecten, veelgestelde vragen,
+            contactformulieren en lokale vindbaarheid op een rustige manier samenbrengen.
+          </p>
+        </div>
+        <aside class="contact-card">
+          <h3>Eerste gesprek aanvragen</h3>
+          <form>
+            <label>
+              Naam
+              <input type="text" name="name" placeholder="Uw naam" />
+            </label>
+            <label>
+              E-mail
+              <input type="email" name="email" placeholder="naam@example.be" />
+            </label>
+            <label>
+              Bericht
+              <textarea name="message" placeholder="Ik wil graag meer weten over eetbalans..."></textarea>
+            </label>
+            <button class="button" type="button">Verstuur aanvraag</button>
+          </form>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span><strong>EAZO</strong> - Eetbalans Aan Zee Oostende</span>
+      <span>Websiteconcept door <a href="/">DROOM IT</a></span>
+    </footer>
+
+    <script>
+      const menuToggle = document.querySelector(".menu-toggle");
+      const siteNav = document.querySelector(".site-nav");
+
+      menuToggle.addEventListener("click", () => {
+        const open = siteNav.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", String(open));
+      });
+
+      siteNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          siteNav.classList.remove("open");
+          menuToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+    </script>
+  </body>
+</html>
