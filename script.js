@@ -29,6 +29,14 @@ const translations = {
     proofThree: "UX/UI redesign",
     proofFour: "Vercel launch support",
     proofFive: "Neon data capture",
+    studioEyebrow: "Studio quality",
+    studioTitle: "Designed to feel like a real business before a client ever writes to you.",
+    studioText:
+      "Professional web design is a mix of positioning, visual hierarchy, interaction details and launch-ready development. DROOM IT brings those pieces together in one focused process.",
+    studioCardOne: "Brand-first homepage",
+    studioCardTwo: "Mobile-ready flows",
+    studioCardThree: "Conversion-focused forms",
+    studioCardFour: "SEO-ready structure",
     outcomeEyebrow: "Why it matters",
     outcomeTitle: "A website should do more than exist online.",
     outcomeText:
@@ -99,7 +107,7 @@ const translations = {
     faqThreeAnswer:
       "Yes. DROOM IT can connect contact or booking forms to a database and send automatic email notifications.",
     workIntro:
-      "Selected DROOM IT work, including this business website and Bubble Paws: websites built around trust, clear navigation and customer action.",
+      "Selected DROOM IT work, including PolyChem MB and Bubble Paws: websites built around trust, clear navigation and customer action.",
     comingSoon: "Coming soon",
     workPlaceholderTitle: "The first DROOM IT case studies are on their way.",
     becomeFirst: "Become one of our first featured projects",
@@ -175,6 +183,14 @@ const translations = {
     proofThree: "UX/UI redesign",
     proofFour: "Vercel launch support",
     proofFive: "Neon data capture",
+    studioEyebrow: "Studio kwaliteit",
+    studioTitle: "Ontworpen om als een echt bedrijf te voelen nog voordat een klant contact opneemt.",
+    studioText:
+      "Professioneel webdesign combineert positionering, visuele hierarchie, interactiedetails en development dat klaar is voor lancering. DROOM IT brengt die onderdelen samen in een gefocust proces.",
+    studioCardOne: "Brand-first homepage",
+    studioCardTwo: "Mobielklare flows",
+    studioCardThree: "Conversiegerichte formulieren",
+    studioCardFour: "SEO-klare structuur",
     outcomeEyebrow: "Waarom het telt",
     outcomeTitle: "Een website moet meer doen dan alleen online bestaan.",
     outcomeText:
@@ -245,7 +261,7 @@ const translations = {
     faqThreeAnswer:
       "Ja. DROOM IT kan contact- of boekingsformulieren koppelen aan een database en automatische e-mailmeldingen versturen.",
     workIntro:
-      "Geselecteerd werk van DROOM IT, inclusief deze bedrijfswebsite en Bubble Paws: websites rond vertrouwen, duidelijke navigatie en klantactie.",
+      "Geselecteerd werk van DROOM IT, inclusief PolyChem MB en Bubble Paws: websites rond vertrouwen, duidelijke navigatie en klantactie.",
     comingSoon: "Binnenkort",
     workPlaceholderTitle: "De eerste DROOM IT-cases zijn onderweg.",
     becomeFirst: "Word een van onze eerste uitgelichte projecten",
