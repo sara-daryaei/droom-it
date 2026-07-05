@@ -69,9 +69,9 @@ const translations = {
     servicesTitle: "Result-driven digital services for Belgian businesses.",
     homeServicesTitle: "Services built around trust, sales and smoother operations.",
     servicesIntro:
-      "From first idea to final launch, DROOM IT creates clear, elegant and practical digital experiences.",
+      "From first idea to final launch, DROOM IT creates clear, elegant and practical digital experiences that support real business goals.",
     homeServicesIntro:
-      "DROOM IT brings UX/UI thinking, visual design and development together so your website feels credible from the first click.",
+      "DROOM IT brings strategy, UX/UI thinking, visual design and development together so your digital presence supports real business growth.",
     serviceDesign:
       "Modern, responsive and user-friendly websites designed to build trust and turn visitors into customers.",
     serviceEcommerce: "Online stores built to showcase products, simplify checkout and support business growth.",
@@ -267,9 +267,9 @@ const translations = {
     servicesTitle: "Resultaatgerichte digitale diensten voor Belgische bedrijven.",
     homeServicesTitle: "Diensten gebouwd rond vertrouwen, verkoop en vlottere werking.",
     servicesIntro:
-      "Van het eerste idee tot de lancering creeert DROOM IT heldere, elegante en praktische digitale ervaringen.",
+      "Van het eerste idee tot lancering creeert DROOM IT heldere, elegante en praktische digitale ervaringen die echte bedrijfsdoelen ondersteunen.",
     homeServicesIntro:
-      "DROOM IT brengt UX/UI-denken, visueel design en development samen zodat je website vanaf de eerste klik professioneel aanvoelt.",
+      "DROOM IT brengt strategie, UX/UI-denken, visueel design en development samen zodat je digitale aanwezigheid echte bedrijfsgroei ondersteunt.",
     serviceDesign:
       "Strategische, responsive websites die jouw bedrijf professioneel presenteren en aandacht omzetten in actie.",
     serviceEcommerce: "Webshops die producten duidelijk presenteren, checkout vereenvoudigen en groei ondersteunen.",
