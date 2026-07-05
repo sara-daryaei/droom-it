@@ -5,11 +5,13 @@ const translations = {
     navProcess: "Process",
     navAbout: "About",
     navContact: "Contact",
-    startProject: "Start a project",
-    heroEyebrow: "Web design and digital solutions in Belgium",
-    heroTitle: "Websites that make small businesses look ready for bigger clients.",
+    startProject: "Book a Free Consultation",
+    freeAudit: "Get a Free Website Audit",
+    heroEyebrow: "Website design, e-commerce and web applications in Belgium",
+    heroTitle: "Websites, E-commerce & Web Applications That Help Businesses Grow",
     heroText:
-      "DROOM IT designs, builds and launches responsive websites, booking flows and web applications that help visitors understand, trust and contact your business.",
+      "DROOM IT helps Belgian businesses turn ideas into modern websites, online stores and custom web applications that attract customers and simplify operations.",
+    heroTrustLine: "Based in Mechelen, Belgium · Working with startups, SMEs and service businesses",
     exploreServices: "Explore services",
     basedIn: "Based in",
     workingWith: "Working with",
@@ -64,19 +66,56 @@ const translations = {
     introBand:
       "Strategy, design and development brought together to turn a strong idea into a polished digital product.",
     servicesEyebrow: "What we do",
-    servicesTitle: "Digital solutions built around your business.",
-    homeServicesTitle: "A focused offer for companies that need a stronger digital presence.",
+    servicesTitle: "Result-driven digital services for Belgian businesses.",
+    homeServicesTitle: "Services built around trust, sales and smoother operations.",
     servicesIntro:
       "From first idea to final launch, DROOM IT creates clear, elegant and practical digital experiences.",
     homeServicesIntro:
       "DROOM IT brings UX/UI thinking, visual design and development together so your website feels credible from the first click.",
     serviceDesign:
-      "Strategic, responsive websites designed to make your business look credible and convert attention into action.",
+      "Modern, responsive and user-friendly websites designed to build trust and turn visitors into customers.",
+    serviceEcommerce: "Online stores built to showcase products, simplify checkout and support business growth.",
     serviceDevelopment:
-      "Fast, accessible and maintainable websites built for reliable everyday use.",
+      "Clean, scalable and maintainable development for reliable digital platforms.",
     serviceApplications:
-      "Purpose-built digital tools that simplify workflows and support business growth.",
-    serviceUx: "User-focused interfaces that feel intuitive, consistent and easy to navigate.",
+      "Custom web applications, dashboards and internal tools that simplify daily business operations.",
+    serviceUx: "User-focused interfaces that make digital products easier, clearer and more enjoyable to use.",
+    discussService: "Discuss this service",
+    serviceBulletTrust: "Clear structure and trust-building content",
+    serviceBulletMobile: "Responsive layouts for every screen",
+    serviceBulletLeads: "Conversion-focused calls-to-action",
+    ecommerceBulletProducts: "Product pages that are easy to understand",
+    ecommerceBulletCheckout: "Simple checkout and enquiry paths",
+    ecommerceBulletGrowth: "Scalable structure for future growth",
+    devBulletClean: "Clean, maintainable code",
+    devBulletReliable: "Reliable performance and deployment",
+    devBulletIntegrations: "Forms, data capture and integrations",
+    appBulletTools: "Dashboards and internal tools",
+    appBulletWorkflow: "Workflow automation opportunities",
+    appBulletData: "Secure data capture and structure",
+    uxBulletClarity: "Cleaner user journeys",
+    uxBulletWireframes: "Wireframes and interface direction",
+    uxBulletUsability: "Usability improvements for real users",
+    auditTitle: "Not sure if your website is helping or hurting your business?",
+    auditText:
+      "Get a free mini website audit from DROOM IT. We’ll review your website’s design, user experience, mobile usability and conversion opportunities.",
+    websiteUrlLabel: "Website URL",
+    auditMessageLabel: "Message / What do you want to improve?",
+    requestAudit: "Request My Free Audit",
+    auditSuccess: "Thank you. We’ll review your website and get back to you soon with practical improvement ideas.",
+    trustTitle: "Why businesses choose DROOM IT",
+    trustLocation: "Based in Mechelen, serving businesses across Belgium.",
+    trustStrategicTitle: "Strategic Approach",
+    trustStrategicText: "We start with your business goals before designing or building anything.",
+    trustUserTitle: "User-Focused Solutions",
+    trustUserText: "Every website and application is designed around real users and clear actions.",
+    trustReliableTitle: "Reliable & Scalable",
+    trustReliableText: "We build clean, maintainable solutions that can grow with your business.",
+    trustResultsTitle: "Results Driven",
+    trustResultsText: "We focus on clarity, usability, performance and lead generation.",
+    founderStory:
+      "Hi, I’m Sara, founder of DROOM IT. I help businesses transform ideas into modern websites, e-commerce platforms and custom web applications. With experience in full-stack development, UI/UX design and business management, I combine technical execution with a clear understanding of business needs. DROOM IT was created to help small businesses, startups and service providers build digital solutions that look professional, work reliably and support real business growth.",
+    talkProject: "Let’s talk about your project",
     showcaseEyebrow: "Project directions",
     showcaseTitle: "The kind of digital experiences DROOM IT can shape with you.",
     showcaseIntro:
@@ -129,19 +168,24 @@ const translations = {
     founderRole: "Founder & Digital Solutions Developer",
     contactEyebrow: "Start a conversation",
     ctaEyebrow: "Start a project",
-    ctaTitle: "Ready to turn your website into a professional business asset?",
-    ctaText: "Send a short message about your project and DROOM IT will help shape the next step.",
-    contactTitle: "Have an idea? Let's build it into something real.",
+    ctaTitle: "Ready to build a digital solution that helps your business grow?",
+    ctaText: "Book a free consultation or request a website audit and get a clearer next step.",
+    contactTitle: "Have an idea or need a better website?",
     contactText:
-      "Tell us what you are planning, where you are now and what a successful result would look like.",
+      "Tell us what you want to build or improve. We’ll help you understand the best next step.",
     locationLabel: "Location",
-    phoneLabel: "Phone",
-    phonePlaceholder: "Available soon",
+    websiteLabel: "Website",
+    projectTypeLabel: "Project type",
+    projectTypeWebsite: "Website",
+    projectTypeEcommerce: "E-commerce",
+    projectTypeApplication: "Web Application",
+    projectTypeUx: "UX/UI Design",
+    projectTypeUnsure: "Not sure yet",
     nameLabel: "Name",
     emailLabel: "Email",
     companyLabel: "Company",
     projectLabel: "Tell us about your project",
-    sendRequest: "Send project request",
+    sendRequest: "Send Project Request",
     sendingRequest: "Sending your request...",
     requestSuccess: "Thank you. Your project request has been saved and we will contact you soon.",
     requestError: "Something went wrong. Please email info@droomit.be or try again.",
@@ -159,11 +203,13 @@ const translations = {
     navProcess: "Werkwijze",
     navAbout: "Over ons",
     navContact: "Contact",
-    startProject: "Start een project",
-    heroEyebrow: "Webdesign en digitale oplossingen in Belgie",
+    startProject: "Boek een gratis gesprek",
+    freeAudit: "Vraag een gratis website-audit aan",
+    heroEyebrow: "Webdesign, e-commerce en webapplicaties in Belgie",
     heroTitle: "Websites waardoor kleine bedrijven klaar lijken voor grotere klanten.",
     heroText:
       "DROOM IT ontwerpt, bouwt en lanceert responsive websites, boekingsflows en webapplicaties die bezoekers helpen je bedrijf te begrijpen, vertrouwen en contacteren.",
+    heroTrustLine: "Gevestigd in Mechelen, Belgie · Voor startups, KMO's en servicebedrijven",
     exploreServices: "Ontdek onze diensten",
     basedIn: "Gevestigd in",
     workingWith: "Wij werken met",
@@ -218,19 +264,56 @@ const translations = {
     introBand:
       "Strategie, design en development komen samen om een sterk idee te vertalen naar een verfijnd digitaal product.",
     servicesEyebrow: "Wat we doen",
-    servicesTitle: "Digitale oplossingen gebouwd rond jouw bedrijf.",
-    homeServicesTitle: "Een gefocust aanbod voor bedrijven die digitaal sterker willen overkomen.",
+    servicesTitle: "Resultaatgerichte digitale diensten voor Belgische bedrijven.",
+    homeServicesTitle: "Diensten gebouwd rond vertrouwen, verkoop en vlottere werking.",
     servicesIntro:
       "Van het eerste idee tot de lancering creeert DROOM IT heldere, elegante en praktische digitale ervaringen.",
     homeServicesIntro:
       "DROOM IT brengt UX/UI-denken, visueel design en development samen zodat je website vanaf de eerste klik professioneel aanvoelt.",
     serviceDesign:
       "Strategische, responsive websites die jouw bedrijf professioneel presenteren en aandacht omzetten in actie.",
+    serviceEcommerce: "Webshops die producten duidelijk presenteren, checkout vereenvoudigen en groei ondersteunen.",
     serviceDevelopment:
       "Snelle, toegankelijke en onderhoudbare websites gebouwd voor betrouwbaar dagelijks gebruik.",
     serviceApplications:
       "Digitale tools op maat die workflows vereenvoudigen en bedrijfsgroei ondersteunen.",
     serviceUx: "Gebruiksvriendelijke interfaces die intuitief, consistent en helder aanvoelen.",
+    discussService: "Bespreek deze dienst",
+    serviceBulletTrust: "Heldere structuur en vertrouwenwekkende content",
+    serviceBulletMobile: "Responsive layouts voor elk scherm",
+    serviceBulletLeads: "Conversiegerichte calls-to-action",
+    ecommerceBulletProducts: "Productpagina's die makkelijk te begrijpen zijn",
+    ecommerceBulletCheckout: "Eenvoudige checkout- en aanvraagpaden",
+    ecommerceBulletGrowth: "Schaalbare structuur voor toekomstige groei",
+    devBulletClean: "Schone, onderhoudbare code",
+    devBulletReliable: "Betrouwbare performance en deployment",
+    devBulletIntegrations: "Formulieren, data capture en integraties",
+    appBulletTools: "Dashboards en interne tools",
+    appBulletWorkflow: "Kansen voor workflowautomatisering",
+    appBulletData: "Veilige datastructuur en capture",
+    uxBulletClarity: "Duidelijkere user journeys",
+    uxBulletWireframes: "Wireframes en interfacerichting",
+    uxBulletUsability: "Usability-verbeteringen voor echte gebruikers",
+    auditTitle: "Weet je niet zeker of je website je bedrijf helpt of tegenwerkt?",
+    auditText:
+      "Vraag een gratis mini website-audit aan bij DROOM IT. We bekijken design, gebruikservaring, mobiel gebruik en conversiekansen.",
+    websiteUrlLabel: "Website URL",
+    auditMessageLabel: "Bericht / Wat wil je verbeteren?",
+    requestAudit: "Vraag mijn gratis audit aan",
+    auditSuccess: "Bedankt. We bekijken je website en sturen je snel praktische verbeterideeen.",
+    trustTitle: "Waarom bedrijven voor DROOM IT kiezen",
+    trustLocation: "Gevestigd in Mechelen, voor bedrijven in heel Belgie.",
+    trustStrategicTitle: "Strategische aanpak",
+    trustStrategicText: "We starten met je bedrijfsdoelen voordat we iets ontwerpen of bouwen.",
+    trustUserTitle: "Gebruikersgerichte oplossingen",
+    trustUserText: "Elke website en applicatie wordt ontworpen rond echte gebruikers en duidelijke acties.",
+    trustReliableTitle: "Betrouwbaar & schaalbaar",
+    trustReliableText: "We bouwen nette, onderhoudbare oplossingen die kunnen meegroeien.",
+    trustResultsTitle: "Resultaatgericht",
+    trustResultsText: "We focussen op duidelijkheid, bruikbaarheid, performance en leadgeneratie.",
+    founderStory:
+      "Hi, ik ben Sara, founder van DROOM IT. Ik help bedrijven ideeen omzetten in moderne websites, e-commerceplatformen en webapplicaties. Met ervaring in full-stack development, UI/UX design en business management combineer ik technische uitvoering met inzicht in bedrijfsnoden. DROOM IT helpt kleine bedrijven, startups en serviceproviders digitale oplossingen bouwen die professioneel ogen, betrouwbaar werken en groei ondersteunen.",
+    talkProject: "Laten we je project bespreken",
     showcaseEyebrow: "Projectrichtingen",
     showcaseTitle: "Het soort digitale ervaringen dat DROOM IT met jou kan vormgeven.",
     showcaseIntro:
@@ -283,17 +366,22 @@ const translations = {
     founderRole: "Oprichter & Digital Solutions Developer",
     contactEyebrow: "Start een gesprek",
     ctaEyebrow: "Start een project",
-    ctaTitle: "Klaar om je website om te zetten in een professioneel bedrijfsmiddel?",
-    ctaText: "Stuur een kort bericht over je project en DROOM IT helpt de volgende stap vorm te geven.",
-    contactTitle: "Heb je een idee? Laten we het samen werkelijkheid maken.",
+    ctaTitle: "Klaar om een digitale oplossing te bouwen die je bedrijf helpt groeien?",
+    ctaText: "Boek een gratis gesprek of vraag een website-audit aan voor een duidelijkere volgende stap.",
+    contactTitle: "Heb je een idee of heb je een betere website nodig?",
     contactText:
-      "Vertel ons wat je plant, waar je nu staat en hoe een succesvol resultaat eruitziet.",
+      "Vertel ons wat je wilt bouwen of verbeteren. We helpen je de beste volgende stap begrijpen.",
     locationLabel: "Locatie",
-    phoneLabel: "Telefoon",
-    phonePlaceholder: "Binnenkort beschikbaar",
+    websiteLabel: "Website",
     nameLabel: "Naam",
     emailLabel: "E-mail",
     companyLabel: "Bedrijf",
+    projectTypeLabel: "Projecttype",
+    projectTypeWebsite: "Website",
+    projectTypeEcommerce: "E-commerce",
+    projectTypeApplication: "Webapplicatie",
+    projectTypeUx: "UX/UI Design",
+    projectTypeUnsure: "Nog niet zeker",
     projectLabel: "Vertel ons over je project",
     sendRequest: "Verstuur projectaanvraag",
     sendingRequest: "Je aanvraag wordt verzonden...",
@@ -313,8 +401,7 @@ const languageButtons = document.querySelectorAll("[data-lang]");
 const translatableElements = document.querySelectorAll("[data-i18n]");
 const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
-const projectForm = document.querySelector("[data-project-form]");
-const formStatus = document.querySelector("[data-form-status]");
+const projectForms = document.querySelectorAll("[data-project-form]");
 let currentLanguage = localStorage.getItem("droom-it-language") || "en";
 
 function setLanguage(language) {
@@ -334,7 +421,8 @@ function setLanguage(language) {
   localStorage.setItem("droom-it-language", language);
 }
 
-function setFormStatus(message, isError = false) {
+function setFormStatus(form, message, isError = false) {
+  const formStatus = form.querySelector("[data-form-status]");
   if (!formStatus) return;
   formStatus.textContent = message;
   formStatus.classList.toggle("error", isError);
@@ -378,18 +466,19 @@ window.addEventListener("resize", () => {
   if (window.innerWidth > 1080) closeMenu();
 });
 
-if (projectForm) {
+projectForms.forEach((projectForm) => {
   projectForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const submitButton = projectForm.querySelector("button[type='submit']");
     const dictionary = translations[currentLanguage] || translations.en;
+    const successKey = projectForm.dataset.successKey || "requestSuccess";
     const formData = new FormData(projectForm);
     const payload = Object.fromEntries(formData.entries());
     payload.language = currentLanguage;
 
     submitButton.disabled = true;
-    setFormStatus(dictionary.sendingRequest);
+    setFormStatus(projectForm, dictionary.sendingRequest);
 
     try {
       const response = await fetch(projectForm.action, {
@@ -407,14 +496,14 @@ if (projectForm) {
       }
 
       projectForm.reset();
-      setFormStatus(dictionary.requestSuccess);
+      setFormStatus(projectForm, dictionary[successKey] || dictionary.requestSuccess);
     } catch (error) {
-      setFormStatus(dictionary.requestError, true);
+      setFormStatus(projectForm, dictionary.requestError, true);
     } finally {
       submitButton.disabled = false;
     }
   });
-}
+});
 
 document.getElementById("year").textContent = new Date().getFullYear();
 setLanguage(currentLanguage);

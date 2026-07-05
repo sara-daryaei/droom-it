@@ -198,6 +198,12 @@ button {
   color: var(--ink);
 }
 
+.button-light {
+  border-color: rgba(17, 19, 21, 0.18);
+  background: var(--white);
+  color: var(--ink);
+}
+
 .hero {
   min-height: calc(100svh - 76px);
   display: grid;
@@ -267,6 +273,18 @@ h1 {
   display: flex;
   align-items: center;
   gap: 26px;
+}
+
+.hero-secondary-link {
+  margin-top: 18px;
+}
+
+.hero-trust-line {
+  max-width: 640px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
 }
 
 .text-link {
@@ -515,6 +533,41 @@ h1 {
   font-weight: 800;
 }
 
+.audit-section {
+  padding: clamp(60px, 8vw, 110px) clamp(20px, 7vw, 112px);
+  background: var(--sage);
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(340px, 0.72fr);
+  gap: clamp(36px, 7vw, 90px);
+  align-items: start;
+}
+
+.audit-copy h2,
+.trust-section h2,
+.founder-card-large h2,
+.cta-strip h2 {
+  max-width: 760px;
+  margin-top: 14px;
+  font-size: clamp(34px, 5vw, 68px);
+  line-height: 1.04;
+}
+
+.audit-copy p:not(.eyebrow),
+.trust-section > div:first-child p,
+.founder-card-large p {
+  max-width: 620px;
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.audit-form {
+  padding: clamp(24px, 4vw, 38px);
+  border: 1px solid rgba(17, 19, 21, 0.14);
+  border-radius: 10px;
+  background: var(--ink);
+}
+
 .studio-showcase {
   padding: clamp(70px, 9vw, 130px) clamp(20px, 7vw, 112px);
   background: var(--ink);
@@ -733,7 +786,7 @@ h1 {
 .home-service-grid {
   margin-top: 54px;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 18px;
 }
 
@@ -746,6 +799,36 @@ h1 {
   display: grid;
   align-content: start;
   gap: 18px;
+}
+
+.home-service-grid ul {
+  display: grid;
+  gap: 9px;
+  list-style: none;
+}
+
+.home-service-grid li {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.home-service-grid li::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  border-radius: 999px;
+  background: var(--gold);
+  display: inline-block;
+}
+
+.home-service-grid a {
+  margin-top: auto;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 4px;
+  width: max-content;
+  font-size: 13px;
+  font-weight: 800;
 }
 
 .home-service-grid span {
@@ -769,6 +852,82 @@ h1 {
 .showcase-section {
   padding: clamp(70px, 9vw, 130px) clamp(20px, 7vw, 112px);
   background: #ecefed;
+}
+
+.trust-section,
+.founder-section {
+  padding: clamp(70px, 9vw, 130px) clamp(20px, 7vw, 112px);
+  background: var(--white);
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(420px, 1fr);
+  gap: clamp(40px, 7vw, 96px);
+  align-items: start;
+}
+
+.trust-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.trust-card-grid article,
+.founder-card-large {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+}
+
+.trust-card-grid article {
+  min-height: 210px;
+  padding: 26px;
+}
+
+.trust-card-grid h3 {
+  font-size: clamp(22px, 2.3vw, 34px);
+  line-height: 1.08;
+}
+
+.trust-card-grid p {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.founder-section {
+  grid-template-columns: 1fr;
+  background: var(--paper);
+}
+
+.founder-card-large {
+  padding: clamp(28px, 5vw, 58px);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(22px, 5vw, 54px);
+  align-items: start;
+}
+
+.founder-card-large .button {
+  margin-top: 28px;
+}
+
+.cta-strip {
+  padding: clamp(48px, 7vw, 82px) clamp(20px, 7vw, 112px);
+  background: var(--ink);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.cta-strip h2 {
+  max-width: 760px;
+}
+
+.cta-strip-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
 }
 
 .showcase-grid {
@@ -1268,6 +1427,33 @@ h1 {
   font-size: 14px;
 }
 
+.service-bullets {
+  margin-top: 16px;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.service-bullets li {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.service-bullets li::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  border-radius: 999px;
+  background: var(--gold);
+  display: inline-block;
+}
+
+.service-item .text-link {
+  margin-top: 20px;
+  width: max-content;
+}
+
 .work-section {
   background: var(--white);
 }
@@ -1696,6 +1882,7 @@ h1 {
 }
 
 .contact-form input,
+.contact-form select,
 .contact-form textarea {
   width: 100%;
   border: 1px solid #4a4e50;
@@ -1707,6 +1894,7 @@ h1 {
 }
 
 .contact-form input:focus,
+.contact-form select:focus,
 .contact-form textarea:focus {
   border-color: var(--gold);
 }
@@ -1943,6 +2131,8 @@ h1 {
 
   .home-process,
   .studio-showcase,
+  .audit-section,
+  .trust-section,
   .case-preview-section,
   .faq-section,
   .home-cta,
@@ -1961,6 +2151,7 @@ h1 {
 
   .section-heading,
   .about,
+  .founder-card-large,
   .contact-section,
   .featured-case-card,
   .case-hero,
@@ -2129,6 +2320,9 @@ h1 {
 
   .outcome-section,
   .studio-showcase,
+  .audit-section,
+  .trust-section,
+  .founder-section,
   .engagement-section,
   .showcase-section,
   .faq-section {
@@ -2140,6 +2334,24 @@ h1 {
     grid-template-columns: 1fr;
     gap: 10px;
     padding: 24px 20px;
+  }
+
+  .trust-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .founder-card-large {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-strip {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .cta-strip-actions,
+  .cta-strip-actions .button {
+    width: 100%;
   }
 
   .showcase-grid {

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#111315" />
-    <meta name="description" content="Contact DROOM IT to start a web design, web development, web application or UX/UI design project." />
+    <meta name="description" content="Contact DROOM IT in Mechelen, Belgium to start a website, e-commerce, web application or UX/UI design project." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://www.droomit.be/contact" />
     <meta property="og:site_name" content="DROOM IT" />
@@ -12,13 +12,13 @@
     <meta property="og:locale" content="en_GB" />
     <meta property="og:locale:alternate" content="nl_BE" />
     <meta property="og:title" content="Start a Project | Contact DROOM IT" />
-    <meta property="og:description" content="Contact DROOM IT to start a web design, web development, web application or UX/UI design project." />
+    <meta property="og:description" content="Contact DROOM IT in Mechelen, Belgium to start a website, e-commerce, web application or UX/UI design project." />
     <meta property="og:url" content="https://www.droomit.be/contact" />
     <meta property="og:image" content="https://www.droomit.be/assets/droom-it-logo.png" />
     <meta property="og:image:alt" content="DROOM IT logo" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Start a Project | Contact DROOM IT" />
-    <meta name="twitter:description" content="Contact DROOM IT to start a web design, web development, web application or UX/UI design project." />
+    <meta name="twitter:description" content="Contact DROOM IT in Mechelen, Belgium to start a website, e-commerce, web application or UX/UI design project." />
     <meta name="twitter:image" content="https://www.droomit.be/assets/droom-it-logo.png" />
     <meta name="twitter:image:alt" content="DROOM IT logo" />
     <title>Start a Project | Contact DROOM IT</title>
@@ -54,20 +54,32 @@
       <section class="contact-section contact-page" id="contact">
         <div class="contact-copy">
           <p class="eyebrow" data-i18n="contactEyebrow">Start a conversation</p>
-          <h1 data-i18n="contactTitle">Have an idea? Let's build it into something real.</h1>
-          <p data-i18n="contactText">Tell us what you are planning, where you are now and what a successful result would look like.</p>
+          <h1 data-i18n="contactTitle">Have an idea or need a better website?</h1>
+          <p data-i18n="contactText">Tell us what you want to build or improve. We’ll help you understand the best next step.</p>
           <a class="contact-email" href="mailto:info@droomit.be">info@droomit.be -&gt;</a>
           <div class="contact-meta">
-            <div><span data-i18n="locationLabel">Location</span><strong>Belgium</strong></div>
-            <div><span data-i18n="phoneLabel">Phone</span><strong data-i18n="phonePlaceholder">Available soon</strong></div>
+            <div><span data-i18n="websiteLabel">Website</span><strong>www.droomit.be</strong></div>
+            <div><span data-i18n="locationLabel">Location</span><strong>Mechelen, Belgium</strong></div>
           </div>
         </div>
-        <form class="contact-form" action="/api/start-project" method="POST" data-project-form>
-          <label><span data-i18n="nameLabel">Name</span><input type="text" name="name" required /></label>
-          <label><span data-i18n="emailLabel">Email</span><input type="email" name="email" required /></label>
-          <label><span data-i18n="companyLabel">Company</span><input type="text" name="company" /></label>
+        <form class="contact-form" action="/api/start-project" method="POST" data-project-form data-success-key="requestSuccess">
+          <input type="hidden" name="requestType" value="project" />
+          <label><span data-i18n="nameLabel">Name</span><input type="text" name="name" required autocomplete="name" /></label>
+          <label><span data-i18n="companyLabel">Company</span><input type="text" name="company" autocomplete="organization" /></label>
+          <label><span data-i18n="emailLabel">Email</span><input type="email" name="email" required autocomplete="email" /></label>
+          <label><span data-i18n="websiteUrlLabel">Website URL</span><input type="url" name="websiteUrl" placeholder="https://example.be" autocomplete="url" /></label>
+          <label>
+            <span data-i18n="projectTypeLabel">Project type</span>
+            <select name="projectType" required>
+              <option value="Website" data-i18n="projectTypeWebsite">Website</option>
+              <option value="E-commerce" data-i18n="projectTypeEcommerce">E-commerce</option>
+              <option value="Web Application" data-i18n="projectTypeApplication">Web Application</option>
+              <option value="UX/UI Design" data-i18n="projectTypeUx">UX/UI Design</option>
+              <option value="Not sure yet" data-i18n="projectTypeUnsure">Not sure yet</option>
+            </select>
+          </label>
           <label><span data-i18n="projectLabel">Tell us about your project</span><textarea name="message" rows="5" required></textarea></label>
-          <button class="button button-gold" type="submit" data-i18n="sendRequest">Send project request</button>
+          <button class="button button-gold" type="submit" data-i18n="sendRequest">Send Project Request</button>
           <p class="form-status" data-form-status aria-live="polite"></p>
         </form>
       </section>

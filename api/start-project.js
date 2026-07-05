@@ -37,6 +37,9 @@ async function ensureTable(sql) {
       name TEXT NOT NULL,
       email TEXT NOT NULL,
       company TEXT,
+      website_url TEXT,
+      project_type TEXT,
+      request_type TEXT DEFAULT 'project',
       message TEXT NOT NULL,
       language TEXT,
       source TEXT DEFAULT 'website',
@@ -44,6 +47,10 @@ async function ensureTable(sql) {
       created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
     )
   `;
+
+  await sql`ALTER TABLE project_requests ADD COLUMN IF NOT EXISTS website_url TEXT`;
+  await sql`ALTER TABLE project_requests ADD COLUMN IF NOT EXISTS project_type TEXT`;
+  await sql`ALTER TABLE project_requests ADD COLUMN IF NOT EXISTS request_type TEXT DEFAULT 'project'`;
 }
 
 function getEmailConfig() {
@@ -77,22 +84,28 @@ function escapeHtml(value) {
     .replace(/'/g, "&#039;");
 }
 
-function buildEmail({ id, createdAt, name, email, company, message, language }) {
+function buildEmail({ id, createdAt, name, email, company, websiteUrl, projectType, requestType, message, language }) {
   const safeName = escapeHtml(name);
   const safeEmail = escapeHtml(email);
   const safeCompany = escapeHtml(company || "Not provided");
+  const safeWebsiteUrl = escapeHtml(websiteUrl || "Not provided");
+  const safeProjectType = escapeHtml(projectType || "Not specified");
+  const safeRequestType = escapeHtml(requestType || "project");
   const safeMessage = escapeHtml(message).replace(/\r?\n/g, "<br />");
   const safeLanguage = escapeHtml(language);
   const safeCreatedAt = escapeHtml(new Date(createdAt).toLocaleString("en-GB", { timeZone: "Europe/Brussels" }));
 
   const text = [
-    "New DROOM IT project request",
+    `New DROOM IT ${requestType === "audit" ? "website audit" : "project"} request`,
     "",
     `Request ID: ${id}`,
     `Received: ${safeCreatedAt}`,
     `Name: ${name}`,
     `Email: ${email}`,
     `Company: ${company || "Not provided"}`,
+    `Website URL: ${websiteUrl || "Not provided"}`,
+    `Project type: ${projectType || "Not specified"}`,
+    `Request type: ${requestType || "project"}`,
     `Language: ${language}`,
     "",
     "Message:",
@@ -101,7 +114,7 @@ function buildEmail({ id, createdAt, name, email, company, message, language }) 
 
   const html = `
     <div style="font-family:Arial,sans-serif;line-height:1.6;color:#111315;max-width:640px">
-      <h1 style="font-size:22px;margin:0 0 16px">New DROOM IT project request</h1>
+      <h1 style="font-size:22px;margin:0 0 16px">New DROOM IT ${safeRequestType === "audit" ? "website audit" : "project"} request</h1>
       <p style="margin:0 0 20px;color:#5d6265">A visitor submitted the contact form on www.droomit.be.</p>
       <table style="border-collapse:collapse;width:100%;margin:0 0 20px">
         <tr><td style="padding:8px 0;font-weight:700;width:130px">Request ID</td><td>${escapeHtml(id)}</td></tr>
@@ -109,6 +122,9 @@ function buildEmail({ id, createdAt, name, email, company, message, language }) 
         <tr><td style="padding:8px 0;font-weight:700">Name</td><td>${safeName}</td></tr>
         <tr><td style="padding:8px 0;font-weight:700">Email</td><td><a href="mailto:${safeEmail}">${safeEmail}</a></td></tr>
         <tr><td style="padding:8px 0;font-weight:700">Company</td><td>${safeCompany}</td></tr>
+        <tr><td style="padding:8px 0;font-weight:700">Website URL</td><td>${safeWebsiteUrl}</td></tr>
+        <tr><td style="padding:8px 0;font-weight:700">Project type</td><td>${safeProjectType}</td></tr>
+        <tr><td style="padding:8px 0;font-weight:700">Request type</td><td>${safeRequestType}</td></tr>
         <tr><td style="padding:8px 0;font-weight:700">Language</td><td>${safeLanguage}</td></tr>
       </table>
       <div style="border-top:1px solid #d9ddda;padding-top:18px">
@@ -119,7 +135,7 @@ function buildEmail({ id, createdAt, name, email, company, message, language }) 
   `;
 
   return {
-    subject: `New project request from ${name}`,
+    subject: `${requestType === "audit" ? "New website audit request" : "New project request"} from ${name}`,
     text,
     html,
   };
@@ -238,6 +254,9 @@ export default async function handler(request, response) {
     const name = String(body.name || "").trim();
     const email = String(body.email || "").trim().toLowerCase();
     const company = String(body.company || "").trim();
+    const websiteUrl = String(body.websiteUrl || body.website_url || "").trim();
+    const projectType = String(body.projectType || body.project_type || "").trim();
+    const requestType = String(body.requestType || body.request_type || "project").trim().slice(0, 30) || "project";
     const message = String(body.message || "").trim();
     const language = String(body.language || "").trim().slice(0, 12) || "unknown";
     const userAgent = String(request.headers["user-agent"] || "").slice(0, 500);
@@ -264,6 +283,9 @@ export default async function handler(request, response) {
         name,
         email,
         company,
+        website_url,
+        project_type,
+        request_type,
         message,
         language,
         user_agent
@@ -272,6 +294,9 @@ export default async function handler(request, response) {
         ${name},
         ${email},
         ${company || null},
+        ${websiteUrl || null},
+        ${projectType || null},
+        ${requestType},
         ${message},
         ${language},
         ${userAgent}
@@ -285,6 +310,9 @@ export default async function handler(request, response) {
       name,
       email,
       company,
+      websiteUrl,
+      projectType,
+      requestType,
       message,
       language,
     };
