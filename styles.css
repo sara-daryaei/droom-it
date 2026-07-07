@@ -28,6 +28,7 @@ body {
   color: var(--ink);
   font-family: var(--font-body);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 body.menu-open {
@@ -2027,8 +2028,7 @@ h1 {
 }
 
 .about-profile-copy h1,
-.about-profile-section h2,
-.company-profile-download h2 {
+.about-profile-section h2 {
   max-width: 880px;
   margin-top: 14px;
   font-size: clamp(36px, 5.6vw, 82px);
@@ -2210,10 +2210,33 @@ h1 {
 }
 
 .company-profile-download {
+  padding: clamp(48px, 7vw, 88px) clamp(20px, 7vw, 112px);
   border-top: 1px solid rgba(240, 217, 159, 0.18);
+  border-bottom: 1px solid rgba(240, 217, 159, 0.18);
   background:
     linear-gradient(135deg, rgba(240, 217, 159, 0.12), transparent 42%),
     #101214;
+}
+
+.company-profile-download > div {
+  min-width: 0;
+}
+
+.company-profile-download h2 {
+  max-width: 680px;
+  margin-top: 12px;
+  font-size: clamp(30px, 4.4vw, 58px);
+  line-height: 1.04;
+}
+
+.company-profile-download p {
+  max-width: 520px;
+  margin-top: 14px;
+}
+
+.company-profile-download .button {
+  flex: 0 0 auto;
+  min-width: 176px;
 }
 
 .contact-page {
