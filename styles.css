@@ -1246,6 +1246,26 @@ h1 {
   gap: 14px;
 }
 
+.profile-mini-section {
+  padding: clamp(40px, 6vw, 72px) clamp(20px, 7vw, 112px);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(90deg, rgba(240, 217, 159, 0.14), rgba(247, 248, 246, 0)),
+    var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.profile-mini-section h2 {
+  max-width: 720px;
+  margin-top: 10px;
+  font-size: clamp(30px, 4vw, 56px);
+  line-height: 1.02;
+}
+
 .showcase-grid {
   margin-top: 54px;
   display: grid;
@@ -3190,8 +3210,15 @@ h1 {
     flex-direction: column;
   }
 
+  .profile-mini-section {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 46px 20px;
+  }
+
   .cta-strip-actions,
-  .cta-strip-actions .button {
+  .cta-strip-actions .button,
+  .profile-mini-section .button {
     width: 100%;
   }
 
