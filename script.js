@@ -83,7 +83,7 @@
       "Help potential customers understand your business, trust your offer and know exactly how to take the next step.",
     serviceDesignTitle: "Business Websites",
     serviceEcommerce: "Give buyers a smoother path to compare products, feel reassured and move toward checkout or enquiry.",
-    serviceEcommerceTitle: "E-commerce",
+    serviceEcommerceTitle: "E\u2011commerce",
     serviceDevelopment:
       "Replace confusion or outdated design with a website that feels current, credible and easier to use.",
     serviceDevelopmentTitle: "Website Modernisation",
@@ -247,7 +247,7 @@
     ctaTitle: "Let's Build Something That Helps Your Business Grow.",
     ctaText: "Book a free consultation or request a website audit and get a clearer next step.",
     profileMiniText: "Download the DROOM IT Company Profile to learn more about our approach, services and founder-led process.",
-    contactTitle: "Let's Start With A Conversation",
+    contactTitle: "Let's Start a Conversation",
     contactText:
       "No pressure. No obligation. Tell us about your business, where you are today and where you would like to go. If we're a good fit, we'll define the next step together.",
     locationLabel: "Location",
@@ -360,7 +360,7 @@
       "Help potentiele klanten je bedrijf te begrijpen, je aanbod te vertrouwen en duidelijk te weten wat de volgende stap is.",
     serviceDesignTitle: "Bedrijfswebsites",
     serviceEcommerce: "Geef kopers een duidelijkere route om producten te vergelijken, vertrouwen te voelen en richting checkout of aanvraag te gaan.",
-    serviceEcommerceTitle: "E-commerce",
+    serviceEcommerceTitle: "E\u2011commerce",
     serviceDevelopment:
       "Vervang verwarring of verouderd design door een website die actueel, geloofwaardig en makkelijker bruikbaar voelt.",
     serviceDevelopmentTitle: "Website modernisatie",

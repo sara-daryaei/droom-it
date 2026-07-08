@@ -232,6 +232,10 @@ h2,
 h3 {
   font-family: var(--font-display);
   letter-spacing: 0;
+  text-wrap: balance;
+  hyphens: none;
+  word-break: normal;
+  overflow-wrap: normal;
 }
 
 h1 {
@@ -1074,7 +1078,7 @@ h1 {
 .home-service-grid {
   margin-top: 54px;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
   gap: 18px;
 }
 
@@ -1133,7 +1137,13 @@ h1 {
 }
 
 .home-service-grid h3 {
-  font-size: clamp(24px, 2.4vw, 34px);
+  font-size: clamp(24px, 2.1vw, 32px);
+  line-height: 1.2;
+}
+
+.home-service-grid h3[data-i18n="serviceEcommerceTitle"],
+.service-item h3[data-i18n="serviceEcommerceTitle"] {
+  white-space: nowrap;
 }
 
 .home-service-grid p,
@@ -2447,6 +2457,9 @@ h1 {
 
 .service-item h3 {
   font-size: clamp(24px, 3vw, 42px);
+  line-height: 1.16;
+  min-width: 0;
+  width: 100%;
 }
 
 .service-item p,
