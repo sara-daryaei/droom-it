@@ -317,8 +317,23 @@ export default async function handler(request, response) {
       language,
     };
 
-    const emailResult = await sendNotificationEmail(emailDetails);
-    const autoReplyResult = await sendAutoReplyEmail(emailDetails);
+    const emailResult = await sendNotificationEmail(emailDetails).catch((emailError) => {
+      console.error("Notification email failed", {
+        code: emailError.code,
+        responseCode: emailError.responseCode,
+        command: emailError.command,
+      });
+      return { sent: false, reason: "notification_failed" };
+    });
+
+    const autoReplyResult = await sendAutoReplyEmail(emailDetails).catch((emailError) => {
+      console.error("Auto-reply email failed", {
+        code: emailError.code,
+        responseCode: emailError.responseCode,
+        command: emailError.command,
+      });
+      return { sent: false, reason: "auto_reply_failed" };
+    });
 
     return response.status(201).json({
       ok: true,
