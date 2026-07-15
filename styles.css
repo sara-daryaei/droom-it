@@ -729,21 +729,21 @@ h1 {
 }
 
 .trust-band {
-  padding: clamp(22px, 3vw, 34px) clamp(24px, 7vw, 112px);
+  padding: clamp(26px, 3vw, 38px) clamp(24px, 7vw, 112px);
   background: var(--ink);
   color: var(--white);
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(18px, 3vw, 44px);
+  gap: 1px;
 }
 
 .trust-band div {
-  min-height: auto;
-  padding: 4px 0 4px 18px;
-  border-left: 1px solid rgba(240, 217, 159, 0.34);
+  min-height: 118px;
+  padding: 26px 24px;
+  border: 1px solid rgba(240, 217, 159, 0.16);
   display: grid;
   align-content: start;
-  gap: 6px;
+  gap: 8px;
 }
 
 .trust-band strong {
@@ -861,13 +861,13 @@ h1 {
 }
 
 .studio-showcase {
-  padding: clamp(66px, 8vw, 116px) clamp(20px, 7vw, 112px);
+  padding: clamp(70px, 9vw, 130px) clamp(20px, 7vw, 112px);
   background: var(--ink);
   color: var(--white);
   display: grid;
   grid-template-columns: minmax(0, 0.82fr) minmax(420px, 1.18fr);
   gap: clamp(40px, 8vw, 120px);
-  align-items: start;
+  align-items: center;
 }
 
 .studio-showcase .eyebrow {
@@ -896,7 +896,7 @@ h1 {
 }
 
 .studio-card {
-  min-height: clamp(176px, 17vw, 230px);
+  min-height: clamp(220px, 22vw, 300px);
   padding: clamp(22px, 3vw, 30px);
   border: 1px solid rgba(240, 217, 159, 0.22);
   border-radius: 12px;
@@ -950,13 +950,13 @@ h1 {
 .studio-card strong {
   max-width: 100%;
   font-family: var(--font-display);
-  font-size: clamp(23px, 2vw, 32px);
-  line-height: 1.1;
-  overflow-wrap: normal;
+  font-size: clamp(24px, 2.25vw, 36px);
+  line-height: 1.08;
+  overflow-wrap: anywhere;
 }
 
 .outcome-section {
-  padding: clamp(66px, 8vw, 116px) clamp(20px, 7vw, 112px);
+  padding: clamp(70px, 9vw, 130px) clamp(20px, 7vw, 112px);
   background: var(--white);
   display: grid;
   grid-template-columns: minmax(0, 0.88fr) minmax(420px, 1fr);
@@ -986,15 +986,17 @@ h1 {
 
 .outcome-grid {
   display: grid;
-  border-top: 1px solid var(--line);
+  gap: 16px;
 }
 
 .outcome-grid article {
-  min-height: auto;
-  padding: 26px 0;
-  border-bottom: 1px solid var(--line);
+  min-height: 178px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
   display: grid;
-  grid-template-columns: 54px minmax(120px, 0.45fr) 1fr;
+  grid-template-columns: 64px 0.5fr 1fr;
   gap: 22px;
   align-items: start;
 }
@@ -1030,7 +1032,7 @@ h1 {
 }
 
 .engagement-grid article {
-  min-height: 360px;
+  min-height: 420px;
   padding: 30px 26px;
   border: 1px solid rgba(17, 19, 21, 0.13);
   border-radius: 10px;
@@ -1054,7 +1056,7 @@ h1 {
 }
 
 .engagement-grid h3 {
-  margin-top: 52px;
+  margin-top: 76px;
   font-size: clamp(28px, 3vw, 44px);
   line-height: 1.04;
 }
@@ -1152,8 +1154,8 @@ h1 {
 }
 
 .showcase-section {
-  padding: clamp(62px, 8vw, 104px) clamp(20px, 7vw, 112px);
-  background: var(--paper);
+  padding: clamp(70px, 9vw, 130px) clamp(20px, 7vw, 112px);
+  background: #ecefed;
 }
 
 .trust-section,
@@ -1168,10 +1170,11 @@ h1 {
 
 .trust-card-grid {
   display: grid;
-  gap: 0;
-  border-top: 1px solid var(--line);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
 }
 
+.trust-card-grid article,
 .founder-card-large {
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -1179,19 +1182,28 @@ h1 {
 }
 
 .trust-card-grid article {
-  min-height: auto;
-  padding: 24px 0;
-  border-bottom: 1px solid var(--line);
+  min-height: 230px;
+  padding: 26px;
   position: relative;
-  display: grid;
-  grid-template-columns: 52px minmax(180px, 0.48fr) 1fr;
-  gap: 22px;
-  align-items: start;
-  overflow: visible;
+  overflow: hidden;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
 .trust-card-grid article::after {
-  display: none;
+  content: "";
+  position: absolute;
+  right: -46px;
+  top: -46px;
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(215, 173, 87, 0.18), transparent 70%);
+}
+
+.trust-card-grid article:hover {
+  transform: translateY(-4px);
+  border-color: rgba(215, 173, 87, 0.42);
+  box-shadow: 0 24px 70px rgba(17, 19, 21, 0.1);
 }
 
 .trust-card-grid article > span {
@@ -1202,12 +1214,12 @@ h1 {
 }
 
 .trust-card-grid h3 {
-  font-size: clamp(22px, 2.1vw, 30px);
-  line-height: 1.1;
+  font-size: clamp(22px, 2.3vw, 34px);
+  line-height: 1.08;
 }
 
 .trust-card-grid p {
-  margin-top: 0;
+  margin-top: 14px;
   color: var(--muted);
   font-size: 14px;
 }
@@ -1368,19 +1380,19 @@ h1 {
 .working-with-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 28px;
-  border-top: 1px solid rgba(240, 217, 159, 0.18);
+  gap: 14px;
 }
 
 .working-with-grid article {
-  min-height: auto;
-  padding: 22px 0;
-  border-bottom: 1px solid rgba(240, 217, 159, 0.16);
-  background: transparent;
+  min-height: 210px;
+  padding: 24px;
+  border: 1px solid rgba(240, 217, 159, 0.18);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.055);
 }
 
 .working-with-grid article:last-child {
-  grid-column: auto;
+  grid-column: 1 / -1;
 }
 
 .working-with-grid span {
@@ -1391,7 +1403,7 @@ h1 {
 }
 
 .working-with-grid h3 {
-  margin-top: 14px;
+  margin-top: 22px;
   color: var(--white);
   font-size: clamp(22px, 2vw, 30px);
   line-height: 1.08;
@@ -1546,22 +1558,20 @@ h1 {
 }
 
 .showcase-grid {
-  margin-top: 38px;
+  margin-top: 54px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  border: 1px solid rgba(17, 19, 21, 0.12);
-  background: rgba(17, 19, 21, 0.12);
+  gap: 18px;
 }
 
 .showcase-grid article {
-  min-height: auto;
-  border: 0;
-  border-radius: 0;
+  min-height: 520px;
+  border: 1px solid rgba(17, 19, 21, 0.12);
+  border-radius: 10px;
   background: var(--white);
   overflow: hidden;
   display: grid;
-  grid-template-rows: 170px auto auto 1fr;
+  grid-template-rows: 260px auto auto 1fr;
 }
 
 .showcase-grid article > .eyebrow,
@@ -1578,7 +1588,7 @@ h1 {
 
 .showcase-grid h3 {
   margin-top: 10px;
-  font-size: clamp(22px, 2.1vw, 30px);
+  font-size: clamp(25px, 2.5vw, 36px);
   line-height: 1.08;
 }
 
@@ -3510,7 +3520,6 @@ h1 {
 
   .trust-band div {
     min-height: auto;
-    padding-left: 14px;
   }
 
   .section {
@@ -3596,12 +3605,6 @@ h1 {
     grid-template-columns: 1fr;
   }
 
-  .trust-card-grid article {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 22px 0;
-  }
-
   .founder-card-large {
     grid-template-columns: 1fr;
   }
@@ -3633,7 +3636,7 @@ h1 {
 
   .showcase-grid article {
     min-height: auto;
-    grid-template-rows: 180px auto auto auto;
+    grid-template-rows: 230px auto auto auto;
   }
 
   .showcase-grid article > .eyebrow,
