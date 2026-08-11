@@ -247,12 +247,12 @@ button {
 .hero {
   min-height: calc(100svh - 76px);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(440px, 0.78fr);
+  grid-template-columns: minmax(0, 0.95fr) minmax(520px, 1.05fr);
   align-items: stretch;
 }
 
 .hero-copy {
-  padding: clamp(72px, 8vw, 132px) clamp(24px, 7vw, 112px);
+  padding: clamp(44px, 5vw, 82px) clamp(32px, 5vw, 80px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -292,10 +292,10 @@ h1 {
 }
 
 .hero-text {
-  max-width: 620px;
-  margin-top: 30px;
+  max-width: 580px;
+  margin-top: 20px;
   color: var(--muted);
-  font-size: clamp(16px, 1.4vw, 20px);
+  font-size: clamp(16px, 1.2vw, 18px);
 }
 
 .hero-pills {
@@ -319,10 +319,11 @@ h1 {
 }
 
 .hero-actions {
-  margin-top: 36px;
+  margin-top: 24px;
   display: flex;
   align-items: center;
-  gap: 26px;
+  flex-wrap: wrap;
+  gap: 14px;
 }
 
 .hero-secondary-link {
@@ -343,6 +344,17 @@ h1 {
   background:
     radial-gradient(circle at 14% 18%, rgba(215, 173, 87, 0.12), transparent 26%),
     linear-gradient(90deg, var(--paper) 0%, #f4f2ec 100%);
+}
+
+.premium-hero h1 {
+  max-width: 680px;
+  font-size: clamp(46px, 4.4vw, 70px);
+  line-height: 0.98;
+}
+
+.premium-hero .hero-trust-line,
+.premium-hero .hero-facts {
+  display: none;
 }
 
 .hero-proof-list {
@@ -524,6 +536,69 @@ h1 {
 .hero-visual::after {
   inset: 44px;
   border-color: rgba(255, 255, 255, 0.08);
+}
+
+.hero-visual.portfolio-spread {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-content: stretch;
+  align-items: stretch;
+  justify-items: stretch;
+  gap: clamp(18px, 2vw, 28px);
+  min-height: calc(100svh - 76px);
+  padding: clamp(24px, 3.5vw, 52px);
+}
+
+.hero-visual.portfolio-spread::before,
+.hero-visual.portfolio-spread::after {
+  z-index: 0;
+}
+
+.hero-visual.portfolio-spread .portfolio-spread-main {
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  height: min(54vh, 520px);
+  max-height: 520px;
+  align-self: center;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.hero-visual.portfolio-spread .polychem-preview-product {
+  object-position: center;
+}
+
+.hero-visual.portfolio-spread .polychem-preview-logo {
+  width: min(48%, 360px);
+}
+
+.hero-visual.portfolio-spread .polychem-preview-panel {
+  max-width: 440px;
+  padding: clamp(18px, 2.2vw, 28px);
+}
+
+.hero-visual.portfolio-spread .portfolio-spread-secondary {
+  position: absolute;
+  right: clamp(24px, 4vw, 58px);
+  bottom: clamp(98px, 10vw, 150px);
+  width: min(34%, 320px);
+  aspect-ratio: 16 / 10;
+  margin: 0;
+  border-radius: 12px;
+  z-index: 3;
+}
+
+.hero-visual.portfolio-spread .portfolio-spread-caption {
+  max-width: 420px;
+  align-self: end;
+  z-index: 4;
+}
+
+.hero-visual.portfolio-spread .portfolio-spread-caption strong {
+  font-size: clamp(20px, 1.7vw, 28px);
+  line-height: 1.12;
 }
 
 
@@ -918,6 +993,13 @@ h1 {
   gap: 18px;
   min-width: 0;
   overflow: hidden;
+}
+
+.hero-visual.portfolio-spread .portfolio-spread-secondary img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
 }
 
 .home-service-grid ul {
@@ -3278,6 +3360,21 @@ h1 {
     min-height: 560px;
   }
 
+  .hero-visual.portfolio-spread {
+    min-height: 560px;
+    padding: 32px;
+  }
+
+  .hero-visual.portfolio-spread .portfolio-spread-main {
+    height: 420px;
+  }
+
+  .hero-visual.portfolio-spread .portfolio-spread-secondary {
+    right: 32px;
+    bottom: 96px;
+    width: min(36%, 280px);
+  }
+
   .trust-band,
   .home-service-grid,
   .showcase-grid,
@@ -3433,6 +3530,16 @@ h1 {
     gap: 18px;
   }
 
+  .hero-proof-list {
+    gap: 8px;
+  }
+
+  .hero-proof-list span {
+    min-height: 30px;
+    padding: 0 10px;
+    font-size: 11px;
+  }
+
   .hero-facts {
     grid-template-columns: 1fr;
     margin-top: 38px;
@@ -3442,6 +3549,28 @@ h1 {
     min-height: 460px;
     padding: 22px;
     align-items: center;
+  }
+
+  .hero-visual.portfolio-spread {
+    min-height: auto;
+    padding: 22px;
+    gap: 16px;
+  }
+
+  .hero-visual.portfolio-spread .portfolio-spread-main {
+    height: 320px;
+  }
+
+  .hero-visual.portfolio-spread .portfolio-spread-secondary {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: min(74%, 280px);
+    justify-self: end;
+  }
+
+  .hero-visual.portfolio-spread .portfolio-spread-caption {
+    max-width: 100%;
   }
 
 
