@@ -364,6 +364,12 @@ h1 {
   gap: 10px;
 }
 
+.hero-proof-row {
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 10px;
+}
+
 .hero-proof-list span {
   min-height: 34px;
   padding: 0 13px;
@@ -382,9 +388,20 @@ h1 {
 }
 
 .hero-proof-row span {
+  min-height: auto;
+  padding: 0;
+  border: 0;
   border-radius: 0;
   background: transparent;
-  border-color: rgba(17, 19, 21, 0.18);
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.01em;
+}
+
+.hero-proof-row span + span::before {
+  content: "\00b7";
+  margin-right: 10px;
+  color: var(--gold);
 }
 
 .portfolio-spread {
@@ -567,7 +584,7 @@ h1 {
 }
 
 .hero-visual.portfolio-spread .polychem-preview-product {
-  object-position: center;
+  object-position: top center;
 }
 
 .hero-visual.portfolio-spread .polychem-preview-logo {
@@ -577,6 +594,15 @@ h1 {
 .hero-visual.portfolio-spread .polychem-preview-panel {
   max-width: 440px;
   padding: clamp(18px, 2.2vw, 28px);
+}
+
+.hero-visual.portfolio-spread .polychem-website-screenshot {
+  z-index: 0;
+  object-fit: cover;
+}
+
+.hero-visual.portfolio-spread .polychem-home-preview::after {
+  background: linear-gradient(180deg, rgba(17, 19, 21, 0.1), rgba(17, 19, 21, 0.28));
 }
 
 .hero-visual.portfolio-spread .portfolio-spread-secondary {
@@ -621,57 +647,6 @@ h1 {
 
 
 
-
-.trust-band {
-  padding: clamp(26px, 3vw, 38px) clamp(24px, 7vw, 112px);
-  background: var(--ink);
-  color: var(--white);
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1px;
-}
-
-.trust-band div {
-  min-height: 118px;
-  padding: 26px 24px;
-  border: 1px solid rgba(240, 217, 159, 0.16);
-  display: grid;
-  align-content: start;
-  gap: 8px;
-}
-
-.trust-band strong {
-  font-family: var(--font-display);
-  font-size: 18px;
-}
-
-.trust-band span {
-  color: #bdc1c2;
-  font-size: 13px;
-}
-
-.proof-strip {
-  padding: 18px clamp(20px, 7vw, 112px);
-  border-bottom: 1px solid var(--line);
-  background: var(--white);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-
-.proof-strip span {
-  min-height: 34px;
-  padding: 0 13px;
-  border: 1px solid rgba(17, 19, 21, 0.14);
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  color: var(--muted);
-  background: var(--paper);
-  font-size: 12px;
-  font-weight: 800;
-}
 
 .founder-led-strip {
   padding: clamp(56px, 7vw, 96px) clamp(20px, 7vw, 112px);
@@ -3375,7 +3350,6 @@ h1 {
     width: min(36%, 280px);
   }
 
-  .trust-band,
   .home-service-grid,
   .showcase-grid,
   .about-card-grid,
@@ -3531,6 +3505,7 @@ h1 {
   }
 
   .hero-proof-list {
+    flex-wrap: wrap;
     gap: 8px;
   }
 
@@ -3538,6 +3513,10 @@ h1 {
     min-height: 30px;
     padding: 0 10px;
     font-size: 11px;
+  }
+
+  .hero-proof-row span + span::before {
+    content: none;
   }
 
   .hero-facts {
@@ -3576,7 +3555,6 @@ h1 {
 
 
 
-  .trust-band,
   .home-service-grid,
   .showcase-grid,
   .engagement-grid,
@@ -3587,14 +3565,6 @@ h1 {
   .about-process-timeline,
   .premium-case-grid {
     grid-template-columns: 1fr;
-  }
-
-  .trust-band {
-    padding: 20px;
-  }
-
-  .trust-band div {
-    min-height: auto;
   }
 
   .section {
