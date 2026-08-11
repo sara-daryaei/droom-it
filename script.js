@@ -560,7 +560,97 @@ const translatableElements = document.querySelectorAll("[data-i18n]");
 const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
 const projectForms = document.querySelectorAll("[data-project-form]");
-let currentLanguage = localStorage.getItem("droom-it-language") || "en";
+const localizedRoutes = {
+  en: {
+    "/": "/en/",
+    "/en/": "/en/",
+    "/nl/": "/nl/",
+    "/services": "/en/services",
+    "/en/services": "/en/services",
+    "/nl/diensten": "/nl/diensten",
+    "/web-design": "/en/web-design",
+    "/en/web-design": "/en/web-design",
+    "/nl/webdesign": "/nl/webdesign",
+    "/website-redesign": "/en/website-redesign",
+    "/en/website-redesign": "/en/website-redesign",
+    "/nl/website-redesign": "/nl/website-redesign",
+    "/ecommerce": "/en/ecommerce",
+    "/en/ecommerce": "/en/ecommerce",
+    "/nl/ecommerce": "/nl/ecommerce",
+    "/web-applications": "/en/web-applications",
+    "/en/web-applications": "/en/web-applications",
+    "/nl/webapplicaties": "/nl/webapplicaties",
+    "/work": "/en/work",
+    "/en/work": "/en/work",
+    "/nl/werk": "/nl/werk",
+    "/work/polychem-mb": "/en/work/polychem-mb",
+    "/en/work/polychem-mb": "/en/work/polychem-mb",
+    "/nl/werk/polychem-mb": "/nl/werk/polychem-mb",
+    "/work/bubble-paws": "/en/work/bubble-paws",
+    "/en/work/bubble-paws": "/en/work/bubble-paws",
+    "/nl/werk/bubble-paws": "/nl/werk/bubble-paws",
+    "/process": "/en/process",
+    "/en/process": "/en/process",
+    "/nl/werkwijze": "/nl/werkwijze",
+    "/about": "/en/about",
+    "/en/about": "/en/about",
+    "/nl/over": "/nl/over",
+    "/contact": "/en/contact",
+    "/en/contact": "/en/contact",
+    "/nl/contact": "/nl/contact",
+    "/privacy": "/en/privacy",
+    "/en/privacy": "/en/privacy",
+    "/nl/privacy": "/nl/privacy",
+    "/legal": "/en/legal",
+    "/en/legal": "/en/legal",
+    "/nl/juridisch": "/nl/juridisch",
+  },
+  nl: {
+    "/": "/nl/",
+    "/en/": "/en/",
+    "/nl/": "/nl/",
+    "/services": "/nl/diensten",
+    "/en/services": "/nl/diensten",
+    "/nl/diensten": "/nl/diensten",
+    "/web-design": "/nl/webdesign",
+    "/en/web-design": "/nl/webdesign",
+    "/nl/webdesign": "/nl/webdesign",
+    "/website-redesign": "/nl/website-redesign",
+    "/en/website-redesign": "/nl/website-redesign",
+    "/nl/website-redesign": "/nl/website-redesign",
+    "/ecommerce": "/nl/ecommerce",
+    "/en/ecommerce": "/nl/ecommerce",
+    "/nl/ecommerce": "/nl/ecommerce",
+    "/web-applications": "/nl/webapplicaties",
+    "/en/web-applications": "/nl/webapplicaties",
+    "/nl/webapplicaties": "/nl/webapplicaties",
+    "/work": "/nl/werk",
+    "/en/work": "/nl/werk",
+    "/nl/werk": "/nl/werk",
+    "/work/polychem-mb": "/nl/werk/polychem-mb",
+    "/en/work/polychem-mb": "/nl/werk/polychem-mb",
+    "/nl/werk/polychem-mb": "/nl/werk/polychem-mb",
+    "/work/bubble-paws": "/nl/werk/bubble-paws",
+    "/en/work/bubble-paws": "/nl/werk/bubble-paws",
+    "/nl/werk/bubble-paws": "/nl/werk/bubble-paws",
+    "/process": "/nl/werkwijze",
+    "/en/process": "/nl/werkwijze",
+    "/nl/werkwijze": "/nl/werkwijze",
+    "/about": "/nl/over",
+    "/en/about": "/nl/over",
+    "/nl/over": "/nl/over",
+    "/contact": "/nl/contact",
+    "/en/contact": "/nl/contact",
+    "/nl/contact": "/nl/contact",
+    "/privacy": "/nl/privacy",
+    "/en/privacy": "/nl/privacy",
+    "/nl/privacy": "/nl/privacy",
+    "/legal": "/nl/juridisch",
+    "/en/legal": "/nl/juridisch",
+    "/nl/juridisch": "/nl/juridisch",
+  },
+};
+let currentLanguage = window.location.pathname.startsWith("/nl") ? "nl" : "en";
 
 function setLanguage(language) {
   const dictionary = translations[language];
@@ -587,7 +677,12 @@ function setFormStatus(form, message, isError = false) {
 }
 
 languageButtons.forEach((button) => {
-  button.addEventListener("click", () => setLanguage(button.dataset.lang));
+  button.addEventListener("click", () => {
+    const language = button.dataset.lang;
+    const path = window.location.pathname.replace(/\.html$/, "") || "/";
+    localStorage.setItem("droom-it-language", language);
+    window.location.href = localizedRoutes[language][path] || `/${language}/`;
+  });
 });
 
 function closeMenu() {
@@ -663,5 +758,6 @@ projectForms.forEach((projectForm) => {
   });
 });
 
-document.getElementById("year").textContent = new Date().getFullYear();
+const yearElement = document.getElementById("year");
+if (yearElement) yearElement.textContent = new Date().getFullYear();
 setLanguage(currentLanguage);

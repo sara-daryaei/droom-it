@@ -1,19 +1,22 @@
 <!doctype html>
-<html lang="en">
+<html lang="nl-BE">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#111315" />
     <meta name="description" content="Contact DROOM IT in Mechelen, Belgium to start a website, e-commerce, web application or UX/UI design project." />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://www.droomit.be/contact" />
+    <link rel="canonical" href="https://www.droomit.be/nl/contact" />
+    <link rel="alternate" hreflang="en" href="https://www.droomit.be/en/contact" />
+    <link rel="alternate" hreflang="nl-BE" href="https://www.droomit.be/nl/contact" />
+    <link rel="alternate" hreflang="x-default" href="https://www.droomit.be/en/contact" />
     <meta property="og:site_name" content="DROOM IT" />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en_GB" />
+    <meta property="og:locale" content="nl_BE" />
     <meta property="og:locale:alternate" content="nl_BE" />
     <meta property="og:title" content="Start a Project | Contact DROOM IT" />
     <meta property="og:description" content="Contact DROOM IT in Mechelen, Belgium to start a website, e-commerce, web application or UX/UI design project." />
-    <meta property="og:url" content="https://www.droomit.be/contact" />
+    <meta property="og:url" content="https://www.droomit.be/nl/contact" />
     <meta property="og:image" content="https://www.droomit.be/assets/droom-it-logo.png" />
     <meta property="og:image:alt" content="DROOM IT logo" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -25,62 +28,62 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css" />
-    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/script.js" defer></script>
   </head>
   <body>
     <header class="site-header">
-      <a class="brand-lockup" href="/" aria-label="DROOM IT home"><span class="brand-mark"><img src="./assets/droom-it-symbol.png" alt="" /></span><span class="brand-name">DROOM IT</span></a>
+      <a class="brand-lockup" href="/nl/" aria-label="DROOM IT home"><span class="brand-mark"><img src="/assets/droom-it-symbol.png" alt="" /></span><span class="brand-name">DROOM IT</span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
         <span></span><span></span>
         <span class="sr-only">Open menu</span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-        <a href="/services" data-i18n="navServices">Services</a>
-        <a href="/work" data-i18n="navWork">Work</a>
-        <a href="/process" data-i18n="navProcess">Process</a>
-        <a href="/about" data-i18n="navAbout">About</a>
-        <a href="/contact" data-i18n="navContact" aria-current="page">Contact</a>
+        <a href="/nl/diensten" data-i18n="navServices">Diensten</a>
+        <a href="/nl/werk" data-i18n="navWork">Werk</a>
+        <a href="/nl/werkwijze" data-i18n="navProcess">Werkwijze</a>
+        <a href="/nl/over" data-i18n="navAbout">Over ons</a>
+        <a href="/nl/contact" data-i18n="navContact" aria-current="page">Contact</a>
       </nav>
       <div class="header-actions">
         <div class="language-switcher" aria-label="Language selector">
-          <button class="language-button active" type="button" data-lang="en">EN</button>
-          <button class="language-button" type="button" data-lang="nl">NL</button>
+          <button class="language-button" type="button" data-lang="en">EN</button>
+          <button class="language-button active" type="button" data-lang="nl">NL</button>
         </div>
-        <a class="button button-small button-dark" href="/contact" data-i18n="startProject">Book a consultation</a>
+        <a class="button button-small button-dark" href="/nl/contact" data-i18n="startProject">Boek een gesprek</a>
       </div>
     </header>
     <main>
       <section class="contact-section contact-page" id="contact">
         <div class="contact-copy">
-          <p class="eyebrow" data-i18n="contactEyebrow">Start a conversation</p>
-          <h1 data-i18n="contactTitle">Let's plan the right website.</h1>
-          <p data-i18n="contactText">No pressure. No obligation. Tell us where your business is today, what you want to improve and what kind of result would make the investment worthwhile.</p>
+          <p class="eyebrow" data-i18n="contactEyebrow">Start een gesprek</p>
+          <h1 data-i18n="contactTitle">Laten we de juiste website plannen.</h1>
+          <p data-i18n="contactText">Geen druk. Geen verplichting. Vertel over je bedrijf, waar je vandaag staat en waar je naartoe wilt. Als er een goede match is, bepalen we samen de volgende stap.</p>
           <a class="contact-email" href="mailto:info@droomit.be">info@droomit.be</a>
           <div class="contact-meta">
             <div><span data-i18n="websiteLabel">Website</span><strong>www.droomit.be</strong></div>
-            <div><span data-i18n="locationLabel">Location</span><strong>Mechelen, Belgium</strong></div>
-            <div><span data-i18n="callLabel">Call</span><strong data-i18n="callValue">Consultation scheduled after first contact</strong></div>
+            <div><span data-i18n="locationLabel">Locatie</span><strong>Mechelen, Belgium</strong></div>
+            <div><span data-i18n="callLabel">Gesprek</span><strong data-i18n="callValue">Boek eerst een gesprek, daarna plannen we een call.</strong></div>
           </div>
         </div>
         <form class="contact-form" action="/api/start-project" method="POST" data-project-form data-success-key="requestSuccess">
           <input type="hidden" name="requestType" value="project" />
-          <label><span data-i18n="nameLabel">Name</span><input type="text" name="name" required autocomplete="name" /></label>
-          <label><span data-i18n="companyLabel">Company</span><input type="text" name="company" autocomplete="organization" /></label>
-          <label><span data-i18n="emailLabel">Email</span><input type="email" name="email" required autocomplete="email" /></label>
+          <label><span data-i18n="nameLabel">Naam</span><input type="text" name="name" required autocomplete="name" /></label>
+          <label><span data-i18n="companyLabel">Bedrijf</span><input type="text" name="company" autocomplete="organization" /></label>
+          <label><span data-i18n="emailLabel">E-mail</span><input type="email" name="email" required autocomplete="email" /></label>
           <label><span data-i18n="websiteUrlLabel">Website URL</span><input type="url" name="websiteUrl" placeholder="https://example.be" autocomplete="url" /></label>
           <label>
-            <span data-i18n="projectTypeLabel">Project type</span>
+            <span data-i18n="projectTypeLabel">Projecttype</span>
             <select name="projectType" required>
               <option value="Website" data-i18n="projectTypeWebsite">Website</option>
               <option value="E-commerce" data-i18n="projectTypeEcommerce">E-commerce</option>
-              <option value="Web Application" data-i18n="projectTypeApplication">Web Application</option>
+              <option value="Web Application" data-i18n="projectTypeApplication">Webapplicatie</option>
               <option value="UX/UI Design" data-i18n="projectTypeUx">UX/UI Design</option>
-              <option value="Not sure yet" data-i18n="projectTypeUnsure">Not sure yet</option>
+              <option value="Not sure yet" data-i18n="projectTypeUnsure">Nog niet zeker</option>
             </select>
           </label>
-          <label><span data-i18n="projectLabel">Tell us about your project</span><textarea name="message" rows="5" required></textarea></label>
-          <button class="button button-gold" type="submit" data-i18n="sendRequest">Book a consultation</button>
+          <label><span data-i18n="projectLabel">Vertel ons over je project</span><textarea name="message" rows="5" required></textarea></label>
+          <button class="button button-gold" type="submit" data-i18n="sendRequest">Boek een gesprek</button>
           <p class="form-status" data-form-status aria-live="polite"></p>
         </form>
       </section>
@@ -88,18 +91,18 @@
     <footer class="site-footer conversion-footer" aria-label="DROOM IT footer">
       <div class="footer-conversion">
         <div class="footer-brand-panel">
-          <a class="footer-logo-lockup" href="/" aria-label="DROOM IT home"><span><img src="/assets/droom-it-symbol.png" alt="" /></span><strong>DROOM IT</strong></a>
-          <p data-i18n="footerDesc">Founder-led web design, e-commerce and web application studio based in Belgium.</p>
+          <a class="footer-logo-lockup" href="/nl/" aria-label="DROOM IT home"><span><img src="/assets/droom-it-symbol.png" alt="" /></span><strong>DROOM IT</strong></a>
+          <p data-i18n="footerDesc">Founder-led webdesign, e-commerce en webapplicatie studio gevestigd in Belgie.</p>
           <div class="footer-cta-row">
-            <a class="button button-gold" href="/contact" data-i18n="startProject">Book a consultation</a>
-            <a class="button button-light" href="/#audit" data-i18n="freeAudit">Get a free website audit</a>
+            <a class="button button-gold" href="/nl/contact" data-i18n="startProject">Boek een gesprek</a>
+            <a class="button button-light" href="/nl/#audit" data-i18n="freeAudit">Vraag website-audit aan</a>
           </div>
         </div>
         <div class="footer-contact-panel">
-          <p class="eyebrow" data-i18n="footerContact">Get in touch</p>
+          <p class="eyebrow" data-i18n="footerContact">Neem contact op</p>
           <ul>
             <li><span>Email</span><a href="mailto:info@droomit.be">info@droomit.be</a></li>
-            <li><span>Phone</span><a href="/contact">Consultation scheduled after first contact</a></li>
+            <li><span>Telefoon</span><a href="/nl/contact">Gesprek wordt gepland na het eerste contact</a></li>
             <li><span>LinkedIn</span><a href="https://be.linkedin.com/in/sara-daryaei" target="_blank" rel="noopener">Sara Daryaei</a></li>
             <li><span>Company Profile</span><a href="/assets/droom-it-company-profile.pdf" download>Download PDF</a></li>
           </ul>
@@ -107,7 +110,7 @@
       </div>
       <div class="footer-bottom">
         <span>&copy; <span id="year"></span> DROOM IT &middot; Belgium</span>
-        <span class="footer-legal"><a href="/work">Case studies</a><a href="/about">About Sara</a><a href="/privacy">Privacy</a><a href="/legal">Legal notice</a><a href="/contact" data-i18n="navContact">Contact</a></span>
+        <span class="footer-legal"><a href="/nl/werk">Cases</a><a href="/nl/over">Over Sara</a><a href="/nl/privacy">Privacy</a><a href="/nl/juridisch">Juridische kennisgeving</a><a href="/nl/contact" data-i18n="navContact">Contact</a></span>
       </div>
     </footer>
   </body>
