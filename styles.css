@@ -3732,6 +3732,15 @@ h1 {
     padding: 64px 20px;
   }
 
+  .case-hero,
+  .case-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case-detail-grid > * {
+    min-width: 0;
+  }
+
   .case-image-band {
     padding: 0 20px 64px;
   }
