@@ -2,19 +2,75 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/", "destination": "/en/", "permanent": true },
-    { "source": "/services", "destination": "/en/services", "permanent": true },
-    { "source": "/web-design", "destination": "/en/web-design", "permanent": true },
-    { "source": "/website-redesign", "destination": "/en/website-redesign", "permanent": true },
-    { "source": "/ecommerce", "destination": "/en/ecommerce", "permanent": true },
-    { "source": "/web-applications", "destination": "/en/web-applications", "permanent": true },
-    { "source": "/work", "destination": "/en/work", "permanent": true },
-    { "source": "/work/polychem-mb", "destination": "/en/work/polychem-mb", "permanent": true },
-    { "source": "/work/bubble-paws", "destination": "/en/work/bubble-paws", "permanent": true },
-    { "source": "/process", "destination": "/en/process", "permanent": true },
-    { "source": "/about", "destination": "/en/about", "permanent": true },
-    { "source": "/contact", "destination": "/en/contact", "permanent": true },
-    { "source": "/privacy", "destination": "/en/privacy", "permanent": true },
-    { "source": "/legal", "destination": "/en/legal", "permanent": true }
+    {
+      "source": "/",
+      "destination": "/en",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/en/services",
+      "permanent": true
+    },
+    {
+      "source": "/web-design",
+      "destination": "/en/web-design",
+      "permanent": true
+    },
+    {
+      "source": "/website-redesign",
+      "destination": "/en/website-redesign",
+      "permanent": true
+    },
+    {
+      "source": "/ecommerce",
+      "destination": "/en/ecommerce",
+      "permanent": true
+    },
+    {
+      "source": "/web-applications",
+      "destination": "/en/web-applications",
+      "permanent": true
+    },
+    {
+      "source": "/work",
+      "destination": "/en/work",
+      "permanent": true
+    },
+    {
+      "source": "/work/polychem-mb",
+      "destination": "/en/work/polychem-mb",
+      "permanent": true
+    },
+    {
+      "source": "/work/bubble-paws",
+      "destination": "/en/work/bubble-paws",
+      "permanent": true
+    },
+    {
+      "source": "/process",
+      "destination": "/en/process",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/en/about",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/en/contact",
+      "permanent": true
+    },
+    {
+      "source": "/privacy",
+      "destination": "/en/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/legal",
+      "destination": "/en/legal",
+      "permanent": true
+    }
   ]
 }
