@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#111315" />
-    <meta name="description" content="See how DROOM IT moves from discovery and UX/UI design to development, testing and launch." />
+    <meta name="description" content="See how DROOM IT moves from verkenning and UX/UI design to development, testing and launch." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://www.droomit.be/nl/werkwijze" />
     <link rel="alternate" hreflang="en" href="https://www.droomit.be/en/process" />
@@ -15,13 +15,13 @@
     <meta property="og:locale" content="nl_BE" />
     <meta property="og:locale:alternate" content="en_GB" />
     <meta property="og:title" content="Digitale projectwerkwijze | DROOM IT" />
-    <meta property="og:description" content="See how DROOM IT moves from discovery and UX/UI design to development, testing and launch." />
+    <meta property="og:description" content="See how DROOM IT moves from verkenning and UX/UI design to development, testing and launch." />
     <meta property="og:url" content="https://www.droomit.be/nl/werkwijze" />
     <meta property="og:image" content="https://www.droomit.be/assets/droom-it-logo.png" />
     <meta property="og:image:alt" content="DROOM IT logo" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Digitale projectwerkwijze | DROOM IT" />
-    <meta name="twitter:description" content="See how DROOM IT moves from discovery and UX/UI design to development, testing and launch." />
+    <meta name="twitter:description" content="See how DROOM IT moves from verkenning and UX/UI design to development, testing and launch." />
     <meta name="twitter:image" content="https://www.droomit.be/assets/droom-it-logo.png" />
     <meta name="twitter:image:alt" content="DROOM IT logo" />
     <title>Digitale projectwerkwijze | DROOM IT</title>
@@ -32,9 +32,10 @@
     <script src="/script.js" defer></script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Ga naar hoofdinhoud</a>
     <header class="site-header">
-      <a class="brand-lockup" href="/nl/" aria-label="DROOM IT home"><span class="brand-mark"><img src="/assets/droom-it-symbol.png" alt="" /></span><span class="brand-name">DROOM IT</span></a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <a class="brand-lockup" href="/nl" aria-label="DROOM IT home"><span class="brand-mark"><img src="/assets/droom-it-symbol.png" alt="" /></span><span class="brand-name">DROOM IT</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu openen" data-open-label="Menu openen" data-close-label="Menu sluiten">
         <span></span><span></span>
         <span class="sr-only">Menu openen</span>
       </button>
@@ -53,7 +54,7 @@
         <a class="button button-small button-dark" href="/nl/contact" data-i18n="startProject">Boek een gesprek</a>
       </div>
     </header>
-    <main>
+    <main id="main-content">
       <section class="page-hero compact-page-hero process-page-hero">
         <p class="eyebrow" data-i18n="processEyebrow">Onze werkwijze</p>
         <h1 data-i18n="processTitle">Een helder proces van idee tot lancering.</h1>
@@ -61,7 +62,7 @@
       <section class="section process page-section-tight" id="process">
         <ol class="process-grid page-process-grid">
           <li><span>01</span><h3 data-i18n="discoverTitle">Ontdekken</h3><p data-i18n="discoverText">We bepalen jouw doelen, doelgroep en de juiste digitale richting.</p></li>
-          <li><span>02</span><h3 data-i18n="designTitle">Ontwerpen</h3><p data-i18n="designText">We ontwerpen een premium interface met duidelijke hi&euml;rarchie, vertrouwen en responsive layouts.</p></li>
+          <li><span>02</span><h3 data-i18n="designTitle">Ontwerpen</h3><p data-i18n="designText">We ontwerpen een premium interface met duidelijke hiërarchie, vertrouwen en responsive layouts.</p></li>
           <li><span>03</span><h3 data-i18n="buildTitle">Ontwikkeling</h3><p data-i18n="buildText">We bouwen de goedgekeurde ervaring met schone code, formulieren, integraties en performance in gedachten.</p></li>
           <li><span>04</span><h3 data-i18n="launchTitle">Lanceren</h3><p data-i18n="launchText">We testen, verfijnen en bereiden alles voor op een sterke lancering.</p></li>
         </ol>
@@ -70,11 +71,11 @@
     <footer class="site-footer conversion-footer" aria-label="DROOM IT footer">
       <div class="footer-conversion">
         <div class="footer-brand-panel">
-          <a class="footer-logo-lockup" href="/nl/" aria-label="DROOM IT home"><span><img src="/assets/droom-it-symbol.png" alt="" /></span><strong>DROOM IT</strong></a>
-          <p data-i18n="footerDesc">Founder-led webdesign-, e-commerce- en webapplicatiestudio gevestigd in Belgi&euml;.</p>
+          <a class="footer-logo-lockup" href="/nl" aria-label="DROOM IT home"><span><img src="/assets/droom-it-symbol.png" alt="" /></span><strong>DROOM IT</strong></a>
+          <p data-i18n="footerDesc">Webdesign-, e-commerce- en webapplicatiestudio gevestigd in België.</p>
           <div class="footer-cta-row">
             <a class="button button-gold" href="/nl/contact" data-i18n="startProject">Boek een gesprek</a>
-            <a class="button button-light" href="/nl/#audit" data-i18n="freeAudit">Vraag website-audit aan</a>
+            <a class="button button-light" href="/nl#audit" data-i18n="freeAudit">Vraag website-audit aan</a>
           </div>
         </div>
         <div class="footer-contact-panel">
@@ -88,7 +89,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; <span id="year"></span> DROOM IT &middot; Belgi&euml;</span>
+        <span>&copy; <span id="year"></span> DROOM IT &middot; België</span>
         <span class="footer-legal"><a href="/nl/werk">Cases</a><a href="/nl/over">Over Sara</a><a href="/nl/privacy">Privacy</a><a href="/nl/juridisch">Juridische kennisgeving</a><a href="/nl/contact" data-i18n="navContact">Contact</a></span>
       </div>
     </footer>

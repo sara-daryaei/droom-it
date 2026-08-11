@@ -1,5 +1,6 @@
 import { neon } from "@neondatabase/serverless";
 import nodemailer from "nodemailer";
+import { randomUUID } from "node:crypto";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const defaultRecipient = "info@droomit.be";
@@ -141,45 +142,67 @@ function buildEmail({ id, createdAt, name, email, company, websiteUrl, projectTy
   };
 }
 
-function buildAutoReplyEmail({ name }) {
+function getRequestId(request) {
+  return request.headers["x-vercel-id"] || request.headers["x-request-id"] || randomUUID();
+}
+
+function logEmailError(kind, requestId, emailError) {
+  console.error(`${kind} email failed`, {
+    requestId,
+    kind,
+    code: emailError.code,
+    response: emailError.response,
+    responseCode: emailError.responseCode,
+    command: emailError.command,
+  });
+}
+
+function buildAutoReplyEmail({ name, language }) {
   const safeName = escapeHtml(name);
+  const isDutch = String(language || "").toLowerCase().startsWith("nl");
 
-  const text = [
-    `Dear ${name},`,
-    "",
-    "Thank you for trusting DROOM IT. We will contact you as soon as possible.",
-    "",
-    "Kind regards,",
-    "DROOM IT",
-    "",
-    "------------------------------",
-    "",
-    `Beste ${name},`,
-    "",
-    "Bedankt voor uw vertrouwen in DROOM IT. Wij nemen zo snel mogelijk contact met u op.",
-    "",
-    "Met vriendelijke groeten,",
-    "DROOM IT",
-  ].join("\n");
+  const text = isDutch
+    ? [
+        `Beste ${name},`,
+        "",
+        "Bedankt voor je vertrouwen in DROOM IT. We nemen zo snel mogelijk contact met je op.",
+        "",
+        "Met vriendelijke groeten,",
+        "DROOM IT",
+      ].join("\n")
+    : [
+        `Dear ${name},`,
+        "",
+        "Thank you for trusting DROOM IT. We will contact you as soon as possible.",
+        "",
+        "Kind regards,",
+        "DROOM IT",
+      ].join("\n");
 
-  const html = `
+  const html = isDutch
+    ? `
+    <div style="font-family:Arial,sans-serif;line-height:1.6;color:#111315;max-width:640px">
+      <div style="border:1px solid #d9ddda;padding:28px;background:#f7f8f6">
+        <p style="margin:0 0 16px">Beste ${safeName},</p>
+        <p style="margin:0 0 16px">Bedankt voor je vertrouwen in <strong>DROOM IT</strong>. We nemen zo snel mogelijk contact met je op.</p>
+        <p style="margin:0">Met vriendelijke groeten,<br /><strong>DROOM IT</strong></p>
+      </div>
+      <p style="margin:18px 0 0;color:#5d6265;font-size:12px">DROOM IT - Web Design & Digital Solutions</p>
+    </div>
+  `
+    : `
     <div style="font-family:Arial,sans-serif;line-height:1.6;color:#111315;max-width:640px">
       <div style="border:1px solid #d9ddda;padding:28px;background:#f7f8f6">
         <p style="margin:0 0 16px">Dear ${safeName},</p>
         <p style="margin:0 0 16px">Thank you for trusting <strong>DROOM IT</strong>. We will contact you as soon as possible.</p>
         <p style="margin:0">Kind regards,<br /><strong>DROOM IT</strong></p>
       </div>
-      <div style="border:1px solid #d9ddda;border-top:0;padding:28px;background:#ffffff">
-        <p style="margin:0 0 16px">Beste ${safeName},</p>
-        <p style="margin:0 0 16px">Bedankt voor uw vertrouwen in <strong>DROOM IT</strong>. Wij nemen zo snel mogelijk contact met u op.</p>
-        <p style="margin:0">Met vriendelijke groeten,<br /><strong>DROOM IT</strong></p>
-      </div>
       <p style="margin:18px 0 0;color:#5d6265;font-size:12px">DROOM IT - Web Design & Digital Solutions</p>
     </div>
   `;
 
   return {
-    subject: "Thank you for contacting DROOM IT / Bedankt voor uw bericht aan DROOM IT",
+    subject: isDutch ? "Bedankt voor je bericht aan DROOM IT" : "Thank you for contacting DROOM IT",
     text,
     html,
   };
@@ -244,6 +267,8 @@ async function sendAutoReplyEmail(details) {
 }
 
 export default async function handler(request, response) {
+  const requestId = getRequestId(request);
+
   if (request.method !== "POST") {
     response.setHeader("Allow", "POST");
     return response.status(405).json({ ok: false, message: "Method not allowed" });
@@ -318,20 +343,12 @@ export default async function handler(request, response) {
     };
 
     const emailResult = await sendNotificationEmail(emailDetails).catch((emailError) => {
-      console.error("Notification email failed", {
-        code: emailError.code,
-        responseCode: emailError.responseCode,
-        command: emailError.command,
-      });
+      logEmailError("Notification", requestId, emailError);
       return { sent: false, reason: "notification_failed" };
     });
 
     const autoReplyResult = await sendAutoReplyEmail(emailDetails).catch((emailError) => {
-      console.error("Auto-reply email failed", {
-        code: emailError.code,
-        responseCode: emailError.responseCode,
-        command: emailError.command,
-      });
+      logEmailError("Auto-reply", requestId, emailError);
       return { sent: false, reason: "auto_reply_failed" };
     });
 
@@ -341,9 +358,10 @@ export default async function handler(request, response) {
       createdAt: rows[0].created_at,
       emailSent: emailResult.sent,
       autoReplySent: autoReplyResult.sent,
+      requestId,
     });
   } catch (error) {
-    console.error("Project request failed", error);
+    console.error("Project request failed", { requestId, error });
 
     return response.status(500).json({
       ok: false,

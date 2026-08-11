@@ -15,12 +15,17 @@
     <script src="/script.js" defer></script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
-      <a class="brand-lockup" href="/en/" aria-label="DROOM IT home"><span class="brand-mark"><img src="/assets/droom-it-symbol.png" alt="" /></span><span class="brand-name">DROOM IT</span></a>
+      <a class="brand-lockup" href="/en" aria-label="DROOM IT home"><span class="brand-mark"><img src="/assets/droom-it-symbol.png" alt="" /></span><span class="brand-name">DROOM IT</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu" data-open-label="Open menu" data-close-label="Close menu">
+        <span></span><span></span>
+        <span class="sr-only">Open menu</span>
+      </button>
       <nav class="site-nav" id="site-nav" aria-label="Primary navigation"><a href="/en/services">Services</a><a href="/en/work">Work</a><a href="/en/process">Process</a><a href="/en/about">About</a><a href="/en/contact">Contact</a></nav>
       <div class="header-actions"><div class="language-switcher" aria-label="Language selector"><button class="language-button active" type="button" data-lang="en">EN</button><button class="language-button" type="button" data-lang="nl">NL</button></div><a class="button button-small button-dark" href="/en/contact">Book a consultation</a></div>
     </header>
-    <main>
+    <main id="main-content">
       <section class="page-hero compact-page-hero"><p class="eyebrow">Privacy</p><h1>Privacy Policy</h1><p>DROOM IT collects only the information needed to respond to enquiries, prepare website audits and discuss potential projects.</p></section>
       <section class="legal-content">
         <h2>Information we collect</h2>

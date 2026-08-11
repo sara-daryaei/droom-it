@@ -32,9 +32,10 @@
     <script src="/script.js" defer></script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Ga naar hoofdinhoud</a>
     <header class="site-header">
-      <a class="brand-lockup" href="/nl/" aria-label="DROOM IT home"><span class="brand-mark"><img src="/assets/droom-it-symbol.png" alt="" /></span><span class="brand-name">DROOM IT</span></a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <a class="brand-lockup" href="/nl" aria-label="DROOM IT home"><span class="brand-mark"><img src="/assets/droom-it-symbol.png" alt="" /></span><span class="brand-name">DROOM IT</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu openen" data-open-label="Menu openen" data-close-label="Menu sluiten">
         <span></span><span></span>
         <span class="sr-only">Menu openen</span>
       </button>
@@ -53,7 +54,7 @@
         <a class="button button-small button-dark" href="/nl/contact" data-i18n="startProject">Boek een gesprek</a>
       </div>
     </header>
-    <main>
+    <main id="main-content">
       <section class="page-hero compact-page-hero">
         <p class="eyebrow" data-i18n="servicesEyebrow">Wat we doen</p>
         <h1 data-i18n="servicesTitle">Resultaatgerichte digitale diensten voor Belgische bedrijven.</h1>
@@ -65,7 +66,7 @@
             <span>01</span>
             <div>
               <h3 data-i18n="serviceDesignTitle">Bedrijfswebsites</h3>
-              <p data-i18n="serviceDesign">Help potenti&euml;le klanten je bedrijf te begrijpen, je aanbod te vertrouwen en duidelijk te weten wat de volgende stap is.</p>
+              <p data-i18n="serviceDesign">Help potentiële klanten je bedrijf te begrijpen, je aanbod te vertrouwen en duidelijk te weten wat de volgende stap is.</p>
               <ul class="service-bullets"><li data-i18n="serviceBulletTrust">Heldere structuur en vertrouwenwekkende content</li><li data-i18n="serviceBulletMobile">Responsive layouts voor elk scherm</li><li data-i18n="serviceBulletLeads">Conversiegerichte calls-to-action</li></ul>
               <a class="text-link" href="/nl/webdesign"><span>Bekijk dienst</span><span aria-hidden="true">-&gt;</span></a>
             </div>
@@ -84,7 +85,7 @@
             <div>
               <h3 data-i18n="serviceDevelopmentTitle">Website modernisatie</h3>
               <p data-i18n="serviceDevelopment">Vervang verwarring of verouderd design door een website die actueel, geloofwaardig en makkelijker bruikbaar voelt.</p>
-              <ul class="service-bullets"><li data-i18n="devBulletClean">Schone, onderhoudbare code</li><li data-i18n="devBulletReliable">Betrouwbare performance en deployment</li><li data-i18n="devBulletIntegrations">Formulieren, data capture en integraties</li></ul>
+              <ul class="service-bullets"><li data-i18n="devBulletClean">Schone, onderhoudbare code</li><li data-i18n="devBulletReliable">Betrouwbare performance en publicatie</li><li data-i18n="devBulletIntegrations">Formulieren, gegevensverzameling en integraties</li></ul>
               <a class="text-link" href="/nl/website-redesign"><span>Bekijk dienst</span><span aria-hidden="true">-&gt;</span></a>
             </div>
           </article>
@@ -112,11 +113,11 @@
     <footer class="site-footer conversion-footer" aria-label="DROOM IT footer">
       <div class="footer-conversion">
         <div class="footer-brand-panel">
-          <a class="footer-logo-lockup" href="/nl/" aria-label="DROOM IT home"><span><img src="/assets/droom-it-symbol.png" alt="" /></span><strong>DROOM IT</strong></a>
-          <p data-i18n="footerDesc">Founder-led webdesign-, e-commerce- en webapplicatiestudio gevestigd in Belgi&euml;.</p>
+          <a class="footer-logo-lockup" href="/nl" aria-label="DROOM IT home"><span><img src="/assets/droom-it-symbol.png" alt="" /></span><strong>DROOM IT</strong></a>
+          <p data-i18n="footerDesc">Webdesign-, e-commerce- en webapplicatiestudio gevestigd in België.</p>
           <div class="footer-cta-row">
             <a class="button button-gold" href="/nl/contact" data-i18n="startProject">Boek een gesprek</a>
-            <a class="button button-light" href="/nl/#audit" data-i18n="freeAudit">Vraag website-audit aan</a>
+            <a class="button button-light" href="/nl#audit" data-i18n="freeAudit">Vraag website-audit aan</a>
           </div>
         </div>
         <div class="footer-contact-panel">
@@ -130,7 +131,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; <span id="year"></span> DROOM IT &middot; Belgi&euml;</span>
+        <span>&copy; <span id="year"></span> DROOM IT &middot; België</span>
         <span class="footer-legal"><a href="/nl/werk">Cases</a><a href="/nl/over">Over Sara</a><a href="/nl/privacy">Privacy</a><a href="/nl/juridisch">Juridische kennisgeving</a><a href="/nl/contact" data-i18n="navContact">Contact</a></span>
       </div>
     </footer>

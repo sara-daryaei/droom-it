@@ -29,9 +29,10 @@
     <script src="./script.js" defer></script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
       <a class="brand-lockup" href="/" aria-label="DROOM IT home"><span class="brand-mark"><img src="./assets/droom-it-symbol.png" alt="" /></span><span class="brand-name">DROOM IT</span></a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu" data-open-label="Open menu" data-close-label="Close menu">
         <span></span><span></span>
         <span class="sr-only">Open menu</span>
       </button>
@@ -50,7 +51,7 @@
         <a class="button button-small button-dark" href="/contact" data-i18n="startProject">Book a consultation</a>
       </div>
     </header>
-    <main>
+    <main id="main-content">
       <section class="page-hero compact-page-hero process-page-hero">
         <p class="eyebrow" data-i18n="processEyebrow">How we work</p>
         <h1 data-i18n="processTitle">A clear process from idea to launch.</h1>

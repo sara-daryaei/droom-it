@@ -37,6 +37,39 @@ main {
   overflow-x: clip;
 }
 
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: 16px;
+  z-index: 2000;
+  transform: translateY(-140%);
+  padding: 10px 14px;
+  border: 2px solid var(--gold);
+  border-radius: 6px;
+  background: var(--ink);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 800;
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+.language-button:focus-visible,
+.menu-toggle:focus-visible,
+.button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
 body.menu-open {
   overflow-x: hidden;
 }
@@ -493,132 +526,26 @@ h1 {
   border-color: rgba(255, 255, 255, 0.08);
 }
 
-.brand-orbit {
-  position: absolute;
-  top: clamp(30px, 5vw, 66px);
-  right: clamp(30px, 5vw, 74px);
-  width: clamp(72px, 8vw, 112px);
-  aspect-ratio: 1;
-  border: 1px solid rgba(240, 217, 159, 0.34);
-  background: rgba(5, 5, 5, 0.72);
-  display: grid;
-  place-items: center;
-  z-index: 1;
-}
 
-.brand-orbit img {
-  width: 82%;
-  height: 82%;
-  object-fit: contain;
-}
 
-.product-window {
-  position: relative;
-  z-index: 1;
-  width: min(100%, 560px);
-  border: 1px solid rgba(240, 217, 159, 0.22);
-  border-radius: 10px;
-  background: rgba(17, 19, 21, 0.86);
-  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.34);
-  padding: clamp(20px, 3vw, 34px);
-}
 
-.window-bar {
-  min-height: 56px;
-  border-radius: 7px;
-  background: rgba(255, 255, 255, 0.08);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0 18px;
-  color: var(--white);
-  font-size: 13px;
-}
 
-.window-bar span {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: var(--gold);
-}
 
-.window-bar span:nth-child(2),
-.window-bar span:nth-child(3) {
-  background: rgba(255, 255, 255, 0.36);
-}
 
-.window-bar strong {
-  margin-left: 8px;
-  font-family: var(--font-display);
-  letter-spacing: 0.04em;
-}
 
-.product-dashboard {
-  margin-top: 28px;
-  display: grid;
-  grid-template-columns: 0.52fr 1fr;
-  gap: 24px;
-}
 
-.product-dashboard aside,
-.product-stage,
-.product-cards span {
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.07);
-}
 
-.product-dashboard aside {
-  min-height: 290px;
-  padding: 32px 24px;
-  display: grid;
-  align-content: start;
-  gap: 24px;
-}
 
-.product-dashboard aside span {
-  height: 10px;
-  background: linear-gradient(90deg, var(--gold) 0 28%, rgba(255,255,255,0.36) 28% 100%);
-}
 
 .product-main {
   display: grid;
   gap: 24px;
 }
 
-.product-stage {
-  min-height: 150px;
-  border: 1px solid rgba(215, 173, 87, 0.8);
-  padding: 34px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: start;
-  gap: 18px;
-  color: var(--white);
-  font-family: var(--font-display);
-  font-size: clamp(22px, 2.4vw, 34px);
-}
 
-.product-stage span:first-child {
-  color: var(--gold-light);
-}
 
-.product-stage::after {
-  content: "";
-  grid-column: 1 / -1;
-  height: 2px;
-  background: var(--gold);
-}
 
-.product-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-}
 
-.product-cards span {
-  min-height: 126px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
 
 .trust-band {
   padding: clamp(26px, 3vw, 38px) clamp(24px, 7vw, 112px);
@@ -3518,56 +3445,7 @@ h1 {
   }
 
 
-  .mobile-screen {
-    min-height: 180px;
-    border-radius: 18px;
-    padding: 14px;
-  }
 
-  .mobile-screen strong {
-    margin-top: 18px;
-    font-size: 20px;
-  }
-
-  .brand-orbit {
-    top: 22px;
-    right: 22px;
-    width: 68px;
-  }
-
-  .product-window {
-    margin-top: 46px;
-    padding: 18px;
-  }
-
-  .window-bar {
-    min-height: 46px;
-    font-size: 11px;
-    padding: 0 12px;
-  }
-
-  .product-dashboard {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .product-dashboard aside {
-    min-height: 86px;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 18px;
-    gap: 14px;
-  }
-
-  .product-stage {
-    min-height: 118px;
-    padding: 22px;
-    font-size: 22px;
-    gap: 10px;
-  }
-
-  .product-cards span {
-    min-height: 70px;
-  }
 
   .trust-band,
   .home-service-grid,

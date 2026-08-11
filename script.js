@@ -4,6 +4,7 @@ const siteNav = document.querySelector(".site-nav");
 const projectForms = document.querySelectorAll("[data-project-form]");
 
 const routePairs = {
+  "/en": "/nl",
   "/en/": "/nl/",
   "/en/services": "/nl/diensten",
   "/en/web-design": "/nl/webdesign",
@@ -21,7 +22,7 @@ const routePairs = {
 };
 
 const legacyEnglishRoutes = {
-  "/": "/en/",
+  "/": "/en",
   "/services": "/en/services",
   "/web-design": "/en/web-design",
   "/website-redesign": "/en/website-redesign",
@@ -49,15 +50,15 @@ const formMessages = {
   nl: {
     sending: "Je aanvraag wordt verzonden...",
     requestSuccess: "Bedankt. Je projectaanvraag is opgeslagen en we nemen snel contact met je op.",
-    auditSuccess: "Bedankt. We bekijken je website en sturen je snel praktische verbeteridee?n.",
+    auditSuccess: "Bedankt. We bekijken je website en sturen je snel praktische verbeterideeën.",
     error: "Er ging iets mis. Mail naar info@droomit.be of probeer opnieuw.",
   },
 };
 
 function routeForLanguage(language) {
-  const path = window.location.pathname.replace(/.html$/, "") || "/";
-  if (language === "nl") return routePairs[path] || legacyEnglishRoutes[path]?.replace(/^\/en/, "/nl") || "/nl/";
-  return reverseRoutePairs[path] || legacyEnglishRoutes[path] || "/en/";
+  const path = window.location.pathname.replace(/\.html$/, "").replace(/\/$/, "") || "/";
+  if (language === "nl") return routePairs[path] || legacyEnglishRoutes[path]?.replace(/^\/en/, "/nl") || "/nl";
+  return reverseRoutePairs[path] || legacyEnglishRoutes[path] || "/en";
 }
 
 languageButtons.forEach((button) => {
@@ -73,6 +74,9 @@ function closeMenu() {
   if (!menuToggle || !siteNav) return;
   siteNav.classList.remove("open");
   menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.setAttribute("aria-label", menuToggle.dataset.openLabel || "Open menu");
+  const menuLabel = menuToggle.querySelector(".sr-only");
+  if (menuLabel) menuLabel.textContent = menuToggle.dataset.openLabel || "Open menu";
   document.body.classList.remove("menu-open");
 }
 
@@ -81,6 +85,9 @@ if (menuToggle && siteNav) {
     event.stopPropagation();
     const isOpen = siteNav.classList.toggle("open");
     menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute("aria-label", isOpen ? menuToggle.dataset.closeLabel || "Close menu" : menuToggle.dataset.openLabel || "Open menu");
+    const menuLabel = menuToggle.querySelector(".sr-only");
+    if (menuLabel) menuLabel.textContent = isOpen ? menuToggle.dataset.closeLabel || "Close menu" : menuToggle.dataset.openLabel || "Open menu";
     document.body.classList.toggle("menu-open", isOpen);
   });
 
@@ -93,7 +100,10 @@ if (menuToggle && siteNav) {
   });
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") closeMenu();
+    if (event.key === "Escape" && siteNav.classList.contains("open")) {
+      closeMenu();
+      menuToggle.focus();
+    }
   });
 }
 
