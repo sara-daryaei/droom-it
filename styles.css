@@ -555,6 +555,7 @@ h1 {
   border-color: rgba(255, 255, 255, 0.08);
 }
 
+/* Portfolio hero overrides the generic flex-based hero visual. */
 .hero-visual.portfolio-spread {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -632,16 +633,6 @@ h1 {
 
 
 
-
-
-
-
-
-
-.product-main {
-  display: grid;
-  gap: 24px;
-}
 
 
 
@@ -838,8 +829,7 @@ h1 {
   top: 116px;
 }
 
-.outcome-copy h2,
-.showcase-section h2 {
+.outcome-copy h2 {
   max-width: 720px;
   margin-top: 14px;
   font-size: clamp(36px, 5vw, 70px);
@@ -1053,11 +1043,6 @@ h1 {
 .about-process-timeline li > span,
 .case-solution div > span {
   display: none !important;
-}
-
-.showcase-section {
-  padding: clamp(70px, 9vw, 130px) clamp(20px, 7vw, 112px);
-  background: #ecefed;
 }
 
 .trust-section,
@@ -3634,7 +3619,6 @@ h1 {
   .boutique-section,
   .next-steps-section,
   .engagement-section,
-  .showcase-section,
   .faq-section {
     padding: 64px 20px;
   }

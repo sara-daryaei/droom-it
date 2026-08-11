@@ -1,6 +1,10 @@
 import { next, rewrite } from "@vercel/functions";
 
 const EAZO_HOST = "eazo.droomit.be";
+
+// Static Vercel output cannot inspect the filesystem from Edge middleware.
+// Keep this list in sync when adding clean Dutch routes so unknown /nl/* URLs
+// can return the localized 404 instead of the root English 404.
 const VALID_NL_PATHS = new Set([
   "/nl",
   "/nl/contact",
@@ -28,6 +32,7 @@ export default function middleware(request) {
 
   if (
     url.pathname.startsWith("/nl/") &&
+    !url.pathname.startsWith("/api/") &&
     !VALID_NL_PATHS.has(url.pathname.replace(/\/$/, "")) &&
     !url.pathname.includes(".")
   ) {
