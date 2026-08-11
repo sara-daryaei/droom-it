@@ -976,7 +976,7 @@ h1 {
 .home-service-grid {
   margin-top: 54px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 18px;
 }
 
@@ -1037,9 +1037,10 @@ h1 {
 }
 
 .home-service-grid h3 {
-  font-size: clamp(24px, 2vw, 31px);
-  line-height: 1.2;
-  overflow-wrap: normal;
+  font-size: clamp(22px, 1.65vw, 28px);
+  line-height: 1.18;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .home-service-grid h3[data-i18n="serviceEcommerceTitle"],
@@ -1103,6 +1104,10 @@ h1 {
   padding: 26px;
   position: relative;
   overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+  gap: 22px;
+  align-items: center;
   transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
@@ -1131,12 +1136,13 @@ h1 {
 }
 
 .trust-card-grid h3 {
-  font-size: clamp(22px, 2.3vw, 34px);
-  line-height: 1.08;
+  font-size: clamp(22px, 2vw, 30px);
+  line-height: 1.12;
+  overflow-wrap: break-word;
 }
 
 .trust-card-grid p {
-  margin-top: 14px;
+  margin-top: 0;
   color: var(--muted);
   font-size: 14px;
 }
@@ -1294,7 +1300,7 @@ h1 {
   background: var(--ink);
   color: var(--white);
   display: grid;
-  grid-template-columns: minmax(0, 0.7fr) minmax(520px, 1fr);
+  grid-template-columns: minmax(0, 0.68fr) minmax(0, 1fr);
   gap: clamp(36px, 7vw, 90px);
   align-items: start;
 }
@@ -1306,7 +1312,7 @@ h1 {
 .working-with-section h2 {
   max-width: 780px;
   margin-top: 14px;
-  font-size: clamp(34px, 4.6vw, 62px);
+  font-size: clamp(34px, 4vw, 56px);
   line-height: 1.08;
 }
 
@@ -1342,9 +1348,10 @@ h1 {
 .working-with-grid h3 {
   margin-top: 0;
   color: var(--white);
-  font-size: clamp(21px, 1.65vw, 26px);
+  font-size: clamp(20px, 1.45vw, 24px);
   line-height: 1.12;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .working-with-grid p {
@@ -1666,7 +1673,7 @@ h1 {
   background: var(--ink);
   color: var(--white);
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1fr);
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1fr);
   gap: clamp(42px, 8vw, 120px);
 }
 
@@ -1679,8 +1686,8 @@ h1 {
 .home-cta h2 {
   max-width: 720px;
   margin-top: 14px;
-  font-size: clamp(34px, 5vw, 64px);
-  line-height: 1.04;
+  font-size: clamp(34px, 4.3vw, 58px);
+  line-height: 1.06;
 }
 
 .home-process ol {
@@ -1694,8 +1701,8 @@ h1 {
   padding: 24px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.16);
   display: grid;
-  grid-template-columns: minmax(150px, 0.34fr) 1fr;
-  gap: clamp(28px, 5vw, 58px);
+  grid-template-columns: minmax(130px, 0.32fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 44px);
   align-items: start;
 }
 
@@ -1710,7 +1717,8 @@ h1 {
   font-family: var(--font-display);
   font-size: clamp(22px, 1.8vw, 26px);
   line-height: 1.15;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .home-process li p {
@@ -1789,7 +1797,7 @@ h1 {
 .home-process .premium-timeline li {
   position: relative;
   padding: 26px 0;
-  grid-template-columns: minmax(180px, 0.38fr) 1fr;
+  grid-template-columns: minmax(130px, 0.32fr) minmax(0, 1fr);
   border-bottom-color: rgba(240, 217, 159, 0.14);
 }
 
@@ -2293,12 +2301,12 @@ h1 {
 .about-card-grid {
   margin-top: 54px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 18px;
 }
 
 .about-card-grid article {
-  min-height: 330px;
+  min-height: 260px;
   padding: 28px;
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -2322,9 +2330,10 @@ h1 {
 }
 
 .about-card-grid h3 {
-  margin-top: auto;
-  font-size: clamp(28px, 3vw, 44px);
-  line-height: 1.02;
+  margin-top: 0;
+  font-size: clamp(24px, 2vw, 32px);
+  line-height: 1.12;
+  overflow-wrap: break-word;
 }
 
 .about-card-grid p {
@@ -2376,20 +2385,24 @@ h1 {
   margin-top: 56px;
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  border-top: 1px solid rgba(240, 217, 159, 0.2);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 18px;
+  border-top: 0;
 }
 
 .about-process-timeline li {
-  min-height: 280px;
-  padding: 26px 20px;
-  border-right: 1px solid rgba(240, 217, 159, 0.18);
-  display: grid;
-  align-content: start;
+  min-height: 220px;
+  padding: 32px;
+  border: 1px solid rgba(240, 217, 159, 0.18);
+  border-top: 4px solid var(--gold);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .about-process-timeline li:last-child {
-  border-right: 0;
+  border-right: 1px solid rgba(240, 217, 159, 0.18);
 }
 
 .about-process-timeline span {
@@ -2400,9 +2413,11 @@ h1 {
 }
 
 .about-process-timeline strong {
-  margin-top: 72px;
+  margin-top: 0;
   font-family: var(--font-display);
-  font-size: clamp(24px, 2.4vw, 34px);
+  font-size: clamp(22px, 1.9vw, 28px);
+  line-height: 1.14;
+  overflow-wrap: break-word;
 }
 
 .about-process-timeline p {
@@ -2890,28 +2905,36 @@ h1 {
 .process-grid {
   margin-top: 60px;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   list-style: none;
-  border-top: 1px solid rgba(17, 19, 21, 0.22);
+  gap: 16px;
+  border-top: 0;
 }
 
 .process-grid li {
-  min-height: 270px;
-  padding: 28px 24px;
-  border-right: 1px solid rgba(17, 19, 21, 0.22);
+  min-height: 220px;
+  padding: 30px 26px;
+  border: 1px solid rgba(17, 19, 21, 0.16);
+  border-top: 4px solid var(--gold);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .process-grid li:first-child {
-  padding-left: 0;
+  padding-left: 26px;
 }
 
 .process-grid li:last-child {
-  border-right: 0;
+  border-right: 1px solid rgba(17, 19, 21, 0.16);
 }
 
 .process-grid h3 {
-  margin-top: 64px;
-  font-size: 28px;
+  margin-top: 0;
+  font-size: clamp(22px, 2vw, 28px);
+  line-height: 1.14;
+  overflow-wrap: break-word;
 }
 
 .process-grid p {
@@ -3592,12 +3615,12 @@ h1 {
   .about-process-timeline li:nth-child(2),
   .about-process-timeline li:nth-child(4) {
     min-height: auto;
-    border-right: 0;
+    border-right: 1px solid rgba(240, 217, 159, 0.18);
     border-bottom: 1px solid rgba(240, 217, 159, 0.18);
   }
 
   .about-process-timeline strong {
-    margin-top: 38px;
+    margin-top: 0;
   }
 
   .company-profile-download .button,
@@ -3648,6 +3671,11 @@ h1 {
 
   .trust-card-grid {
     grid-template-columns: 1fr;
+  }
+
+  .trust-card-grid article {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .founder-card-large {
