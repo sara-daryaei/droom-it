@@ -1,0 +1,1581 @@
+{
+  "testedProductionCommit": "ef18a00e088d2ce7bf754ffebb62122015d82df3",
+  "currentBranch": "main",
+  "timestamp": "2026-08-12T09:48:44.827Z",
+  "browser": "Chromium 151.0.7922.34",
+  "baseUrl": "https://www.droomit.be",
+  "productionDeployment": "",
+  "viewports": [
+    {
+      "route": "/en",
+      "width": 1280,
+      "height": 800,
+      "screenshot": "qa/final-acceptance/home-en-1280x800.png",
+      "httpStatus": 200,
+      "consoleErrors": [],
+      "networkFailures": [],
+      "metrics": {
+        "route": "/en",
+        "url": "https://www.droomit.be/en",
+        "title": "DROOM IT | Website Design, E-commerce & Web Applications in Belgium",
+        "lang": "en",
+        "fontsStatus": "loaded",
+        "innerWidth": 1280,
+        "innerHeight": 800,
+        "scrollWidth": 1280,
+        "scrollHeight": 9851,
+        "horizontalOverflow": false,
+        "offenders": [],
+        "header": {
+          "top": 0,
+          "right": 1280,
+          "bottom": 76,
+          "left": 0,
+          "width": 1280,
+          "height": 76
+        },
+        "nav": {
+          "top": 27.09375,
+          "right": 981.09375,
+          "bottom": 47.890625,
+          "left": 223.5625,
+          "width": 757.53125,
+          "height": 20.796875
+        },
+        "headerActions": {
+          "top": 18.5,
+          "right": 1228.8125,
+          "bottom": 56.5,
+          "left": 1013.09375,
+          "width": 215.71875,
+          "height": 38
+        },
+        "headerCta": {
+          "top": 18.5,
+          "right": 1228.8125,
+          "bottom": 56.5,
+          "left": 1091.21875,
+          "width": 137.59375,
+          "height": 38,
+          "clippedRight": false
+        },
+        "heroActions": {
+          "top": 594.734375,
+          "right": 544,
+          "bottom": 642.734375,
+          "left": 64,
+          "width": 480,
+          "height": 48
+        },
+        "heroActionsVisible": true,
+        "proof": {
+          "top": 664.734375,
+          "right": 544,
+          "bottom": 683.921875,
+          "left": 64,
+          "width": 480,
+          "height": 19.1875
+        },
+        "proofWithinViewport": true,
+        "portfolioMain": {
+          "top": 168.03125,
+          "right": 1235.203125,
+          "bottom": 600.03125,
+          "left": 652.796875,
+          "width": 582.40625,
+          "height": 432
+        },
+        "polychem": {
+          "src": "https://www.droomit.be/assets/polychem-website-desktop.webp",
+          "alt": "PolyChem MB website homepage interface screenshot",
+          "complete": true,
+          "naturalWidth": 1440,
+          "naturalHeight": 980,
+          "renderedWidth": 580.40625,
+          "renderedHeight": 430,
+          "visibleInViewport": true
+        },
+        "bubble": {
+          "src": "https://www.droomit.be/assets/bubble-paws-hero.webp",
+          "alt": "Bubble Paws responsive website preview",
+          "complete": true,
+          "naturalWidth": 900,
+          "naturalHeight": 688,
+          "renderedWidth": 226.46875,
+          "renderedHeight": 140.78125,
+          "visibleInViewport": true
+        },
+        "heroImages": [
+          {
+            "src": "https://www.droomit.be/assets/polychem-website-desktop.webp",
+            "complete": true,
+            "naturalWidth": 1440,
+            "naturalHeight": 980
+          },
+          {
+            "src": "https://www.droomit.be/assets/bubble-paws-hero.webp",
+            "complete": true,
+            "naturalWidth": 900,
+            "naturalHeight": 688
+          }
+        ],
+        "allVisibleHeroImagesLoaded": true
+      },
+      "horizontalOverflow": false,
+      "documentWidth": 1280,
+      "heroActionsVisible": true,
+      "heroActionsBottom": 642.734375,
+      "portfolioMainWidth": 582.40625,
+      "status": "PASS"
+    },
+    {
+      "route": "/en",
+      "width": 1366,
+      "height": 768,
+      "screenshot": "qa/final-acceptance/home-en-1366x768.png",
+      "httpStatus": 200,
+      "consoleErrors": [],
+      "networkFailures": [],
+      "metrics": {
+        "route": "/en",
+        "url": "https://www.droomit.be/en",
+        "title": "DROOM IT | Website Design, E-commerce & Web Applications in Belgium",
+        "lang": "en",
+        "fontsStatus": "loaded",
+        "innerWidth": 1366,
+        "innerHeight": 768,
+        "scrollWidth": 1366,
+        "scrollHeight": 9863,
+        "horizontalOverflow": false,
+        "offenders": [],
+        "header": {
+          "top": 0,
+          "right": 1366,
+          "bottom": 76,
+          "left": 0,
+          "width": 1366,
+          "height": 76
+        },
+        "nav": {
+          "top": 27.09375,
+          "right": 1063.65625,
+          "bottom": 47.890625,
+          "left": 227,
+          "width": 836.65625,
+          "height": 20.796875
+        },
+        "headerActions": {
+          "top": 18.5,
+          "right": 1311.375,
+          "bottom": 56.5,
+          "left": 1095.65625,
+          "width": 215.71875,
+          "height": 38
+        },
+        "headerCta": {
+          "top": 18.5,
+          "right": 1311.375,
+          "bottom": 56.5,
+          "left": 1173.78125,
+          "width": 137.59375,
+          "height": 38,
+          "clippedRight": false
+        },
+        "heroActions": {
+          "top": 587.453125,
+          "right": 580.546875,
+          "bottom": 635.453125,
+          "left": 68.296875,
+          "width": 512.25,
+          "height": 48
+        },
+        "heroActionsVisible": true,
+        "proof": {
+          "top": 657.453125,
+          "right": 580.546875,
+          "bottom": 676.640625,
+          "left": 68.296875,
+          "width": 512.25,
+          "height": 19.1875
+        },
+        "proofWithinViewport": true,
+        "portfolioMain": {
+          "top": 158.1875,
+          "right": 1318.1875,
+          "bottom": 572.90625,
+          "left": 696.640625,
+          "width": 621.546875,
+          "height": 414.71875
+        },
+        "polychem": {
+          "src": "https://www.droomit.be/assets/polychem-website-desktop.webp",
+          "alt": "PolyChem MB website homepage interface screenshot",
+          "complete": true,
+          "naturalWidth": 1440,
+          "naturalHeight": 980,
+          "renderedWidth": 619.546875,
+          "renderedHeight": 412.71875,
+          "visibleInViewport": true
+        },
+        "bubble": {
+          "src": "https://www.droomit.be/assets/bubble-paws-hero.webp",
+          "alt": "Bubble Paws responsive website preview",
+          "complete": true,
+          "naturalWidth": 900,
+          "naturalHeight": 688,
+          "renderedWidth": 241.8125,
+          "renderedHeight": 150.375,
+          "visibleInViewport": true
+        },
+        "heroImages": [
+          {
+            "src": "https://www.droomit.be/assets/polychem-website-desktop.webp",
+            "complete": true,
+            "naturalWidth": 1440,
+            "naturalHeight": 980
+          },
+          {
+            "src": "https://www.droomit.be/assets/bubble-paws-hero.webp",
+            "complete": true,
+            "naturalWidth": 900,
+            "naturalHeight": 688
+          }
+        ],
+        "allVisibleHeroImagesLoaded": true
+      },
+      "horizontalOverflow": false,
+      "documentWidth": 1366,
+      "heroActionsVisible": true,
+      "heroActionsBottom": 635.453125,
+      "portfolioMainWidth": 621.546875,
+      "status": "PASS"
+    },
+    {
+      "route": "/en",
+      "width": 1440,
+      "height": 900,
+      "screenshot": "qa/final-acceptance/home-en-1440x900.png",
+      "httpStatus": 200,
+      "consoleErrors": [],
+      "networkFailures": [],
+      "metrics": {
+        "route": "/en",
+        "url": "https://www.droomit.be/en",
+        "title": "DROOM IT | Website Design, E-commerce & Web Applications in Belgium",
+        "lang": "en",
+        "fontsStatus": "loaded",
+        "innerWidth": 1440,
+        "innerHeight": 900,
+        "scrollWidth": 1440,
+        "scrollHeight": 10062,
+        "horizontalOverflow": false,
+        "offenders": [],
+        "header": {
+          "top": 0,
+          "right": 1440,
+          "bottom": 76,
+          "left": 0,
+          "width": 1440,
+          "height": 76
+        },
+        "nav": {
+          "top": 27.09375,
+          "right": 1134.6875,
+          "bottom": 47.890625,
+          "left": 229.96875,
+          "width": 904.71875,
+          "height": 20.796875
+        },
+        "headerActions": {
+          "top": 18.5,
+          "right": 1382.40625,
+          "bottom": 56.5,
+          "left": 1166.6875,
+          "width": 215.71875,
+          "height": 38
+        },
+        "headerCta": {
+          "top": 18.5,
+          "right": 1382.40625,
+          "bottom": 56.5,
+          "left": 1244.8125,
+          "width": 137.59375,
+          "height": 38,
+          "clippedRight": false
+        },
+        "heroActions": {
+          "top": 662.640625,
+          "right": 612,
+          "bottom": 710.640625,
+          "left": 72,
+          "width": 540,
+          "height": 48
+        },
+        "heroActionsVisible": true,
+        "proof": {
+          "top": 732.640625,
+          "right": 612,
+          "bottom": 751.828125,
+          "left": 72,
+          "width": 540,
+          "height": 19.1875
+        },
+        "proofWithinViewport": true,
+        "portfolioMain": {
+          "top": 186.78125,
+          "right": 1389.59375,
+          "bottom": 672.78125,
+          "left": 734.390625,
+          "width": 655.203125,
+          "height": 486
+        },
+        "polychem": {
+          "src": "https://www.droomit.be/assets/polychem-website-desktop.webp",
+          "alt": "PolyChem MB website homepage interface screenshot",
+          "complete": true,
+          "naturalWidth": 1440,
+          "naturalHeight": 980,
+          "renderedWidth": 653.203125,
+          "renderedHeight": 484,
+          "visibleInViewport": true
+        },
+        "bubble": {
+          "src": "https://www.droomit.be/assets/bubble-paws-hero.webp",
+          "alt": "Bubble Paws responsive website preview",
+          "complete": true,
+          "naturalWidth": 900,
+          "naturalHeight": 688,
+          "renderedWidth": 255.03125,
+          "renderedHeight": 158.640625,
+          "visibleInViewport": true
+        },
+        "heroImages": [
+          {
+            "src": "https://www.droomit.be/assets/polychem-website-desktop.webp",
+            "complete": true,
+            "naturalWidth": 1440,
+            "naturalHeight": 980
+          },
+          {
+            "src": "https://www.droomit.be/assets/bubble-paws-hero.webp",
+            "complete": true,
+            "naturalWidth": 900,
+            "naturalHeight": 688
+          }
+        ],
+        "allVisibleHeroImagesLoaded": true
+      },
+      "horizontalOverflow": false,
+      "documentWidth": 1440,
+      "heroActionsVisible": true,
+      "heroActionsBottom": 710.640625,
+      "portfolioMainWidth": 655.203125,
+      "status": "PASS"
+    },
+    {
+      "route": "/en",
+      "width": 1536,
+      "height": 864,
+      "screenshot": "qa/final-acceptance/home-en-1536x864.png",
+      "httpStatus": 200,
+      "consoleErrors": [],
+      "networkFailures": [],
+      "metrics": {
+        "route": "/en",
+        "url": "https://www.droomit.be/en",
+        "title": "DROOM IT | Website Design, E-commerce & Web Applications in Belgium",
+        "lang": "en",
+        "fontsStatus": "loaded",
+        "innerWidth": 1536,
+        "innerHeight": 864,
+        "scrollWidth": 1536,
+        "scrollHeight": 10013,
+        "horizontalOverflow": false,
+        "offenders": [],
+        "header": {
+          "top": 0,
+          "right": 1536,
+          "bottom": 76,
+          "left": 0,
+          "width": 1536,
+          "height": 76
+        },
+        "nav": {
+          "top": 27.09375,
+          "right": 1226.84375,
+          "bottom": 47.890625,
+          "left": 233.8125,
+          "width": 993.03125,
+          "height": 20.796875
+        },
+        "headerActions": {
+          "top": 18.5,
+          "right": 1474.5625,
+          "bottom": 56.5,
+          "left": 1258.84375,
+          "width": 215.71875,
+          "height": 38
+        },
+        "headerCta": {
+          "top": 18.5,
+          "right": 1474.5625,
+          "bottom": 56.5,
+          "left": 1336.96875,
+          "width": 137.59375,
+          "height": 38,
+          "clippedRight": false
+        },
+        "heroActions": {
+          "top": 655.234375,
+          "right": 652.796875,
+          "bottom": 703.234375,
+          "left": 76.796875,
+          "width": 576,
+          "height": 48
+        },
+        "heroActionsVisible": true,
+        "proof": {
+          "top": 725.234375,
+          "right": 652.796875,
+          "bottom": 744.421875,
+          "left": 76.796875,
+          "width": 576,
+          "height": 19.1875
+        },
+        "proofWithinViewport": true,
+        "portfolioMain": {
+          "top": 176.6875,
+          "right": 1483.984375,
+          "bottom": 643.234375,
+          "left": 781.59375,
+          "width": 702.390625,
+          "height": 466.546875
+        },
+        "polychem": {
+          "src": "https://www.droomit.be/assets/polychem-website-desktop.webp",
+          "alt": "PolyChem MB website homepage interface screenshot",
+          "complete": true,
+          "naturalWidth": 1440,
+          "naturalHeight": 980,
+          "renderedWidth": 700.390625,
+          "renderedHeight": 464.546875,
+          "visibleInViewport": true
+        },
+        "bubble": {
+          "src": "https://www.droomit.be/assets/bubble-paws-hero.webp",
+          "alt": "Bubble Paws responsive website preview",
+          "complete": true,
+          "naturalWidth": 900,
+          "naturalHeight": 688,
+          "renderedWidth": 272.171875,
+          "renderedHeight": 169.34375,
+          "visibleInViewport": true
+        },
+        "heroImages": [
+          {
+            "src": "https://www.droomit.be/assets/polychem-website-desktop.webp",
+            "complete": true,
+            "naturalWidth": 1440,
+            "naturalHeight": 980
+          },
+          {
+            "src": "https://www.droomit.be/assets/bubble-paws-hero.webp",
+            "complete": true,
+            "naturalWidth": 900,
+            "naturalHeight": 688
+          }
+        ],
+        "allVisibleHeroImagesLoaded": true
+      },
+      "horizontalOverflow": false,
+      "documentWidth": 1536,
+      "heroActionsVisible": true,
+      "heroActionsBottom": 703.234375,
+      "portfolioMainWidth": 702.390625,
+      "status": "PASS"
+    },
+    {
+      "route": "/en",
+      "width": 1536,
+      "height": 1024,
+      "screenshot": "qa/final-acceptance/home-en-1536x1024.png",
+      "httpStatus": 200,
+      "consoleErrors": [],
+      "networkFailures": [],
+      "metrics": {
+        "route": "/en",
+        "url": "https://www.droomit.be/en",
+        "title": "DROOM IT | Website Design, E-commerce & Web Applications in Belgium",
+        "lang": "en",
+        "fontsStatus": "loaded",
+        "innerWidth": 1536,
+        "innerHeight": 1024,
+        "scrollWidth": 1536,
+        "scrollHeight": 10173,
+        "horizontalOverflow": false,
+        "offenders": [],
+        "header": {
+          "top": 0,
+          "right": 1536,
+          "bottom": 76,
+          "left": 0,
+          "width": 1536,
+          "height": 76
+        },
+        "nav": {
+          "top": 27.09375,
+          "right": 1226.84375,
+          "bottom": 47.890625,
+          "left": 233.8125,
+          "width": 993.03125,
+          "height": 20.796875
+        },
+        "headerActions": {
+          "top": 18.5,
+          "right": 1474.5625,
+          "bottom": 56.5,
+          "left": 1258.84375,
+          "width": 215.71875,
+          "height": 38
+        },
+        "headerCta": {
+          "top": 18.5,
+          "right": 1474.5625,
+          "bottom": 56.5,
+          "left": 1336.96875,
+          "width": 137.59375,
+          "height": 38,
+          "clippedRight": false
+        },
+        "heroActions": {
+          "top": 735.234375,
+          "right": 652.796875,
+          "bottom": 783.234375,
+          "left": 76.796875,
+          "width": 576,
+          "height": 48
+        },
+        "heroActionsVisible": true,
+        "proof": {
+          "top": 805.234375,
+          "right": 652.796875,
+          "bottom": 824.421875,
+          "left": 76.796875,
+          "width": 576,
+          "height": 19.1875
+        },
+        "proofWithinViewport": true,
+        "portfolioMain": {
+          "top": 229.96875,
+          "right": 1483.984375,
+          "bottom": 749.96875,
+          "left": 781.59375,
+          "width": 702.390625,
+          "height": 520
+        },
+        "polychem": {
+          "src": "https://www.droomit.be/assets/polychem-website-desktop.webp",
+          "alt": "PolyChem MB website homepage interface screenshot",
+          "complete": true,
+          "naturalWidth": 1440,
+          "naturalHeight": 980,
+          "renderedWidth": 700.390625,
+          "renderedHeight": 518,
+          "visibleInViewport": true
+        },
+        "bubble": {
+          "src": "https://www.droomit.be/assets/bubble-paws-hero.webp",
+          "alt": "Bubble Paws responsive website preview",
+          "complete": true,
+          "naturalWidth": 900,
+          "naturalHeight": 688,
+          "renderedWidth": 272.171875,
+          "renderedHeight": 169.34375,
+          "visibleInViewport": true
+        },
+        "heroImages": [
+          {
+            "src": "https://www.droomit.be/assets/polychem-website-desktop.webp",
+            "complete": true,
+            "naturalWidth": 1440,
+            "naturalHeight": 980
+          },
+          {
+            "src": "https://www.droomit.be/assets/bubble-paws-hero.webp",
+            "complete": true,
+            "naturalWidth": 900,
+            "naturalHeight": 688
+          }
+        ],
+        "allVisibleHeroImagesLoaded": true
+      },
+      "horizontalOverflow": false,
+      "documentWidth": 1536,
+      "heroActionsVisible": true,
+      "heroActionsBottom": 783.234375,
+      "portfolioMainWidth": 702.390625,
+      "status": "PASS"
+    },
+    {
+      "route": "/en",
+      "width": 1920,
+      "height": 1080,
+      "screenshot": "qa/final-acceptance/home-en-1920x1080.png",
+      "httpStatus": 200,
+      "consoleErrors": [],
+      "networkFailures": [],
+      "metrics": {
+        "route": "/en",
+        "url": "https://www.droomit.be/en",
+        "title": "DROOM IT | Website Design, E-commerce & Web Applications in Belgium",
+        "lang": "en",
+        "fontsStatus": "loaded",
+        "innerWidth": 1920,
+        "innerHeight": 1080,
+        "scrollWidth": 1920,
+        "scrollHeight": 9948,
+        "horizontalOverflow": false,
+        "offenders": [],
+        "header": {
+          "top": 0,
+          "right": 1920,
+          "bottom": 76,
+          "left": 0,
+          "width": 1920,
+          "height": 76
+        },
+        "nav": {
+          "top": 27.09375,
+          "right": 1608.28125,
+          "bottom": 47.890625,
+          "left": 236.375,
+          "width": 1371.90625,
+          "height": 20.796875
+        },
+        "headerActions": {
+          "top": 18.5,
+          "right": 1856,
+          "bottom": 56.5,
+          "left": 1640.28125,
+          "width": 215.71875,
+          "height": 38
+        },
+        "headerCta": {
+          "top": 18.5,
+          "right": 1856,
+          "bottom": 56.5,
+          "left": 1718.40625,
+          "width": 137.59375,
+          "height": 38,
+          "clippedRight": false
+        },
+        "heroActions": {
+          "top": 767.984375,
+          "right": 832,
+          "bottom": 815.984375,
+          "left": 80,
+          "width": 752,
+          "height": 48
+        },
+        "heroActionsVisible": true,
+        "proof": {
+          "top": 837.984375,
+          "right": 832,
+          "bottom": 857.171875,
+          "left": 80,
+          "width": 752,
+          "height": 19.1875
+        },
+        "proofWithinViewport": true,
+        "portfolioMain": {
+          "top": 255.84375,
+          "right": 1867.984375,
+          "bottom": 775.84375,
+          "left": 964,
+          "width": 903.984375,
+          "height": 520
+        },
+        "polychem": {
+          "src": "https://www.droomit.be/assets/polychem-website-desktop.webp",
+          "alt": "PolyChem MB website homepage interface screenshot",
+          "complete": true,
+          "naturalWidth": 1440,
+          "naturalHeight": 980,
+          "renderedWidth": 901.984375,
+          "renderedHeight": 518,
+          "visibleInViewport": true
+        },
+        "bubble": {
+          "src": "https://www.droomit.be/assets/bubble-paws-hero.webp",
+          "alt": "Bubble Paws responsive website preview",
+          "complete": true,
+          "naturalWidth": 900,
+          "naturalHeight": 688,
+          "renderedWidth": 318,
+          "renderedHeight": 198,
+          "visibleInViewport": true
+        },
+        "heroImages": [
+          {
+            "src": "https://www.droomit.be/assets/polychem-website-desktop.webp",
+            "complete": true,
+            "naturalWidth": 1440,
+            "naturalHeight": 980
+          },
+          {
+            "src": "https://www.droomit.be/assets/bubble-paws-hero.webp",
+            "complete": true,
+            "naturalWidth": 900,
+            "naturalHeight": 688
+          }
+        ],
+        "allVisibleHeroImagesLoaded": true
+      },
+      "horizontalOverflow": false,
+      "documentWidth": 1920,
+      "heroActionsVisible": true,
+      "heroActionsBottom": 815.984375,
+      "portfolioMainWidth": 903.984375,
+      "status": "PASS"
+    },
+    {
+      "route": "/en",
+      "width": 390,
+      "height": 844,
+      "screenshot": "qa/final-acceptance/home-en-390x844.png",
+      "httpStatus": 200,
+      "consoleErrors": [],
+      "networkFailures": [],
+      "metrics": {
+        "route": "/en",
+        "url": "https://www.droomit.be/en",
+        "title": "DROOM IT | Website Design, E-commerce & Web Applications in Belgium",
+        "lang": "en",
+        "fontsStatus": "loaded",
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "scrollWidth": 390,
+        "scrollHeight": 14629,
+        "horizontalOverflow": false,
+        "offenders": [],
+        "header": {
+          "top": 0,
+          "right": 390,
+          "bottom": 68,
+          "left": 0,
+          "width": 390,
+          "height": 68
+        },
+        "nav": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "width": 0,
+          "height": 0
+        },
+        "headerActions": {
+          "top": 16.703125,
+          "right": 370,
+          "bottom": 50.296875,
+          "left": 313.875,
+          "width": 56.125,
+          "height": 33.59375
+        },
+        "headerCta": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "width": 0,
+          "height": 0,
+          "clippedRight": false
+        },
+        "heroActions": {
+          "top": 600.0625,
+          "right": 370,
+          "bottom": 714.0625,
+          "left": 20,
+          "width": 350,
+          "height": 114
+        },
+        "heroActionsVisible": true,
+        "proof": {
+          "top": 736.0625,
+          "right": 370,
+          "bottom": 804.0625,
+          "left": 20,
+          "width": 350,
+          "height": 68
+        },
+        "proofWithinViewport": true,
+        "portfolioMain": {
+          "top": 866,
+          "right": 368,
+          "bottom": 1186,
+          "left": 22,
+          "width": 346,
+          "height": 320
+        },
+        "polychem": {
+          "src": "https://www.droomit.be/assets/polychem-website-desktop.webp",
+          "alt": "PolyChem MB website homepage interface screenshot",
+          "complete": true,
+          "naturalWidth": 1440,
+          "naturalHeight": 980,
+          "renderedWidth": 344,
+          "renderedHeight": 318,
+          "visibleInViewport": false
+        },
+        "bubble": {
+          "src": "https://www.droomit.be/assets/bubble-paws-hero.webp",
+          "alt": "Bubble Paws responsive website preview",
+          "complete": true,
+          "naturalWidth": 900,
+          "naturalHeight": 688,
+          "renderedWidth": 254.03125,
+          "renderedHeight": 158.015625,
+          "visibleInViewport": false
+        },
+        "heroImages": [],
+        "allVisibleHeroImagesLoaded": true
+      },
+      "horizontalOverflow": false,
+      "documentWidth": 390,
+      "heroActionsVisible": true,
+      "heroActionsBottom": 714.0625,
+      "portfolioMainWidth": 346,
+      "status": "PASS"
+    },
+    {
+      "route": "/nl",
+      "width": 1366,
+      "height": 768,
+      "screenshot": "qa/final-acceptance/home-nl-1366x768.png",
+      "httpStatus": 200,
+      "consoleErrors": [],
+      "networkFailures": [],
+      "metrics": {
+        "route": "/nl",
+        "url": "https://www.droomit.be/nl",
+        "title": "DROOM IT | Webdesign, e-commerce & webapplicaties in België",
+        "lang": "nl-BE",
+        "fontsStatus": "loaded",
+        "innerWidth": 1366,
+        "innerHeight": 768,
+        "scrollWidth": 1366,
+        "scrollHeight": 10027,
+        "horizontalOverflow": false,
+        "offenders": [],
+        "header": {
+          "top": 0,
+          "right": 1366,
+          "bottom": 76,
+          "left": 0,
+          "width": 1366,
+          "height": 76
+        },
+        "nav": {
+          "top": 27.09375,
+          "right": 1075.65625,
+          "bottom": 47.890625,
+          "left": 227,
+          "width": 848.65625,
+          "height": 20.796875
+        },
+        "headerActions": {
+          "top": 18.5,
+          "right": 1311.375,
+          "bottom": 56.5,
+          "left": 1107.65625,
+          "width": 203.71875,
+          "height": 38
+        },
+        "headerCta": {
+          "top": 18.5,
+          "right": 1311.375,
+          "bottom": 56.5,
+          "left": 1185.78125,
+          "width": 125.59375,
+          "height": 38,
+          "clippedRight": false
+        },
+        "heroActions": {
+          "top": 587.453125,
+          "right": 580.546875,
+          "bottom": 635.453125,
+          "left": 68.296875,
+          "width": 512.25,
+          "height": 48
+        },
+        "heroActionsVisible": true,
+        "proof": {
+          "top": 657.453125,
+          "right": 580.546875,
+          "bottom": 676.640625,
+          "left": 68.296875,
+          "width": 512.25,
+          "height": 19.1875
+        },
+        "proofWithinViewport": true,
+        "portfolioMain": {
+          "top": 158.1875,
+          "right": 1318.1875,
+          "bottom": 572.90625,
+          "left": 696.640625,
+          "width": 621.546875,
+          "height": 414.71875
+        },
+        "polychem": {
+          "src": "https://www.droomit.be/assets/polychem-website-desktop.webp",
+          "alt": "Screenshot van de PolyChem MB-homepage interface",
+          "complete": true,
+          "naturalWidth": 1440,
+          "naturalHeight": 980,
+          "renderedWidth": 619.546875,
+          "renderedHeight": 412.71875,
+          "visibleInViewport": true
+        },
+        "bubble": {
+          "src": "https://www.droomit.be/assets/bubble-paws-hero.webp",
+          "alt": "Preview van de responsive Bubble Paws-website",
+          "complete": true,
+          "naturalWidth": 900,
+          "naturalHeight": 688,
+          "renderedWidth": 241.8125,
+          "renderedHeight": 150.375,
+          "visibleInViewport": true
+        },
+        "heroImages": [
+          {
+            "src": "https://www.droomit.be/assets/polychem-website-desktop.webp",
+            "complete": true,
+            "naturalWidth": 1440,
+            "naturalHeight": 980
+          },
+          {
+            "src": "https://www.droomit.be/assets/bubble-paws-hero.webp",
+            "complete": true,
+            "naturalWidth": 900,
+            "naturalHeight": 688
+          }
+        ],
+        "allVisibleHeroImagesLoaded": true
+      },
+      "horizontalOverflow": false,
+      "documentWidth": 1366,
+      "heroActionsVisible": true,
+      "heroActionsBottom": 635.453125,
+      "portfolioMainWidth": 621.546875,
+      "status": "PASS"
+    },
+    {
+      "route": "/nl",
+      "width": 1536,
+      "height": 864,
+      "screenshot": "qa/final-acceptance/home-nl-1536x864.png",
+      "httpStatus": 200,
+      "consoleErrors": [],
+      "networkFailures": [],
+      "metrics": {
+        "route": "/nl",
+        "url": "https://www.droomit.be/nl",
+        "title": "DROOM IT | Webdesign, e-commerce & webapplicaties in België",
+        "lang": "nl-BE",
+        "fontsStatus": "loaded",
+        "innerWidth": 1536,
+        "innerHeight": 864,
+        "scrollWidth": 1536,
+        "scrollHeight": 10144,
+        "horizontalOverflow": false,
+        "offenders": [],
+        "header": {
+          "top": 0,
+          "right": 1536,
+          "bottom": 76,
+          "left": 0,
+          "width": 1536,
+          "height": 76
+        },
+        "nav": {
+          "top": 27.09375,
+          "right": 1238.84375,
+          "bottom": 47.890625,
+          "left": 233.8125,
+          "width": 1005.03125,
+          "height": 20.796875
+        },
+        "headerActions": {
+          "top": 18.5,
+          "right": 1474.5625,
+          "bottom": 56.5,
+          "left": 1270.84375,
+          "width": 203.71875,
+          "height": 38
+        },
+        "headerCta": {
+          "top": 18.5,
+          "right": 1474.5625,
+          "bottom": 56.5,
+          "left": 1348.96875,
+          "width": 125.59375,
+          "height": 38,
+          "clippedRight": false
+        },
+        "heroActions": {
+          "top": 655.234375,
+          "right": 652.796875,
+          "bottom": 703.234375,
+          "left": 76.796875,
+          "width": 576,
+          "height": 48
+        },
+        "heroActionsVisible": true,
+        "proof": {
+          "top": 725.234375,
+          "right": 652.796875,
+          "bottom": 744.421875,
+          "left": 76.796875,
+          "width": 576,
+          "height": 19.1875
+        },
+        "proofWithinViewport": true,
+        "portfolioMain": {
+          "top": 176.6875,
+          "right": 1483.984375,
+          "bottom": 643.234375,
+          "left": 781.59375,
+          "width": 702.390625,
+          "height": 466.546875
+        },
+        "polychem": {
+          "src": "https://www.droomit.be/assets/polychem-website-desktop.webp",
+          "alt": "Screenshot van de PolyChem MB-homepage interface",
+          "complete": true,
+          "naturalWidth": 1440,
+          "naturalHeight": 980,
+          "renderedWidth": 700.390625,
+          "renderedHeight": 464.546875,
+          "visibleInViewport": true
+        },
+        "bubble": {
+          "src": "https://www.droomit.be/assets/bubble-paws-hero.webp",
+          "alt": "Preview van de responsive Bubble Paws-website",
+          "complete": true,
+          "naturalWidth": 900,
+          "naturalHeight": 688,
+          "renderedWidth": 272.171875,
+          "renderedHeight": 169.34375,
+          "visibleInViewport": true
+        },
+        "heroImages": [
+          {
+            "src": "https://www.droomit.be/assets/polychem-website-desktop.webp",
+            "complete": true,
+            "naturalWidth": 1440,
+            "naturalHeight": 980
+          },
+          {
+            "src": "https://www.droomit.be/assets/bubble-paws-hero.webp",
+            "complete": true,
+            "naturalWidth": 900,
+            "naturalHeight": 688
+          }
+        ],
+        "allVisibleHeroImagesLoaded": true
+      },
+      "horizontalOverflow": false,
+      "documentWidth": 1536,
+      "heroActionsVisible": true,
+      "heroActionsBottom": 703.234375,
+      "portfolioMainWidth": 702.390625,
+      "status": "PASS"
+    },
+    {
+      "route": "/nl",
+      "width": 390,
+      "height": 844,
+      "screenshot": "qa/final-acceptance/home-nl-390x844.png",
+      "httpStatus": 200,
+      "consoleErrors": [],
+      "networkFailures": [],
+      "metrics": {
+        "route": "/nl",
+        "url": "https://www.droomit.be/nl",
+        "title": "DROOM IT | Webdesign, e-commerce & webapplicaties in België",
+        "lang": "nl-BE",
+        "fontsStatus": "loaded",
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "scrollWidth": 390,
+        "scrollHeight": 14858,
+        "horizontalOverflow": false,
+        "offenders": [],
+        "header": {
+          "top": 0,
+          "right": 390,
+          "bottom": 68,
+          "left": 0,
+          "width": 390,
+          "height": 68
+        },
+        "nav": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "width": 0,
+          "height": 0
+        },
+        "headerActions": {
+          "top": 16.703125,
+          "right": 370,
+          "bottom": 50.296875,
+          "left": 313.875,
+          "width": 56.125,
+          "height": 33.59375
+        },
+        "headerCta": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0,
+          "width": 0,
+          "height": 0,
+          "clippedRight": false
+        },
+        "heroActions": {
+          "top": 600.0625,
+          "right": 370,
+          "bottom": 714.0625,
+          "left": 20,
+          "width": 350,
+          "height": 114
+        },
+        "heroActionsVisible": true,
+        "proof": {
+          "top": 736.0625,
+          "right": 370,
+          "bottom": 804.0625,
+          "left": 20,
+          "width": 350,
+          "height": 68
+        },
+        "proofWithinViewport": true,
+        "portfolioMain": {
+          "top": 866,
+          "right": 368,
+          "bottom": 1186,
+          "left": 22,
+          "width": 346,
+          "height": 320
+        },
+        "polychem": {
+          "src": "https://www.droomit.be/assets/polychem-website-desktop.webp",
+          "alt": "Screenshot van de PolyChem MB-homepage interface",
+          "complete": true,
+          "naturalWidth": 1440,
+          "naturalHeight": 980,
+          "renderedWidth": 344,
+          "renderedHeight": 318,
+          "visibleInViewport": false
+        },
+        "bubble": {
+          "src": "https://www.droomit.be/assets/bubble-paws-hero.webp",
+          "alt": "Preview van de responsive Bubble Paws-website",
+          "complete": true,
+          "naturalWidth": 900,
+          "naturalHeight": 688,
+          "renderedWidth": 254.03125,
+          "renderedHeight": 158.015625,
+          "visibleInViewport": false
+        },
+        "heroImages": [],
+        "allVisibleHeroImagesLoaded": true
+      },
+      "horizontalOverflow": false,
+      "documentWidth": 390,
+      "heroActionsVisible": true,
+      "heroActionsBottom": 714.0625,
+      "portfolioMainWidth": 346,
+      "status": "PASS"
+    },
+    {
+      "route": "/nl/werk",
+      "width": 1440,
+      "height": 900,
+      "screenshot": "qa/final-acceptance/work-nl-1440x900.png",
+      "httpStatus": 200,
+      "consoleErrors": [],
+      "networkFailures": [],
+      "metrics": {
+        "route": "/nl/werk",
+        "url": "https://www.droomit.be/nl/werk",
+        "title": "Webdesign cases | DROOM IT",
+        "lang": "nl-BE",
+        "fontsStatus": "loaded",
+        "innerWidth": 1440,
+        "innerHeight": 900,
+        "scrollWidth": 1440,
+        "scrollHeight": 3607,
+        "horizontalOverflow": false,
+        "offenders": [],
+        "header": {
+          "top": 0,
+          "right": 1440,
+          "bottom": 76,
+          "left": 0,
+          "width": 1440,
+          "height": 76
+        },
+        "nav": {
+          "top": 27.09375,
+          "right": 1146.6875,
+          "bottom": 47.890625,
+          "left": 229.96875,
+          "width": 916.71875,
+          "height": 20.796875
+        },
+        "headerActions": {
+          "top": 18.5,
+          "right": 1382.40625,
+          "bottom": 56.5,
+          "left": 1178.6875,
+          "width": 203.71875,
+          "height": 38
+        },
+        "headerCta": {
+          "top": 18.5,
+          "right": 1382.40625,
+          "bottom": 56.5,
+          "left": 1256.8125,
+          "width": 125.59375,
+          "height": 38,
+          "clippedRight": false
+        },
+        "heroActions": null,
+        "heroActionsVisible": false,
+        "proof": null,
+        "proofWithinViewport": null,
+        "portfolioMain": null,
+        "heroImages": [],
+        "allVisibleHeroImagesLoaded": true
+      },
+      "horizontalOverflow": false,
+      "documentWidth": 1440,
+      "heroActionsVisible": false,
+      "heroActionsBottom": null,
+      "portfolioMainWidth": null,
+      "status": "PASS"
+    }
+  ],
+  "routes": {
+    "en404": {
+      "route": "/en/this-page-does-not-exist",
+      "httpStatus": 404,
+      "url": "https://www.droomit.be/en/this-page-does-not-exist",
+      "statusLang": "en",
+      "title": "Page Not Found | DROOM IT",
+      "robots": "noindex, follow",
+      "canonical": null,
+      "visibleText": "Skip to main content\nDROOM IT\n\n404\n\nThis page is not available.\n\nThe page may have moved, or the link may no longer exist. You can return to DROOM IT or view the work.\n\nBack to homepage\nView work\nContact",
+      "ctaLinks": [
+        {
+          "text": "Skip to main content",
+          "href": "https://www.droomit.be/en/this-page-does-not-exist#main-content"
+        },
+        {
+          "text": "DROOM IT",
+          "href": "https://www.droomit.be/en"
+        },
+        {
+          "text": "Back to homepage",
+          "href": "https://www.droomit.be/en"
+        },
+        {
+          "text": "View work",
+          "href": "https://www.droomit.be/en/work"
+        },
+        {
+          "text": "Contact",
+          "href": "https://www.droomit.be/en/contact"
+        }
+      ]
+    },
+    "nl404": {
+      "route": "/nl/deze-pagina-bestaat-niet",
+      "httpStatus": 404,
+      "url": "https://www.droomit.be/nl/deze-pagina-bestaat-niet",
+      "statusLang": "nl-BE",
+      "title": "Pagina niet gevonden | DROOM IT",
+      "robots": "noindex, follow",
+      "canonical": null,
+      "visibleText": "Ga naar hoofdinhoud\nDROOM IT\n\n404\n\nDeze pagina is niet beschikbaar.\n\nDe pagina is mogelijk verplaatst of de link bestaat niet meer. Ga terug naar DROOM IT of bekijk ons werk.\n\nTerug naar home\nBekijk werk\nContact",
+      "ctaLinks": [
+        {
+          "text": "Ga naar hoofdinhoud",
+          "href": "https://www.droomit.be/nl/deze-pagina-bestaat-niet#main-content"
+        },
+        {
+          "text": "DROOM IT",
+          "href": "https://www.droomit.be/nl"
+        },
+        {
+          "text": "Terug naar home",
+          "href": "https://www.droomit.be/nl"
+        },
+        {
+          "text": "Bekijk werk",
+          "href": "https://www.droomit.be/nl/werk"
+        },
+        {
+          "text": "Contact",
+          "href": "https://www.droomit.be/nl/contact"
+        }
+      ]
+    },
+    "nlTrailingSlash": {
+      "route": "/nl/contact/",
+      "httpStatus": 200,
+      "url": "https://www.droomit.be/nl/contact",
+      "statusLang": "nl-BE",
+      "title": "Contact | Bespreek je websiteproject met DROOM IT",
+      "robots": "index, follow",
+      "canonical": "https://www.droomit.be/nl/contact",
+      "visibleText": "Ga naar hoofdinhoud\nDROOM IT\nDiensten\nWerk\nWerkwijze\nOver ons\nContact\nEN\nNL\nBoek een gesprek\n\nSTART EEN GESPREK\n\nLaten we de juiste website plannen.\n\nGeen druk. Geen verplichting. Vertel over je bedrijf, waar je vandaag staat en waar je naartoe wilt. Als er een goede match is, bepalen we samen de volgende stap.\n\ninfo@droomit.be\nWEBSITE\nwww.droomit.be\nLOCATIE\nMechelen, België\nGESPREK\nBoek eerst een gesprek, daarna plannen we een call.\nNAAM\nBEDRIJF\nE-MAIL\nWEBSITE URL\nPROJECTTYPE\nWebsite\nE-commerce\nWebapplicatie\nUX/UI Design\nNog niet zeker\nVERTEL ONS OVER JE PROJECT\n\nDoor dit formulier te verzenden, ga je akkoord met het Privacybeleid.\n\nBoek een gesprek\n\nDROOM IT\n\nWebdesign-, e-commerce- en webapplicatiestudio gevestigd in België.\n\nBoek een gesprek\nVraag website-audit aan\n\nNEEM CONTACT OP\n\nE-MAIL\ninfo@droomit.be\nTELEFOON\nGesprek wordt gepland na het eerste contact\nLINKEDIN\nSara Daryaei\nBEDRIJFSPROFIEL\nDownload PDF\n© 2026 DROOM IT · België\nCases\nOver Sara\nPrivacy\nJuridische kennisgeving\nCo",
+      "ctaLinks": [
+        {
+          "text": "Ga naar hoofdinhoud",
+          "href": "https://www.droomit.be/nl/contact#main-content"
+        },
+        {
+          "text": "DROOM IT",
+          "href": "https://www.droomit.be/nl"
+        },
+        {
+          "text": "Diensten",
+          "href": "https://www.droomit.be/nl/diensten"
+        },
+        {
+          "text": "Werk",
+          "href": "https://www.droomit.be/nl/werk"
+        },
+        {
+          "text": "Werkwijze",
+          "href": "https://www.droomit.be/nl/werkwijze"
+        },
+        {
+          "text": "Over ons",
+          "href": "https://www.droomit.be/nl/over"
+        },
+        {
+          "text": "Contact",
+          "href": "https://www.droomit.be/nl/contact"
+        },
+        {
+          "text": "Boek een gesprek",
+          "href": "https://www.droomit.be/nl/contact"
+        },
+        {
+          "text": "info@droomit.be",
+          "href": "mailto:info@droomit.be"
+        },
+        {
+          "text": "Privacybeleid",
+          "href": "https://www.droomit.be/nl/privacy"
+        },
+        {
+          "text": "DROOM IT",
+          "href": "https://www.droomit.be/nl"
+        },
+        {
+          "text": "Boek een gesprek",
+          "href": "https://www.droomit.be/nl/contact"
+        }
+      ]
+    },
+    "nlQuery": {
+      "route": "/nl/contact?source=test",
+      "httpStatus": 200,
+      "url": "https://www.droomit.be/nl/contact?source=test",
+      "statusLang": "nl-BE",
+      "title": "Contact | Bespreek je websiteproject met DROOM IT",
+      "robots": "index, follow",
+      "canonical": "https://www.droomit.be/nl/contact",
+      "visibleText": "Ga naar hoofdinhoud\nDROOM IT\nDiensten\nWerk\nWerkwijze\nOver ons\nContact\nEN\nNL\nBoek een gesprek\n\nSTART EEN GESPREK\n\nLaten we de juiste website plannen.\n\nGeen druk. Geen verplichting. Vertel over je bedrijf, waar je vandaag staat en waar je naartoe wilt. Als er een goede match is, bepalen we samen de volgende stap.\n\ninfo@droomit.be\nWEBSITE\nwww.droomit.be\nLOCATIE\nMechelen, België\nGESPREK\nBoek eerst een gesprek, daarna plannen we een call.\nNAAM\nBEDRIJF\nE-MAIL\nWEBSITE URL\nPROJECTTYPE\nWebsite\nE-commerce\nWebapplicatie\nUX/UI Design\nNog niet zeker\nVERTEL ONS OVER JE PROJECT\n\nDoor dit formulier te verzenden, ga je akkoord met het Privacybeleid.\n\nBoek een gesprek\n\nDROOM IT\n\nWebdesign-, e-commerce- en webapplicatiestudio gevestigd in België.\n\nBoek een gesprek\nVraag website-audit aan\n\nNEEM CONTACT OP\n\nE-MAIL\ninfo@droomit.be\nTELEFOON\nGesprek wordt gepland na het eerste contact\nLINKEDIN\nSara Daryaei\nBEDRIJFSPROFIEL\nDownload PDF\n© 2026 DROOM IT · België\nCases\nOver Sara\nPrivacy\nJuridische kennisgeving\nCo",
+      "ctaLinks": [
+        {
+          "text": "Ga naar hoofdinhoud",
+          "href": "https://www.droomit.be/nl/contact?source=test#main-content"
+        },
+        {
+          "text": "DROOM IT",
+          "href": "https://www.droomit.be/nl"
+        },
+        {
+          "text": "Diensten",
+          "href": "https://www.droomit.be/nl/diensten"
+        },
+        {
+          "text": "Werk",
+          "href": "https://www.droomit.be/nl/werk"
+        },
+        {
+          "text": "Werkwijze",
+          "href": "https://www.droomit.be/nl/werkwijze"
+        },
+        {
+          "text": "Over ons",
+          "href": "https://www.droomit.be/nl/over"
+        },
+        {
+          "text": "Contact",
+          "href": "https://www.droomit.be/nl/contact"
+        },
+        {
+          "text": "Boek een gesprek",
+          "href": "https://www.droomit.be/nl/contact"
+        },
+        {
+          "text": "info@droomit.be",
+          "href": "mailto:info@droomit.be"
+        },
+        {
+          "text": "Privacybeleid",
+          "href": "https://www.droomit.be/nl/privacy"
+        },
+        {
+          "text": "DROOM IT",
+          "href": "https://www.droomit.be/nl"
+        },
+        {
+          "text": "Boek een gesprek",
+          "href": "https://www.droomit.be/nl/contact"
+        }
+      ]
+    },
+    "apiGet": {
+      "route": "/api/start-project",
+      "method": "GET",
+      "httpStatus": 405
+    }
+  },
+  "assets": [
+    {
+      "asset": "/assets/polychem-website-desktop.webp",
+      "status": 200,
+      "contentType": "image/webp",
+      "contentLength": 73308
+    },
+    {
+      "asset": "/assets/bubble-paws-hero.webp",
+      "status": 200,
+      "contentType": "image/webp",
+      "contentLength": 39104
+    }
+  ],
+  "languageSwitches": [
+    {
+      "from": "/en",
+      "clicked": "nl",
+      "finalUrl": "https://www.droomit.be/nl",
+      "lang": "nl-BE"
+    },
+    {
+      "from": "/nl",
+      "clicked": "en",
+      "finalUrl": "https://www.droomit.be/en",
+      "lang": "en"
+    },
+    {
+      "from": "/nl/werk",
+      "clicked": "en",
+      "finalUrl": "https://www.droomit.be/en/work",
+      "lang": "en"
+    }
+  ],
+  "mobileMenu": {
+    "viewport": "390x844",
+    "before": "false",
+    "open": {
+      "ariaExpanded": "true",
+      "bodyOpen": true,
+      "linkCount": 5,
+      "navRect": {
+        "top": 77,
+        "right": 302,
+        "bottom": 335,
+        "left": 22,
+        "width": 280,
+        "height": 258
+      },
+      "overflow": false
+    },
+    "afterEscape": "false",
+    "afterClickClose": "true"
+  },
+  "reducedMotion": {
+    "route": "/en",
+    "viewport": "1366x768",
+    "reducedMotion": "reduce",
+    "horizontalOverflow": false,
+    "heroActionsVisible": true,
+    "status": "PASS"
+  },
+  "zoom125": {
+    "route": "/en",
+    "viewport": "1366x768",
+    "browserZoomAttempt": "approximately 125% via browser keyboard zoom",
+    "innerWidth": 1366,
+    "horizontalOverflow": false,
+    "heroActionsVisible": true,
+    "languageButtons": {
+      "top": 18.5,
+      "right": 1311.375,
+      "bottom": 56.5,
+      "left": 1095.65625,
+      "width": 215.71875,
+      "height": 38
+    },
+    "status": "PASS"
+  },
+  "dutchCopyCheck": [
+    {
+      "phrase": "Read case study",
+      "found": false
+    },
+    {
+      "phrase": "Featured case study",
+      "found": false
+    },
+    {
+      "phrase": "Industrial website",
+      "found": false
+    },
+    {
+      "phrase": "Challenge",
+      "found": false
+    },
+    {
+      "phrase": "Solution",
+      "found": false
+    },
+    {
+      "phrase": "Business impact",
+      "found": false
+    },
+    {
+      "phrase": "Read the PolyChem",
+      "found": false
+    },
+    {
+      "phrase": "Read the Bubble Paws",
+      "found": false
+    }
+  ],
+  "consoleErrors": [],
+  "networkFailures": [],
+  "smtp": "UNVERIFIED",
+  "remainingIssues": [],
+  "releaseDecision": "READY TO SHIP"
+}
