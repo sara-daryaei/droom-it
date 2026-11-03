@@ -7,9 +7,9 @@ const source = fs.readFileSync('api/start-project.js', 'utf8').replace(/^import 
 async function run(body, verification = { success: true, hostname: 'www.droomit.be', action: 'contact' }, secret = 'mock-secret', environment = {}) {
   const calls = { writes: 0, emails: 0, verification: 0, captureTransports: 0, smtpTransports: 0 };
   const context = vm.createContext({
-    Buffer, URLSearchParams, AbortSignal, randomUUID: () => 'test-id', console,
+    Buffer, URLSearchParams, AbortSignal, randomUUID: () => 'test-id', createHash: require('node:crypto').createHash, console,
     process: { env: { TURNSTILE_SECRET_KEY: secret, DATABASE_URL: 'mock', SMTP_HOST: 'mock', SMTP_USER: 'mock', SMTP_PASSWORD: 'mock', ...environment } },
-    neon: () => async (strings) => { if (strings.join('').includes('INSERT')) calls.writes++; return [{ id: 1, created_at: '2026-11-03' }]; },
+    neon: () => async (strings) => { const query = strings.join(''); if (query.includes('RETURNING attempts')) return [{ attempts: environment.MOCK_QUOTA ?? 1 }]; if (query.includes('INSERT')) calls.writes++; return [{ id: 1, created_at: '2026-11-03' }]; },
     nodemailer: { createTransport: (options) => { if (options.jsonTransport) calls.captureTransports++; else calls.smtpTransports++; return { sendMail: async () => { calls.emails++; } }; } },
     fetch: async () => { calls.verification++; if (verification instanceof Error) throw verification; return { ok: true, json: async () => verification }; },
   });
@@ -19,6 +19,10 @@ async function run(body, verification = { success: true, hostname: 'www.droomit.
   return { ...calls, status: response.code };
 }
 const valid = { name: 'Test', email: 'owner@example.com', message: 'Test request', 'cf-turnstile-response': 'mock-token' };
+test('exhausted durable quota prevents submission and emails', async () => {
+  const result = await run(valid, undefined, 'mock-secret', { MOCK_QUOTA: 6 });
+  assert.equal(result.status, 429); assert.equal(result.writes, 0); assert.equal(result.emails, 0);
+});
 test('Preview never selects SMTP even when SMTP credentials exist', async () => {
   const result = await run(valid, undefined, 'mock-secret', { VERCEL_ENV: 'preview' });
   assert.equal(result.status, 201);

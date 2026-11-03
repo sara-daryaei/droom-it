@@ -1,6 +1,6 @@
 import { neon } from "@neondatabase/serverless";
 import nodemailer from "nodemailer";
-import { randomUUID } from "node:crypto";
+import { randomUUID, createHash } from "node:crypto";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const defaultRecipient = "info@droomit.be";
@@ -312,6 +312,9 @@ export default async function handler(request, response) {
     if (process.env.VERCEL_ENV === "preview" && /^[a-z0-9-]+\.vercel\.app$/.test(process.env.VERCEL_URL || "")) {
       allowedHostnames.add(process.env.VERCEL_URL);
     }
+    if (process.env.VERCEL_ENV === "preview" && process.env.VERCEL_GIT_COMMIT_REF === "codex/cloudflare-turnstile") {
+      allowedHostnames.add("droom-it-git-codex-cloudflare-turnstile-droom-it-s-projects.vercel.app");
+    }
     if (!verified || verified.success !== true || !allowedHostnames.has(verified.hostname) || verified.action !== "contact") {
       return response.status(403).json({ ok: false, message: "Security verification failed.", code: "verification_failed" });
     }
@@ -340,6 +343,27 @@ export default async function handler(request, response) {
     }
 
     const sql = getSql();
+    await sql`CREATE TABLE IF NOT EXISTS contact_rate_limits (
+      key TEXT PRIMARY KEY,
+      window_start TIMESTAMPTZ NOT NULL,
+      attempts INTEGER NOT NULL
+    )`;
+    const rateKey = createHash("sha256").update(email).digest("hex");
+    const quota = await sql`
+      INSERT INTO contact_rate_limits (key, window_start, attempts)
+      VALUES (${rateKey}, NOW(), 1)
+      ON CONFLICT (key) DO UPDATE SET
+        attempts = CASE WHEN contact_rate_limits.window_start <= NOW() - INTERVAL '1 hour'
+          THEN 1 ELSE LEAST(contact_rate_limits.attempts + 1, 6) END,
+        window_start = CASE WHEN contact_rate_limits.window_start <= NOW() - INTERVAL '1 hour'
+          THEN NOW() ELSE contact_rate_limits.window_start END
+      RETURNING attempts
+    `;
+    if (!Number.isInteger(quota[0]?.attempts)) throw new Error("Quota unavailable");
+    if (quota[0].attempts > 5) {
+      response.setHeader("Retry-After", "3600");
+      return response.status(429).json({ ok: false, message: "Too many requests. Please try again later." });
+    }
     await ensureTable(sql);
 
     const rows = await sql`
