@@ -304,7 +304,12 @@ export default async function handler(request, response) {
     } catch {
       return response.status(503).json({ ok: false, message: "Security verification unavailable." });
     }
-    if (!verified || verified.success !== true || !["www.droomit.be", "droomit.be"].includes(verified.hostname) || verified.action !== "contact") {
+    const allowedHostnames = new Set(["www.droomit.be", "droomit.be"]);
+    // Vercel supplies this exact deployment hostname; never accept client host headers.
+    if (process.env.VERCEL_ENV === "preview" && /^[a-z0-9-]+\.vercel\.app$/.test(process.env.VERCEL_URL || "")) {
+      allowedHostnames.add(process.env.VERCEL_URL);
+    }
+    if (!verified || verified.success !== true || !allowedHostnames.has(verified.hostname) || verified.action !== "contact") {
       return response.status(403).json({ ok: false, message: "Security verification failed.", code: "verification_failed" });
     }
     const name = String(body.name || "").trim();

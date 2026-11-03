@@ -4,11 +4,11 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 
 const source = fs.readFileSync('api/start-project.js', 'utf8').replace(/^import .*;\r?\n/gm, '').replace('export default async function handler', 'async function handler');
-async function run(body, verification = { success: true, hostname: 'www.droomit.be', action: 'contact' }, secret = 'mock-secret') {
+async function run(body, verification = { success: true, hostname: 'www.droomit.be', action: 'contact' }, secret = 'mock-secret', environment = {}) {
   const calls = { writes: 0, emails: 0, verification: 0 };
   const context = vm.createContext({
     Buffer, URLSearchParams, AbortSignal, randomUUID: () => 'test-id', console,
-    process: { env: { TURNSTILE_SECRET_KEY: secret, DATABASE_URL: 'mock', SMTP_HOST: 'mock', SMTP_USER: 'mock', SMTP_PASSWORD: 'mock' } },
+    process: { env: { TURNSTILE_SECRET_KEY: secret, DATABASE_URL: 'mock', SMTP_HOST: 'mock', SMTP_USER: 'mock', SMTP_PASSWORD: 'mock', ...environment } },
     neon: () => async (strings) => { if (strings.join('').includes('INSERT')) calls.writes++; return [{ id: 1, created_at: '2026-11-03' }]; },
     nodemailer: { createTransport: () => ({ sendMail: async () => { calls.emails++; } }) },
     fetch: async () => { calls.verification++; if (verification instanceof Error) throw verification; return { ok: true, json: async () => verification }; },
@@ -19,6 +19,17 @@ async function run(body, verification = { success: true, hostname: 'www.droomit.
   return { ...calls, status: response.code };
 }
 const valid = { name: 'Test', email: 'owner@example.com', message: 'Test request', 'cf-turnstile-response': 'mock-token' };
+for (const [name, env, hostname, accepted] of [
+  ['exact preview', { VERCEL_ENV: 'preview', VERCEL_URL: 'droom-test.vercel.app' }, 'droom-test.vercel.app', true],
+  ['other preview rejected', { VERCEL_ENV: 'preview', VERCEL_URL: 'droom-test.vercel.app' }, 'other.vercel.app', false],
+  ['production rejects preview', { VERCEL_ENV: 'production', VERCEL_URL: 'droom-test.vercel.app' }, 'droom-test.vercel.app', false],
+  ['wildcard rejected', { VERCEL_ENV: 'preview', VERCEL_URL: '*.vercel.app' }, 'other.vercel.app', false],
+]) test(name, async () => {
+  const result = await run(valid, { success: true, hostname, action: 'contact' }, 'mock-secret', env);
+  assert.equal(result.status, accepted ? 201 : 403);
+  assert.equal(result.writes, accepted ? 1 : 0);
+  assert.equal(result.emails, accepted ? 2 : 0);
+});
 for (const language of ['en', 'nl']) {
   for (const requestType of ['project', 'audit']) test(`valid ${language} ${requestType}: insert and both emails`, async () => {
     const result = await run({ ...valid, language, requestType });
