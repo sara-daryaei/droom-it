@@ -5,7 +5,7 @@ import { randomUUID, createHash } from "node:crypto";
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const defaultRecipient = "info@droomit.be";
 
-function getSql() {
+export function getSql() {
   const connectionString = (process.env.POSTGRES_URL || process.env.DATABASE_URL || "")
     .trim()
     .replace(/^['"]|['"]$/g, "");

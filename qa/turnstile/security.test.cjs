@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const vm = require('node:vm');
 
-const source = fs.readFileSync('api/start-project.js', 'utf8').replace(/^import .*;\r?\n/gm, '').replace('export default async function handler', 'async function handler');
+const source = fs.readFileSync('api/start-project.js', 'utf8').replace(/^import .*;\r?\n/gm, '').replace('export default async function handler', 'async function handler').replace('export function getSql', 'function getSql');
 async function run(body, verification = { success: true, hostname: 'www.droomit.be', action: 'contact' }, secret = 'mock-secret', environment = {}) {
   const calls = { writes: 0, emails: 0, verification: 0, captureTransports: 0, smtpTransports: 0 };
   const context = vm.createContext({
