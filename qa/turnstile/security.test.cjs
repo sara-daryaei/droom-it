@@ -5,12 +5,12 @@ const vm = require('node:vm');
 
 const source = fs.readFileSync('api/start-project.js', 'utf8').replace(/^import .*;\r?\n/gm, '').replace('export default async function handler', 'async function handler');
 async function run(body, verification = { success: true, hostname: 'www.droomit.be', action: 'contact' }, secret = 'mock-secret', environment = {}) {
-  const calls = { writes: 0, emails: 0, verification: 0 };
+  const calls = { writes: 0, emails: 0, verification: 0, captureTransports: 0, smtpTransports: 0 };
   const context = vm.createContext({
     Buffer, URLSearchParams, AbortSignal, randomUUID: () => 'test-id', console,
     process: { env: { TURNSTILE_SECRET_KEY: secret, DATABASE_URL: 'mock', SMTP_HOST: 'mock', SMTP_USER: 'mock', SMTP_PASSWORD: 'mock', ...environment } },
     neon: () => async (strings) => { if (strings.join('').includes('INSERT')) calls.writes++; return [{ id: 1, created_at: '2026-11-03' }]; },
-    nodemailer: { createTransport: () => ({ sendMail: async () => { calls.emails++; } }) },
+    nodemailer: { createTransport: (options) => { if (options.jsonTransport) calls.captureTransports++; else calls.smtpTransports++; return { sendMail: async () => { calls.emails++; } }; } },
     fetch: async () => { calls.verification++; if (verification instanceof Error) throw verification; return { ok: true, json: async () => verification }; },
   });
   vm.runInContext(source, context);
@@ -19,6 +19,17 @@ async function run(body, verification = { success: true, hostname: 'www.droomit.
   return { ...calls, status: response.code };
 }
 const valid = { name: 'Test', email: 'owner@example.com', message: 'Test request', 'cf-turnstile-response': 'mock-token' };
+test('Preview never selects SMTP even when SMTP credentials exist', async () => {
+  const result = await run(valid, undefined, 'mock-secret', { VERCEL_ENV: 'preview' });
+  assert.equal(result.status, 201);
+  assert.equal(result.captureTransports, 2);
+  assert.equal(result.smtpTransports, 0);
+});
+test('Production preserves SMTP transport', async () => {
+  const result = await run(valid, undefined, 'mock-secret', { VERCEL_ENV: 'production' });
+  assert.equal(result.smtpTransports, 2);
+  assert.equal(result.captureTransports, 0);
+});
 for (const [name, env, hostname, accepted] of [
   ['exact preview', { VERCEL_ENV: 'preview', VERCEL_URL: 'droom-test.vercel.app' }, 'droom-test.vercel.app', true],
   ['other preview rejected', { VERCEL_ENV: 'preview', VERCEL_URL: 'droom-test.vercel.app' }, 'other.vercel.app', false],

@@ -55,6 +55,9 @@ async function ensureTable(sql) {
 }
 
 function getEmailConfig() {
+  if (process.env.VERCEL_ENV === "preview") {
+    return { from: "preview@droomit.invalid", to: ["capture@droomit.invalid"] };
+  }
   const host = (process.env.SMTP_HOST || "").trim();
   const port = Number(process.env.SMTP_PORT || 587);
   const user = (process.env.SMTP_USER || "").trim();
@@ -216,7 +219,7 @@ async function sendNotificationEmail(details) {
     return { sent: false, reason: "missing_email_config" };
   }
 
-  const transporter = nodemailer.createTransport({
+  const transporter = nodemailer.createTransport(process.env.VERCEL_ENV === "preview" ? { jsonTransport: true } : {
     host: config.host,
     port: config.port,
     secure: config.secure,
@@ -245,7 +248,7 @@ async function sendAutoReplyEmail(details) {
     return { sent: false, reason: "missing_email_config" };
   }
 
-  const transporter = nodemailer.createTransport({
+  const transporter = nodemailer.createTransport(process.env.VERCEL_ENV === "preview" ? { jsonTransport: true } : {
     host: config.host,
     port: config.port,
     secure: config.secure,
@@ -394,10 +397,11 @@ export default async function handler(request, response) {
       createdAt: rows[0].created_at,
       emailSent: emailResult.sent,
       autoReplySent: autoReplyResult.sent,
+      ...(process.env.VERCEL_ENV === "preview" ? { emailCaptured: true } : {}),
       requestId,
     });
   } catch (error) {
-    console.error("Project request failed", { requestId, error });
+    console.error("Project request failed", { requestId });
 
     return response.status(500).json({
       ok: false,
