@@ -5,7 +5,7 @@ import { randomUUID, createHash } from "node:crypto";
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const defaultRecipient = "info@droomit.be";
 
-export function getSql() {
+function getSql() {
   const connectionString = (process.env.POSTGRES_URL || process.env.DATABASE_URL || "")
     .trim()
     .replace(/^['"]|['"]$/g, "");
@@ -211,7 +211,7 @@ function buildAutoReplyEmail({ name, language }) {
   };
 }
 
-export async function sendNotificationEmail(details) {
+async function sendNotificationEmail(details) {
   const config = getEmailConfig();
 
   if (!config) {
@@ -240,7 +240,7 @@ export async function sendNotificationEmail(details) {
   return { sent: true };
 }
 
-export async function sendAutoReplyEmail(details) {
+async function sendAutoReplyEmail(details) {
   const config = getEmailConfig();
 
   if (!config) {
