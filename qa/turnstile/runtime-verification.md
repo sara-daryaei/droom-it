@@ -24,5 +24,6 @@ Verified on 2026-11-03 using existing authenticated CLI/API access. No new deplo
 - Cloudflare Preview-widget creation previously failed for missing Turnstile Edit permission. Production widget remains unchanged.
 - Real CAPTCHA generation/success/expiration/replay tests remain blocked on Preview credentials.
 - Browser tests: 24 source-based Chromium form checks at four widths passed with services mocked; not live CAPTCHA/browser integration proof.
-- Backend tests: 25 mocked checks passed. Atomic quota SQL has not been concurrency-tested against live Postgres.
+- Backend tests: 25 mocked checks passed.
+- Live quota test: actual handler SQL captured with mocked services, then executed against the verified test endpoint with 20 parallel requests. Exactly 5 admitted and 15 rate-limited. project_requests count unchanged. Only the exact random synthetic quota key was deleted; its absence was verified. The legitimate quota table remains on the test database. No Production queries or form submissions.
 - No Production readiness claim or PR merge.
