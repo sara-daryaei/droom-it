@@ -276,6 +276,37 @@ export default async function handler(request, response) {
 
   try {
     const body = await readBody(request);
+    if (!body || typeof body !== "object" || Array.isArray(body)) {
+      return response.status(400).json({ ok: false, message: "Invalid request." });
+    }
+    if (Buffer.byteLength(JSON.stringify(body), "utf8") > 32768) {
+      return response.status(413).json({ ok: false, message: "Request too large." });
+    }
+    const limits = { name: 200, email: 254, company: 300, websiteUrl: 2048, website_url: 2048, projectType: 200, project_type: 200, requestType: 30, request_type: 30, message: 10000, language: 12 };
+    if (Object.entries(limits).some(([field, limit]) => body[field] !== undefined && (typeof body[field] !== "string" || body[field].length > limit))) {
+      return response.status(400).json({ ok: false, message: "Invalid form fields." });
+    }
+    const token = body["cf-turnstile-response"];
+    if (typeof token !== "string" || !token || token.length > 2048) {
+      return response.status(403).json({ ok: false, message: "Security verification failed.", code: "verification_failed" });
+    }
+    if (!process.env.TURNSTILE_SECRET_KEY) {
+      return response.status(503).json({ ok: false, message: "Security verification unavailable." });
+    }
+    let verified;
+    try {
+      const verification = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+        method: "POST",
+        body: new URLSearchParams({ secret: process.env.TURNSTILE_SECRET_KEY, response: token }),
+        signal: AbortSignal.timeout(8000),
+      });
+      verified = verification.ok && await verification.json();
+    } catch {
+      return response.status(503).json({ ok: false, message: "Security verification unavailable." });
+    }
+    if (!verified || verified.success !== true || !["www.droomit.be", "droomit.be"].includes(verified.hostname) || verified.action !== "contact") {
+      return response.status(403).json({ ok: false, message: "Security verification failed.", code: "verification_failed" });
+    }
     const name = String(body.name || "").trim();
     const email = String(body.email || "").trim().toLowerCase();
     const company = String(body.company || "").trim();
