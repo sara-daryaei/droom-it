@@ -211,7 +211,7 @@ function buildAutoReplyEmail({ name, language }) {
   };
 }
 
-async function sendNotificationEmail(details) {
+export async function sendNotificationEmail(details) {
   const config = getEmailConfig();
 
   if (!config) {
@@ -240,7 +240,7 @@ async function sendNotificationEmail(details) {
   return { sent: true };
 }
 
-async function sendAutoReplyEmail(details) {
+export async function sendAutoReplyEmail(details) {
   const config = getEmailConfig();
 
   if (!config) {

@@ -1,4 +1,4 @@
-import { getSql } from "./start-project.js";
+import { getSql, sendNotificationEmail, sendAutoReplyEmail } from "./start-project.js";
 import { timingSafeEqual } from "node:crypto";
 
 export default async function handler(req, res) {
@@ -15,6 +15,10 @@ export default async function handler(req, res) {
     const rows = await sql`SELECT count(*)::int AS count FROM public.project_requests`;
     const columns = await sql`SELECT column_name FROM information_schema.columns WHERE table_schema = 'public' AND table_name = 'project_requests'`;
     const schemaMatches = ["id", "name", "email", "message", "created_at", "request_type"].every(name => columns.some(c => c.column_name === name));
-    return res.status(schemaMatches && rows[0].count === 0 ? 200 : 409).json({ ok: schemaMatches && rows[0].count === 0, endpointMatches: true, schemaMatches, empty: rows[0].count === 0 });
+    if (!schemaMatches || rows[0].count !== 0) return res.status(409).json({ ok: false });
+    const details = { id: "preview-readonly-check", createdAt: new Date().toISOString(), name: "Synthetic check", email: "test@example.invalid", message: "Synthetic in-memory capture", language: "en" };
+    const notification = await sendNotificationEmail(details);
+    const reply = await sendAutoReplyEmail(details);
+    return res.status(200).json({ ok: true, endpointMatches: true, schemaMatches, empty: true, previewEmailCaptureExecuted: notification.sent && reply.sent });
   } catch { return res.status(503).json({ ok: false }); }
 }
