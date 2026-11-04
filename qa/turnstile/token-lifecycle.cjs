@@ -21,7 +21,9 @@ const { neon } = require('@neondatabase/serverless');
       await context.route(origin + '/**', route => route.continue({ headers: { ...route.request().headers(), 'x-vercel-protection-bypass': auth } }));
       const page = await context.newPage();
       await page.goto(origin + '/' + language + '/contact');
-      const ready = await page.waitForFunction(() => !!document.querySelector('[name="cf-turnstile-response"]')?.value, null, { timeout: 30000 }).then(() => true).catch(() => false);
+      await page.locator('[data-project-form]').scrollIntoViewIfNeeded();
+      console.log(JSON.stringify({ language, stage: 'WAITING_FOR_HUMAN_VERIFICATION', instructions: 'Complete Verify you are human in the opened test browser; do not copy tokens.' }));
+      const ready = await page.waitForFunction(() => !!document.querySelector('[name="cf-turnstile-response"]')?.value, null, { timeout: 600000 }).then(() => true).catch(() => false);
       if (!ready) { console.log(JSON.stringify({ language, status: 'BLOCKED', reason: 'No fresh real token generated in automated browser; no submission performed' })); break; }
       const token = await page.locator('[name="cf-turnstile-response"]').inputValue();
       const email = 'qa-' + randomUUID() + '@example.invalid';
@@ -32,19 +34,32 @@ const { neon } = require('@neondatabase/serverless');
       };
       let id;
       try {
-        const accepted = await post(payload);
+        const form = page.locator('[data-project-form]');
+        await form.locator('[name=name]').fill(payload.name);
+        await form.locator('[name=email]').fill(email);
+        await form.locator('[name=message]').fill(payload.message);
+        const [response] = await Promise.all([
+          page.waitForResponse(r => r.url() === origin + '/api/start-project' && r.request().method() === 'POST'),
+          form.locator('button[type=submit]').click(),
+        ]);
+        const accepted = { status: response.status(), body: await response.json() };
+        if (accepted.status === 201) id = accepted.body.id;
         if (accepted.status !== 201 || !accepted.body.emailCaptured) throw Error('Live acceptance/capture verification failed');
-        id = accepted.body.id;
         const rows = await sql`SELECT id FROM project_requests WHERE id = ${id} AND email = ${email}`;
         if (rows.length !== 1) throw Error('Persistence verification failed');
         const replay = await post(payload);
         if (replay.status !== 403) throw Error('Replay was not rejected');
         console.log(JSON.stringify({ language, validSubmission: 'PASS', testPersistence: 'PASS', emailCaptured: true, replay: 'PASS' }));
       } finally {
-        if (id) await sql`DELETE FROM project_requests WHERE id = ${id} AND email = ${email}`;
+        if (id) {
+          await sql`DELETE FROM project_requests WHERE id = ${id} AND email = ${email}`;
+          const left = await sql`SELECT id FROM project_requests WHERE id = ${id} AND email = ${email}`;
+          if (left.length) throw Error('Synthetic cleanup failed');
+        }
       }
       await page.evaluate(() => window.turnstile.reset());
-      const fresh = await page.waitForFunction(() => !!document.querySelector('[name="cf-turnstile-response"]')?.value, null, { timeout: 30000 }).then(() => true).catch(() => false);
+      console.log(JSON.stringify({ language, stage: 'WAITING_FOR_UNUSED_EXPIRATION_TOKEN', instructions: 'Complete the refreshed widget once more if asked, then leave the page open.' }));
+      const fresh = await page.waitForFunction(() => !!document.querySelector('[name="cf-turnstile-response"]')?.value, null, { timeout: 600000 }).then(() => true).catch(() => false);
       if (fresh) {
         const unused = await page.locator('[name="cf-turnstile-response"]').inputValue();
         console.log(JSON.stringify({ language, expirationCheck: 'Waiting 310 seconds with an unused real token' }));

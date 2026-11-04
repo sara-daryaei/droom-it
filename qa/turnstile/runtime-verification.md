@@ -27,6 +27,8 @@ On 2026-11-04 the owner reported a real green Turnstile Success and the form sav
 
 The controlled headed Chromium lifecycle attempt obtained no fresh token and performed no submission, inserts or emails. Expiration/replay tests remain BLOCKED, not PASS. The lifecycle runner supports in-memory real token testing and exact synthetic row cleanup once real token generation works; its success/expiry branches have not yet executed.
 
+The subsequent human-assisted run waited up to ten minutes at the English widget and timed out without a fresh token. No submissions were performed; no replay/expiry test ran. The runner now uses actual form controls for successful submission, allows ten minutes for each human verification, and verifies exact synthetic-row cleanup. This runner update is syntax-checked, not evidence of successful lifecycle execution. The Dutch phase was not reached in that run.
+
 Production domain still points to original deployment dpl_AseQSPf7BPAyHvrPvM1s7cahfZXe on main288df9622f65e9b57f56fd9db90d46e537a7780b. No Production database queries/writes or credential changes were performed in this pass. Existing runtime verification established Preview JSON capture, but the owner's request has no retrievable runtime logs in the queried window; do not claim a per-request SMTP audit trail.
 
 ### 2026-11-04 hostname incident
