@@ -21,6 +21,10 @@ Verified on 2026-11-03 using existing authenticated CLI/API access. No new deplo
 
 ## Remaining release gates
 
+### 2026-11-04 hostname incident
+
+Reproduced the owner's exact "Unable to connect to website" error on deployment hostname `droom-etzf2xc9a-droom-it-s-projects.vercel.app`. The stable branch alias rendered the normal human-verification prompt. Only the alias had been registered in the existing widget. Added the exact deployment hostname while preserving both existing domains and all widget settings/keys. A fresh Chromium navigation to the same deployment then showed "Verify you are human" with no form verification error. No CSP or application-code change was required; no token automatically generated. Successful submission/expiration/replay testing still requires a fresh human-verified token. Future tests should use the stable registered branch alias to avoid changing deployment hostnames.
+
 - 2026-11-04: authorization updated successfully. Reused existing DROOM IT Contact Form, Managed; added only exact feature-branch Preview alias while preserving droomit.be. No duplicate widget or key rotation. Existing widget credentials securely configured only for branch-scoped Preview; Production credential variables unchanged.
 - Live config endpoint returned200 with expected site key. Real EN/NL API calls with missing and invalid synthetic tokens each returned403. Test project_requests remained zero rows after requests.
 - Live Chromium at1440 and390 loaded the actual Turnstile library and response field, with no reported form verification error or horizontal overflow. No token was generated within the test window. No challenge interaction or bypass was attempted; successful/expired/replayed real-token tests remain blocked on fresh token generation in an authorized browser.
