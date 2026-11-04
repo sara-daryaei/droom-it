@@ -118,14 +118,55 @@ function setFormStatus(form, message, isError = false) {
   formStatus.classList.toggle("error", isError);
 }
 
+const verificationMessage = currentLanguage === "nl"
+  ? "Voltooi de beveiligingscontrole. Probeer het opnieuw als deze niet laadt."
+  : "Please complete the security check. Try again if it does not load.";
+const captchaWidgets = new WeakMap();
+if (projectForms.length) {
+  const ready = new Promise((resolve, reject) => {
+    window.droomTurnstileReady = resolve;
+    const script = document.createElement("script");
+    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=droomTurnstileReady&render=explicit";
+    script.async = true;
+    script.onerror = reject;
+    document.head.append(script);
+  });
+  Promise.all([ready, fetch("/api/turnstile-config").then(async (response) => {
+    if (!response.ok) throw new Error("Verification unavailable");
+    return response.json();
+  })]).then(([, config]) => {
+    projectForms.forEach((form) => {
+      const container = document.createElement("div");
+      container.style.gridColumn = "1 / -1";
+      form.querySelector("button[type='submit']").before(container);
+      const widget = window.turnstile.render(container, {
+        sitekey: config.siteKey,
+        action: "contact",
+        language: currentLanguage,
+        size: "flexible",
+        "expired-callback": () => setFormStatus(form, verificationMessage, true),
+        "error-callback": () => setFormStatus(form, verificationMessage, true),
+      });
+      captchaWidgets.set(form, widget);
+    });
+  }).catch(() => projectForms.forEach((form) => setFormStatus(form, verificationMessage, true)));
+}
+
 projectForms.forEach((projectForm) => {
   projectForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const submitButton = projectForm.querySelector("button[type='submit']");
+    if (submitButton.disabled) return;
+    const widget = captchaWidgets.get(projectForm);
+    if (widget === undefined || !window.turnstile?.getResponse(widget)) {
+      setFormStatus(projectForm, verificationMessage, true);
+      return;
+    }
     const messages = formMessages[currentLanguage] || formMessages.en;
     const successKey = projectForm.dataset.successKey || "requestSuccess";
     const formData = new FormData(projectForm);
     const payload = Object.fromEntries(formData.entries());
+    payload["cf-turnstile-response"] = window.turnstile.getResponse(widget);
     payload.language = currentLanguage;
 
     submitButton.disabled = true;
@@ -138,12 +179,17 @@ projectForms.forEach((projectForm) => {
         body: JSON.stringify(payload),
       });
       const result = await response.json().catch(() => ({}));
-      if (!response.ok || !result.ok) throw new Error(result.message || "Request failed");
+      if (!response.ok || !result.ok) {
+        const error = new Error(result.message || "Request failed");
+        error.verification = result.code === "verification_failed";
+        throw error;
+      }
       projectForm.reset();
       setFormStatus(projectForm, messages[successKey] || messages.requestSuccess);
     } catch (error) {
-      setFormStatus(projectForm, messages.error, true);
+      setFormStatus(projectForm, error.verification ? verificationMessage : messages.error, true);
     } finally {
+      window.turnstile.reset(widget);
       submitButton.disabled = false;
     }
   });

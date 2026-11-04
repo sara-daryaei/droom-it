@@ -1,6 +1,6 @@
 import { neon } from "@neondatabase/serverless";
 import nodemailer from "nodemailer";
-import { randomUUID } from "node:crypto";
+import { randomUUID, createHash } from "node:crypto";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const defaultRecipient = "info@droomit.be";
@@ -55,6 +55,9 @@ async function ensureTable(sql) {
 }
 
 function getEmailConfig() {
+  if (process.env.VERCEL_ENV === "preview") {
+    return { from: "preview@droomit.invalid", to: ["capture@droomit.invalid"] };
+  }
   const host = (process.env.SMTP_HOST || "").trim();
   const port = Number(process.env.SMTP_PORT || 587);
   const user = (process.env.SMTP_USER || "").trim();
@@ -216,7 +219,7 @@ async function sendNotificationEmail(details) {
     return { sent: false, reason: "missing_email_config" };
   }
 
-  const transporter = nodemailer.createTransport({
+  const transporter = nodemailer.createTransport(process.env.VERCEL_ENV === "preview" ? { jsonTransport: true } : {
     host: config.host,
     port: config.port,
     secure: config.secure,
@@ -245,7 +248,7 @@ async function sendAutoReplyEmail(details) {
     return { sent: false, reason: "missing_email_config" };
   }
 
-  const transporter = nodemailer.createTransport({
+  const transporter = nodemailer.createTransport(process.env.VERCEL_ENV === "preview" ? { jsonTransport: true } : {
     host: config.host,
     port: config.port,
     secure: config.secure,
@@ -276,6 +279,45 @@ export default async function handler(request, response) {
 
   try {
     const body = await readBody(request);
+    if (!body || typeof body !== "object" || Array.isArray(body)) {
+      return response.status(400).json({ ok: false, message: "Invalid request." });
+    }
+    if (Buffer.byteLength(JSON.stringify(body), "utf8") > 32768) {
+      return response.status(413).json({ ok: false, message: "Request too large." });
+    }
+    const limits = { name: 200, email: 254, company: 300, websiteUrl: 2048, website_url: 2048, projectType: 200, project_type: 200, requestType: 30, request_type: 30, message: 10000, language: 12 };
+    if (Object.entries(limits).some(([field, limit]) => body[field] !== undefined && (typeof body[field] !== "string" || body[field].length > limit))) {
+      return response.status(400).json({ ok: false, message: "Invalid form fields." });
+    }
+    const token = body["cf-turnstile-response"];
+    if (typeof token !== "string" || !token || token.length > 2048) {
+      return response.status(403).json({ ok: false, message: "Security verification failed.", code: "verification_failed" });
+    }
+    if (!process.env.TURNSTILE_SECRET_KEY) {
+      return response.status(503).json({ ok: false, message: "Security verification unavailable." });
+    }
+    let verified;
+    try {
+      const verification = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+        method: "POST",
+        body: new URLSearchParams({ secret: process.env.TURNSTILE_SECRET_KEY, response: token }),
+        signal: AbortSignal.timeout(8000),
+      });
+      verified = verification.ok && await verification.json();
+    } catch {
+      return response.status(503).json({ ok: false, message: "Security verification unavailable." });
+    }
+    const allowedHostnames = new Set(["www.droomit.be", "droomit.be"]);
+    // Vercel supplies this exact deployment hostname; never accept client host headers.
+    if (process.env.VERCEL_ENV === "preview" && /^[a-z0-9-]+\.vercel\.app$/.test(process.env.VERCEL_URL || "")) {
+      allowedHostnames.add(process.env.VERCEL_URL);
+    }
+    if (process.env.VERCEL_ENV === "preview" && process.env.VERCEL_GIT_COMMIT_REF === "codex/cloudflare-turnstile") {
+      allowedHostnames.add("droom-it-git-codex-cloudflare-turnstile-droom-it-s-projects.vercel.app");
+    }
+    if (!verified || verified.success !== true || !allowedHostnames.has(verified.hostname) || verified.action !== "contact") {
+      return response.status(403).json({ ok: false, message: "Security verification failed.", code: "verification_failed" });
+    }
     const name = String(body.name || "").trim();
     const email = String(body.email || "").trim().toLowerCase();
     const company = String(body.company || "").trim();
@@ -301,6 +343,27 @@ export default async function handler(request, response) {
     }
 
     const sql = getSql();
+    await sql`CREATE TABLE IF NOT EXISTS contact_rate_limits (
+      key TEXT PRIMARY KEY,
+      window_start TIMESTAMPTZ NOT NULL,
+      attempts INTEGER NOT NULL
+    )`;
+    const rateKey = createHash("sha256").update(email).digest("hex");
+    const quota = await sql`
+      INSERT INTO contact_rate_limits (key, window_start, attempts)
+      VALUES (${rateKey}, NOW(), 1)
+      ON CONFLICT (key) DO UPDATE SET
+        attempts = CASE WHEN contact_rate_limits.window_start <= NOW() - INTERVAL '1 hour'
+          THEN 1 ELSE LEAST(contact_rate_limits.attempts + 1, 6) END,
+        window_start = CASE WHEN contact_rate_limits.window_start <= NOW() - INTERVAL '1 hour'
+          THEN NOW() ELSE contact_rate_limits.window_start END
+      RETURNING attempts
+    `;
+    if (!Number.isInteger(quota[0]?.attempts)) throw new Error("Quota unavailable");
+    if (quota[0].attempts > 5) {
+      response.setHeader("Retry-After", "3600");
+      return response.status(429).json({ ok: false, message: "Too many requests. Please try again later." });
+    }
     await ensureTable(sql);
 
     const rows = await sql`
@@ -358,10 +421,11 @@ export default async function handler(request, response) {
       createdAt: rows[0].created_at,
       emailSent: emailResult.sent,
       autoReplySent: autoReplyResult.sent,
+      ...(process.env.VERCEL_ENV === "preview" ? { emailCaptured: true } : {}),
       requestId,
     });
   } catch (error) {
-    console.error("Project request failed", { requestId, error });
+    console.error("Project request failed", { requestId });
 
     return response.status(500).json({
       ok: false,
