@@ -9,10 +9,10 @@ const path = require('node:path');
   const entry = Object.entries(project.protectionBypass || {}).find(([, v]) => v.createdAt === 1793743222540);
   if (!entry) throw Error('Existing authorized Preview access unavailable');
   const origin = 'https://droom-it-git-codex-cloudflare-turnstile-droom-it-s-projects.vercel.app';
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch({ headless: process.env.DROOM_HEADED !== '1' });
   const results = [];
   try {
-    for (const width of [1440, 390]) {
+    for (const width of (process.env.DROOM_HEADED === '1' ? [1440] : [1440, 390])) {
       const context = await browser.newContext({ viewport: { width, height: 900 } });
       await context.route(origin + '/**', route => route.continue({ headers: { ...route.request().headers(), 'x-vercel-protection-bypass': entry[0] } }));
       const page = await context.newPage();
