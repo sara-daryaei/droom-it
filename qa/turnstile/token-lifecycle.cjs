@@ -22,6 +22,13 @@ const { neon } = require('@neondatabase/serverless');
       const page = await context.newPage();
       await page.goto(origin + '/' + language + '/contact');
       await page.locator('[data-project-form]').scrollIntoViewIfNeeded();
+      if (language === 'en' && process.env.DROOM_CONFIRM_BROWSER === '1') {
+        console.log(JSON.stringify({ stage: 'BROWSER_READY_AWAITING_ACCESS_CONFIRMATION', timeoutStarted: false }));
+        process.stdin.resume();
+        await new Promise(resolve => process.stdin.once('data', resolve));
+        process.stdin.pause();
+        if (page.isClosed()) throw Error('Controlled browser is no longer accessible');
+      }
       console.log(JSON.stringify({ language, stage: 'WAITING_FOR_HUMAN_VERIFICATION', instructions: 'Complete Verify you are human in the opened test browser; do not copy tokens.' }));
       const ready = await page.waitForFunction(() => !!document.querySelector('[name="cf-turnstile-response"]')?.value, null, { timeout: 600000 }).then(() => true).catch(() => false);
       if (!ready) { console.log(JSON.stringify({ language, status: 'BLOCKED', reason: 'No fresh real token generated in automated browser; no submission performed' })); break; }

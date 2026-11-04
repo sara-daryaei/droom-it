@@ -1,6 +1,6 @@
 # Final Preview acceptance
 
-Evidence consolidated without repeating automated CAPTCHA waits. Production release is not authorized.
+Evidence consolidated without repeating automated CAPTCHA waits. Owner subsequently authorized release after Production runtime checks.
 
 | Requirement | Result | Evidence / qualification |
 | --- | --- | --- |
@@ -21,8 +21,17 @@ Evidence consolidated without repeating automated CAPTCHA waits. Production rele
 
 Official verification contract: https://developers.cloudflare.com/turnstile/get-started/server-side-validation/
 
-## Decision
+## Production release gate (2026-11-04)
 
-Preview has a working, owner-tested English project flow and verified isolated database/email configuration. It is not fully end-to-end qualified across every form/language/token lifecycle. No confirmed application defect remains from this review; missing live coverage is not labelled PASS. Do not merge or deploy Production automatically.
+- Two temporary Production-target staging deployments used `--skip-domain`; the live domain was never assigned to diagnostic code.
+- Vercel Authentication rejected unauthenticated access (302); authenticated requests without the separate in-memory random diagnostic secret returned 404.
+- A read-only database transaction verified the Production connection, expected schema, INSERT permission and quota-table CREATE permission. Both database variables agreed and excluded the Preview testing endpoint. No customer records were read or modified.
+- Cloudflare Siteverify accepted the existing Production secret and rejected a deliberately invalid response. SMTP `verify()` authenticated successfully without sending email.
+- A confirmed Production public site-key mismatch was corrected to the existing DROOM IT Contact Form widget. Existing secrets, SMTP and database credentials were preserved.
+- Diagnostic source was removed and both diagnostic deployments were deleted. The ephemeral authorization secret was never added to project environment variables.
+- Final automated regression previously executed: 25 backend checks and 24 mocked-service Chromium form checks passed. Real-token replay/expiration remain unverified coverage, not claimed PASS; no confirmed CAPTCHA enforcement defect remains.
+- Owner accepts the remaining live-token automation limitation and authorizes the normal PR merge and Production release. Final deployment/domain verification is required after merge.
+
+Preview has a working, owner-tested English project flow and verified isolated database/email configuration. It is not fully end-to-end qualified across every form/language/token lifecycle. No confirmed application defect remains from this review; missing live coverage is not labelled PASS. Release is authorized by the owner subject to the Production gate above and repository rules.
 
 Only if full live-token certification is required: run the existing lifecycle test with a human present in its actual browser. Obtain a token there, submit once, replay the same consumed token, then age a separate unused token beyond300 seconds. No copied chat tokens, mock bypass, key rotation or new widget needed. Owner's existing non-synthetic-address test record remains preserved.
