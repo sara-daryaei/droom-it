@@ -122,6 +122,12 @@ const verificationMessage = currentLanguage === "nl"
   ? "Voltooi de beveiligingscontrole. Probeer het opnieuw als deze niet laadt."
   : "Please complete the security check. Try again if it does not load.";
 const captchaWidgets = new WeakMap();
+const captchaTokens = new WeakMap();
+function setVerificationStatus(form) {
+  captchaTokens.delete(form);
+  form.dataset.verificationError = "true";
+  setFormStatus(form, verificationMessage, true);
+}
 if (projectForms.length) {
   const ready = new Promise((resolve, reject) => {
     window.droomTurnstileReady = resolve;
@@ -144,12 +150,23 @@ if (projectForms.length) {
         action: "contact",
         language: currentLanguage,
         size: "flexible",
-        "expired-callback": () => setFormStatus(form, verificationMessage, true),
-        "error-callback": () => setFormStatus(form, verificationMessage, true),
+        callback: (token) => {
+          captchaTokens.set(form, token);
+          if (form.dataset.verificationError === "true") {
+            delete form.dataset.verificationError;
+            setFormStatus(form, "");
+          }
+        },
+        "expired-callback": () => {
+          setVerificationStatus(form);
+          const id = captchaWidgets.get(form);
+          if (id !== undefined) window.turnstile.reset(id);
+        },
+        "error-callback": () => setVerificationStatus(form),
       });
       captchaWidgets.set(form, widget);
     });
-  }).catch(() => projectForms.forEach((form) => setFormStatus(form, verificationMessage, true)));
+  }).catch(() => projectForms.forEach(setVerificationStatus));
 }
 
 projectForms.forEach((projectForm) => {
@@ -158,15 +175,18 @@ projectForms.forEach((projectForm) => {
     const submitButton = projectForm.querySelector("button[type='submit']");
     if (submitButton.disabled) return;
     const widget = captchaWidgets.get(projectForm);
-    if (widget === undefined || !window.turnstile?.getResponse(widget)) {
-      setFormStatus(projectForm, verificationMessage, true);
+    const token = widget === undefined ? "" : captchaTokens.get(projectForm) || window.turnstile?.getResponse(widget);
+    if (!token) {
+      setVerificationStatus(projectForm);
       return;
     }
+    captchaTokens.set(projectForm, token);
+    delete projectForm.dataset.verificationError;
     const messages = formMessages[currentLanguage] || formMessages.en;
     const successKey = projectForm.dataset.successKey || "requestSuccess";
     const formData = new FormData(projectForm);
     const payload = Object.fromEntries(formData.entries());
-    payload["cf-turnstile-response"] = window.turnstile.getResponse(widget);
+    payload["cf-turnstile-response"] = token;
     payload.language = currentLanguage;
 
     submitButton.disabled = true;
@@ -187,8 +207,10 @@ projectForms.forEach((projectForm) => {
       projectForm.reset();
       setFormStatus(projectForm, messages[successKey] || messages.requestSuccess);
     } catch (error) {
-      setFormStatus(projectForm, error.verification ? verificationMessage : messages.error, true);
+      if (error.verification) setVerificationStatus(projectForm);
+      else setFormStatus(projectForm, messages.error, true);
     } finally {
+      captchaTokens.delete(projectForm);
       window.turnstile.reset(widget);
       submitButton.disabled = false;
     }
