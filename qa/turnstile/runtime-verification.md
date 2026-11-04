@@ -21,7 +21,9 @@ Verified on 2026-11-03 using existing authenticated CLI/API access. No new deplo
 
 ## Remaining release gates
 
-- Cloudflare Preview-widget creation previously failed for missing Turnstile Edit permission. Production widget remains unchanged.
+- 2026-11-04: authorization updated successfully. Reused existing DROOM IT Contact Form, Managed; added only exact feature-branch Preview alias while preserving droomit.be. No duplicate widget or key rotation. Existing widget credentials securely configured only for branch-scoped Preview; Production credential variables unchanged.
+- Live config endpoint returned200 with expected site key. Real EN/NL API calls with missing and invalid synthetic tokens each returned403. Test project_requests remained zero rows after requests.
+- Live Chromium at1440 and390 loaded the actual Turnstile library and response field, with no reported form verification error or horizontal overflow. No token was generated within the test window. No challenge interaction or bypass was attempted; successful/expired/replayed real-token tests remain blocked on fresh token generation in an authorized browser.
 - Real CAPTCHA generation/success/expiration/replay tests remain blocked on Preview credentials.
 - Browser tests: 24 source-based Chromium form checks at four widths passed with services mocked; not live CAPTCHA/browser integration proof.
 - Backend tests: 25 mocked checks passed.
