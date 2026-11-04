@@ -21,6 +21,14 @@ Verified on 2026-11-03 using existing authenticated CLI/API access. No new deplo
 
 ## Remaining release gates
 
+### Owner's successful real-browser submission
+
+On 2026-11-04 the owner reported a real green Turnstile Success and the form saved message. Independent read-only inspection of the verified testing endpoint found exactly one project request (id1), language en, request_type project, saved at2026-11-04T17:01:50.262Z. No personal fields were returned. Its email is not in the reserved synthetic test domain, so it was preserved rather than assumed disposable. This corroborates persistence of the owner's successful request; no original token/HTTP response was captured for independent replay testing.
+
+The controlled headed Chromium lifecycle attempt obtained no fresh token and performed no submission, inserts or emails. Expiration/replay tests remain BLOCKED, not PASS. The lifecycle runner supports in-memory real token testing and exact synthetic row cleanup once real token generation works; its success/expiry branches have not yet executed.
+
+Production domain still points to original deployment dpl_AseQSPf7BPAyHvrPvM1s7cahfZXe on main288df9622f65e9b57f56fd9db90d46e537a7780b. No Production database queries/writes or credential changes were performed in this pass. Existing runtime verification established Preview JSON capture, but the owner's request has no retrievable runtime logs in the queried window; do not claim a per-request SMTP audit trail.
+
 ### 2026-11-04 hostname incident
 
 Reproduced the owner's exact "Unable to connect to website" error on deployment hostname `droom-etzf2xc9a-droom-it-s-projects.vercel.app`. The stable branch alias rendered the normal human-verification prompt. Only the alias had been registered in the existing widget. Added the exact deployment hostname while preserving both existing domains and all widget settings/keys. A fresh Chromium navigation to the same deployment then showed "Verify you are human" with no form verification error. No CSP or application-code change was required; no token automatically generated. Successful submission/expiration/replay testing still requires a fresh human-verified token. Future tests should use the stable registered branch alias to avoid changing deployment hostnames.
