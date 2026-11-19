@@ -3,6 +3,13 @@ const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
 const projectForms = document.querySelectorAll("[data-project-form]");
 
+if (new URLSearchParams(window.location.search).get("service") === "website-improvement") {
+  projectForms.forEach((form) => {
+    const service = form.querySelector("select[name='projectType']");
+    if (service) service.value = "Website Fix & Improvement";
+  });
+}
+
 const routePairs = {
   "/en": "/nl",
   "/en/": "/nl/",
